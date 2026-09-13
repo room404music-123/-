@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>あなたに合うステージを診断！｜超アイドル祭</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Hiragino Kaku Gothic ProN",sans-serif;color:#35154f;background:#f3edff}button{font:inherit}.wrap{max-width:760px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.logo{font-weight:900;font-size:20px}.logo span{color:#ff3fa4}.back{font-size:12px;font-weight:900;text-decoration:underline;text-underline-offset:4px}.hero{padding:35px 25px 40px;background:linear-gradient(135deg,#ff3fa4,#8c5bff 58%,#45d9ff);color:white;border:3px solid #35154f;box-shadow:8px 8px #35154f}.label{font-size:11px;letter-spacing:2px;font-weight:900}.hero h1{font-size:43px;line-height:1.05;margin:18px 0}.hero p{line-height:1.8}.game{margin-top:35px;background:white;border:3px solid #35154f;box-shadow:7px 7px #35154f;padding:25px}.progress{font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:18px}.question{font-size:25px;font-weight:900;line-height:1.4;margin:0 0 22px}.choices{display:grid;gap:12px}.choice{width:100%;text-align:left;padding:17px;border:3px solid #35154f;background:#fff;cursor:pointer;font-weight:900;transition:transform .25s ease,background .25s ease,box-shadow .25s ease}.choice:hover{transform:translateY(-3px);box-shadow:5px 5px #ff3fa4}.result{display:none}.result.show{display:block;animation:resultIn .7s cubic-bezier(.22,.8,.24,1)}.result-stage{font-size:36px;font-weight:900;margin:10px 0 18px}.result-desc{line-height:1.9}.restart{margin-top:24px;background:#ffd83d;border:3px solid #35154f;padding:13px 18px;font-weight:900;cursor:pointer}.go{display:inline-block;margin-top:14px;background:#ff3fa4;color:white;border:3px solid #35154f;padding:13px 18px;font-weight:900}@keyframes resultIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}@media(max-width:500px){.hero h1{font-size:37px}.result-stage{font-size:30px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="logo">超<span>アイドル</span>祭</div><a class="back" href="../">FESTIVAL TOP ↗</a></div>
+  <section class="hero">
+    <div class="label">OFFICIAL MINI GAME</div>
+    <h1>あなたに合う<br>ステージを診断！</h1>
+    <p>あなたのアイドル活動スタイルから、超アイドル祭でおすすめのステージを診断します。</p>
+  </section>
+  <section class="game">
+    <div id="quiz">
+      <div class="progress" id="progress">QUESTION 1 / 4</div>
+      <h2 class="question" id="question"></h2>
+      <div class="choices" id="choices"></div>
+    </div>
+    <div class="result" id="result">
+      <div class="label">YOUR STAGE</div>
+      <div class="result-stage" id="resultStage"></div>
+      <p class="result-desc" id="resultDesc"></p>
+      <a class="go" id="resultLink" href="../#stages">STAGE LINEUPを見る ↗</a><br>
+      <button class="restart" onclick="restart()">もう一度診断する</button>
+    </div>
+  </section>
+</div>
+<script>
+const questions=[
+ {q:"いちばん大事にしたいのは？",a:[['A','大きな舞台で輝く'],['B','自分らしい表現'],['C','これからの成長'],['D','たくさんの人に知ってもらう']]},
+ {q:"ステージに立つなら？",a:[['A','最高の演出で勝負したい'],['B','観客との距離を大切にしたい'],['C','新しいことに挑戦したい'],['D','テレビカメラの前にも立ちたい']]},
+ {q:"今の自分に近いのは？",a:[['A','経験を積んできた'],['B','ライブが大好き'],['C','まだまだ伸びしろだらけ'],['D','もっと活動の幅を広げたい']]},
+ {q:"最後に、ひとこと！",a:[['A','頂点を目指す！'],['B','魅せてみせる！'],['C','ここから始める！'],['D','出たーい！']]}
+];
+const results={A:['MAIN STAGE','選ばれた者だけが立てる、超アイドル祭の最終到達点。大きな舞台で自分の力をぶつけたいあなたにおすすめ。'],B:['SUB STAGE 1・2','“魅せ方”で勝負できる自由度の高いステージ。観客との熱量を大切にしたいあなたにおすすめ。'],C:['NEW STAR STAGE','新人アイドル専用ステージ。ここから物語を始めたい、まだ成長の途中にいるあなたにおすすめ。'],D:['TV STAGE','「アイドリティ」の舞台。もっと多くの人に自分を届けたいあなたにおすすめ。']};
+let qi=0,score={A:0,B:0,C:0,D:0};
+function render(){document.getElementById('progress').textContent=`QUESTION ${qi+1} / ${questions.length}`;document.getElementById('question').textContent=questions[qi].q;document.getElementById('choices').innerHTML=questions[qi].a.map(x=>`<button class="choice" onclick="answer('${x[0]}')">${x[0]}. ${x[1]}</button>`).join('')}
+function answer(k){score[k]++;qi++;if(qi<questions.length){render()}else{let best=Object.keys(score).sort((a,b)=>score[b]-score[a])[0];document.getElementById('quiz').style.display='none';document.getElementById('result').classList.add('show');document.getElementById('resultStage').textContent=results[best][0];document.getElementById('resultDesc').textContent=results[best][1];}}
+function restart(){qi=0;score={A:0,B:0,C:0,D:0};document.getElementById('result').classList.remove('show');document.getElementById('quiz').style.display='block';render();window.scrollTo({top:0,behavior:'smooth'})}render();
+</script>
+</body>
+</html>
