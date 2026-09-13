@@ -479,7 +479,7 @@ footer p {
     <a href="#news">NEWS</a>
   </nav>
 
-  <button class="ticket">TICKET ↗</button>
+  <button class="ticket" onclick="openPanel('ticket')">TICKET ↗</button>
 </header>
 
 <main>
@@ -561,7 +561,7 @@ footer p {
 
   <div class="cards">
 
-    <article class="card main">
+    <article class="card main" onclick="openPanel('main')" style="cursor:pointer">
       <small>01</small>
       <h3>MAIN STAGE</h3>
       <p>
@@ -570,7 +570,7 @@ footer p {
       <b>FC 100,000+ / AUDITION</b>
     </article>
 
-    <article class="card sub">
+    <article class="card sub" onclick="openPanel('sub')" style="cursor:pointer">
       <small>02</small>
       <h3>SUB STAGE 1・2</h3>
       <p>
@@ -579,7 +579,7 @@ footer p {
       <b>ENTRY / FIRST COME</b>
     </article>
 
-    <article class="card new">
+    <article class="card new" onclick="openPanel('new')" style="cursor:pointer">
       <small>03</small>
       <h3>NEW STAR</h3>
       <p>
@@ -589,7 +589,7 @@ footer p {
       <b>新人アイドル専用</b>
     </article>
 
-    <article class="card tv">
+    <article class="card tv" onclick="openPanel('tv')" style="cursor:pointer">
       <small>04</small>
       <h3>TV STAGE</h3>
       <p>
@@ -698,7 +698,7 @@ footer p {
   </div>
 
   <small>
-    ※ご来場・ご参加にあたっての注意事項<br>
+    ※ご来場・ご参加にあたっての注意事項<br>※本サイトの「超アイドル祭」および関連情報は、すべて創作上の架空の設定です。実在する人物・団体・イベントとは一切関係ありません。<br>
     各ステージおよびオーディションの内容は、
     出演者の安全および運営判断により、
     予告なく変更・中止となる場合があります。
@@ -710,5 +710,48 @@ footer p {
 
 </footer>
 
+
+
+<div id="panel" style="display:none;position:fixed;inset:0;z-index:9999;background:#35154fee;padding:16px;overflow:auto">
+  <div style="max-width:760px;margin:20px auto;background:#fff;border:4px solid #35154f;box-shadow:10px 10px #ff3fa4">
+    <div style="background:#ffd83d;border-bottom:3px solid #35154f;padding:14px 16px;display:flex;justify-content:space-between;align-items:center">
+      <b id="panelTitle">OFFICIAL INFORMATION</b>
+      <button onclick="closePanel()" style="border:2px solid #35154f;background:#fff;padding:5px 10px;font-weight:900">×</button>
+    </div>
+    <div id="panelBody" style="padding:24px;line-height:1.9"></div>
+  </div>
+</div>
+
+<script>
+const panelData={
+ ticket:{title:'超アイドル祭 TICKET CENTER',body:`
+   <h2 style="margin-top:0">超アイドル祭 2026</h2>
+   <p><b>2026年9月26日（土）・27日（日）</b><br>超アイドル祭 特設会場</p>
+   <div style="padding:14px;background:#fff4a8;border:2px solid #35154f;margin:18px 0">公式先行受付中</div>
+   <p><b>1DAY 指定席　8,800円（税込）</b></p>
+   <p><button onclick="fakeBuy()" style="background:#ffd83d;border:3px solid #35154f;padding:11px 18px;font-weight:900;box-shadow:3px 3px #35154f">チケットを申し込む ↗</button></p>
+   <p><b>1DAY 前方エリア　13,200円（税込）</b></p>
+   <p><button onclick="fakeBuy()" style="background:#ffd83d;border:3px solid #35154f;padding:11px 18px;font-weight:900">チケットを申し込む ↗</button></p>
+   <p><b>2DAY PASS　16,000円（税込）</b></p>
+   <p><button onclick="fakeBuy()" style="background:#ffd83d;border:3px solid #35154f;padding:11px 18px;font-weight:900">チケットを申し込む ↗</button></p>
+   <hr><small>※本サイトは創作サイトのため、実際の購入処理は行われません。</small>`},
+ main:{title:'MAIN STAGE',body:`<h2>MAIN STAGE</h2><p>超アイドル祭最大の舞台。選ばれた者だけが立てる、最終到達点。</p><table style="width:100%;border-collapse:collapse"><tr><th style="text-align:left;padding:9px;background:#f3edff">出演条件</th><td style="padding:9px">ファンクラブ会員数10万人以上</td></tr><tr><th style="text-align:left;padding:9px;background:#f3edff">選出</th><td style="padding:9px">超アイドルオーディション合格</td></tr><tr><th style="text-align:left;padding:9px;background:#f3edff">演出</th><td style="padding:9px">大型ステージ・特別演出</td></tr></table>`},
+ sub:{title:'SUB STAGE 1・2',body:`<h2>SUB STAGE 1・2</h2><p>“魅せ方”で勝負するアイドルが集う自由度の高いステージ。</p><p><b>書類審査制・先着順</b></p><p>活動歴やジャンルを問わず、ライブパフォーマンスで観客を沸かせるアイドルを募集します。</p>`},
+ new:{title:'NEW STAR STAGE',body:`<h2>NEW STAR STAGE</h2><p>新人アイドル専用ステージ。</p><ul><li>デビューから10年以内</li><li>超アイドル祭でニュースターステージ以外への出場経験がないこと</li><li>超ニュースターオーディション合格</li></ul><p><b>ここから、物語が始まる。</b></p>`},
+ tv:{title:'TV STAGE / アイドリティ',body:`<h2>アイドリティ</h2><p>超アイドル祭公式番組の公開収録ステージ。</p><p>ニュースターステージのファン投票上位者が参加可能。勝者には<b>メインステージ出演権</b>が与えられます。</p>`},
+ audition:{title:'AUDITION',body:`<h2>超アイドルオーディション</h2><p>超アイドル祭のメインステージへの出演権をかけた公式オーディション。</p><p>応募資格、審査日程、結果発表については募集要項をご確認ください。</p>`},
+ market:{title:'CREATORS MARKET',body:`<h2>Creators Market</h2><p>音楽・イラスト・衣装・アクセサリー・ファンアートなど、アイドルを支える「創る側」の祭典。</p><p><b>出店受付期間：2026年7月1日〜8月10日</b></p>`},
+ news:{title:'NEWS ARCHIVE',body:`<h2>NEWS ARCHIVE</h2><p><b>09.13.2026</b>　超アイドル祭 OFFICIAL SITE OPEN</p><p><b>08.01.2026</b>　今年のテーマ「成長期」発表</p><p><b>07.15.2026</b>　超アイドル祭 開催決定</p><p><b>07.01.2026</b>　Creators Market 出店受付開始</p><p><b>06.20.2026</b>　「アイドリティ」参加者募集要項公開</p>`},
+ info:{title:'開催概要・注意事項',body:`<h2>OFFICIAL INFORMATION</h2><p>開催日：2026年9月26日（土）・27日（日）</p><p>開場：9:00予定　開演：10:00予定</p><p>主催：超アイドル祭公式運営委員会</p><p>各ステージおよびオーディションは、安全・運営上の理由により変更・中止となる場合があります。</p>`},
+ faq:{title:'FAQ',body:`<h2>よくあるご質問</h2><p><b>Q. 再入場できますか？</b><br>A. 原則可能です。チケット確認を行います。</p><p><b>Q. 雨天の場合は？</b><br>A. 荒天時は内容を変更・中止する場合があります。</p><p><b>Q. 撮影できますか？</b><br>A. ステージごとの案内に従ってください。</p>`}
+};
+function openPanel(k){document.getElementById('panelTitle').textContent=panelData[k].title;document.getElementById('panelBody').innerHTML=panelData[k].body;document.getElementById('panel').style.display='block';document.body.style.overflow='hidden'}
+function closePanel(){document.getElementById('panel').style.display='none';document.body.style.overflow=''}
+function fakeBuy(){alert('チケット受付ページへ移動します。\n\n※このサイトは創作サイトのため、実際の購入処理は行われません。')}
+document.querySelectorAll('a[href="#audition"]').forEach(a=>a.onclick=e=>{e.preventDefault();openPanel('audition')});
+document.querySelectorAll('a[href="#market"]').forEach(a=>a.onclick=e=>{e.preventDefault();openPanel('market')});
+document.querySelectorAll('a[href="#news"]').forEach(a=>a.onclick=e=>{e.preventDefault();openPanel('news')});
+document.querySelectorAll('button').forEach(b=>{if(b.textContent.includes('開催概要'))b.onclick=()=>openPanel('info');if(b.textContent.includes('FAQ'))b.onclick=()=>openPanel('faq')});
+</script>
 </body>
 </html>
