@@ -559,7 +559,7 @@ footer p{font-size:10px;opacity:.6}
     <a href="#news" data-action="news"><span>NEWS</span><small>07</small></a>
     <a href="#information" data-action="info"><span>INFORMATION</span><small>08</small></a>
     <a href="#faq" data-action="faq"><span>FAQ</span><small>09</small></a>
-    <a href="./ticket/index.html" class="mobile-ticket"><span>TICKET</span><small>OPEN</small></a>
+    <a href="#ticket" class="mobile-ticket" data-action="ticket"><span>TICKET</span><small>OPEN</small></a>
   </nav>
 </aside>
 
@@ -573,7 +573,7 @@ footer p{font-size:10px;opacity:.6}
     <a href="#market">MARKET</a>
     <a href="#special">SPECIAL</a>
     <a href="#news">NEWS</a>
-    <a href="./ticket/index.html" class="nav-ticket">TICKET</a>
+    <a href="#ticket" class="nav-ticket">TICKET</a>
   </nav>
 
 </header>
@@ -871,6 +871,9 @@ document.querySelectorAll(".mobile-nav a").forEach(a=>{
       else if(action==="special"){
          document.querySelector("#special").scrollIntoView({behavior:"smooth"});
        }
+       else if(action==="ticket"){
+        openPanel("ticket");
+      }
        else if(action==="news"){
         openPanel("news");
       }
@@ -922,6 +925,43 @@ function drawFortune(){
 
 /* MODAL DATA */
 const panelData={
+
+ticket:{
+title:"超アイドル祭 TICKET CENTER",
+body:`
+<h2 style="margin-top:0">超アイドル祭 2026</h2>
+<p><b>2026年9月26日（土）・27日（日）</b><br>
+超アイドル祭 特設会場</p>
+
+<div style="padding:14px;background:#fff4a8;border:2px solid #35154f;margin:18px 0">
+公式チケット受付
+</div>
+
+<p><b>一般指定席　8,800円（税込）</b></p>
+<p>全席指定・着席で観覧できるスタンダードチケット。</p>
+
+<p><b>スタンディング　7,700円（税込）</b></p>
+<p>立見エリアで自由に観覧できるチケット。</p>
+
+<p><b>U-18指定席　5,500円（税込）</b></p>
+<p>18歳以下対象。入場時に年齢確認を行う場合があります。</p>
+
+<p><b>見切れ席　6,600円（税込）</b></p>
+<p>ステージの一部が見えにくい場合があります。</p>
+
+<p><b>2DAY PASS　16,000円（税込）</b></p>
+<p>9月26日・27日の両日入場できる通し券。</p>
+
+<div style="margin-top:24px;padding:18px;background:#f3edff;border:3px solid #35154f">
+<b>チケット購入・詳細はこちら</b><br>
+<p style="margin:8px 0 14px">公式チケット受付ページへ移動します。</p>
+<a href="ticket/" style="display:inline-block;background:#ff3fa4;color:#fff;border:3px solid #35154f;padding:12px 18px;font-weight:900;text-decoration:none;box-shadow:5px 5px #35154f">チケット受付サイトへ ↗</a>
+</div>
+
+<hr>
+<small>※本サイトおよびチケット受付ページは創作サイトです。実際の購入・決済・入場受付は行われません。</small>
+`
+},
 
 main:{
 title:"MAIN STAGE",
@@ -1079,6 +1119,13 @@ function fakeBuy(){
 }
 
 /* DESKTOP NAV */
+document.querySelectorAll('a[href="#ticket"]').forEach(a=>{
+  a.onclick=e=>{
+    e.preventDefault();
+    openPanel("ticket");
+  };
+});
+
 document.querySelectorAll('a[href="#audition"]').forEach(a=>{
   a.onclick=e=>{
     e.preventDefault();
