@@ -559,7 +559,7 @@ footer p{font-size:10px;opacity:.6}
     <a href="#news" data-action="news"><span>NEWS</span><small>07</small></a>
     <a href="#information" data-action="info"><span>INFORMATION</span><small>08</small></a>
     <a href="#faq" data-action="faq"><span>FAQ</span><small>09</small></a>
-    <a href="#ticket" class="mobile-ticket" data-action="ticket"><span>TICKET</span><small>OPEN</small></a>
+    <a href="ticket/" class="mobile-ticket"><span>TICKET</span><small>OPEN</small></a>
   </nav>
 </aside>
 
@@ -573,6 +573,7 @@ footer p{font-size:10px;opacity:.6}
     <a href="#market">MARKET</a>
     <a href="#special">SPECIAL</a>
     <a href="#news">NEWS</a>
+    <a href="ticket/" class="nav-ticket">TICKET</a>
   </nav>
 
 </header>
@@ -879,9 +880,6 @@ document.querySelectorAll(".mobile-nav a").forEach(a=>{
       else if(action==="faq"){
         openPanel("faq");
       }
-      else if(action==="ticket"){
-        openPanel("ticket");
-      }
     },180);
   };
 });
@@ -924,31 +922,6 @@ function drawFortune(){
 
 /* MODAL DATA */
 const panelData={
-
-ticket:{
-title:"超アイドル祭 TICKET CENTER",
-body:`
-<h2 style="margin-top:0">超アイドル祭 2026</h2>
-<p><b>2026年9月26日（土）・27日（日）</b><br>
-超アイドル祭 特設会場</p>
-
-<div style="padding:14px;background:#fff4a8;border:2px solid #35154f;margin:18px 0">
-公式先行受付中
-</div>
-
-<p><b>1DAY 指定席　8,800円（税込）</b></p>
-<p><button onclick="fakeBuy()" style="background:#ffd83d;border:3px solid #35154f;padding:11px 18px;font-weight:900">チケットを申し込む ↗</button></p>
-
-<p><b>1DAY 前方エリア　13,200円（税込）</b></p>
-<p><button onclick="fakeBuy()" style="background:#ffd83d;border:3px solid #35154f;padding:11px 18px;font-weight:900">チケットを申し込む ↗</button></p>
-
-<p><b>2DAY PASS　16,000円（税込）</b></p>
-<p><button onclick="fakeBuy()" style="background:#ffd83d;border:3px solid #35154f;padding:11px 18px;font-weight:900">チケットを申し込む ↗</button></p>
-
-<hr>
-<small>※本サイトは創作サイトのため、実際の購入処理は行われません。</small>
-`
-},
 
 main:{
 title:"MAIN STAGE",
