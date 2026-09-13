@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,32 +7,14 @@
 <title>MESSAGE｜超アイドル祭 OFFICIAL SITE</title>
 
 <style>
-:root{
-  --ink:#35154f;
-  --pink:#ff3fa4;
-  --purple:#8c5bff;
-  --cyan:#45d9ff;
-  --yellow:#ffd83d;
-  --white:#fff;
-  --bg:#fff8fd;
-}
-
 *{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  background:
-    radial-gradient(circle at 10% 10%,rgba(255,63,164,.13) 0 55px,transparent 56px),
-    radial-gradient(circle at 90% 30%,rgba(69,217,255,.13) 0 70px,transparent 71px),
-    var(--bg);
-  color:var(--ink);
-  font-family:
-    system-ui,-apple-system,BlinkMacSystemFont,
-    "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-family:"Arial","Hiragino Kaku Gothic ProN",sans-serif;
+  color:#35154f;
+  background:#fff;
 }
 
 a{
@@ -48,224 +29,459 @@ textarea{
   font:inherit;
 }
 
-.header{
+/* HEADER */
+header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:blur(10px);
-  border-bottom:3px solid var(--ink);
-  box-shadow:0 5px 0 var(--ink);
-}
-
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:14px 20px;
+  height:68px;
+  background:white;
+  border-bottom:3px solid #35154f;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
+  padding:0 18px;
 }
 
 .logo{
-  font-weight:1000;
-  line-height:1;
-  letter-spacing:-.04em;
-}
-
-.logo-main{
-  font-size:20px;
-}
-
-.logo-sub{
-  display:block;
-  margin-top:4px;
-  font-size:10px;
-  letter-spacing:.16em;
-}
-
-.back{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:9px 14px;
-  background:var(--yellow);
-  border:3px solid var(--ink);
-  border-radius:999px;
+  font-size:21px;
   font-weight:900;
-  box-shadow:3px 3px 0 var(--ink);
-  transition:.15s;
+  white-space:nowrap;
 }
 
-.back:hover{
-  transform:translate(-2px,-2px);
-  box-shadow:5px 5px 0 var(--ink);
+.logo span{
+  color:#ff3fa4;
 }
 
+header nav{
+  display:none;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:block;
+  position:fixed;
+  top:9px;
+  right:12px;
+  z-index:1200;
+  width:50px;
+  height:50px;
+  border:2px solid #35154f;
+  border-radius:14px;
+  background:#fff;
+  cursor:pointer;
+  padding:0;
+}
+
+.hamburger span{
+  display:block;
+  width:23px;
+  height:3px;
+  margin:4px auto;
+  border-radius:5px;
+  background:#35154f;
+  transition:.35s ease;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+/* MOBILE MENU */
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  z-index:1100;
+  background:rgba(20,5,35,.58);
+  opacity:0;
+  visibility:hidden;
+  transition:.4s ease;
+}
+
+.menu-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:0;
+  z-index:1150;
+  width:min(84vw,390px);
+  height:100dvh;
+  overflow-y:auto;
+  padding:22px 20px 30px;
+  background:linear-gradient(150deg,#ff3fa4,#8c5bff 55%,#35154f);
+  color:white;
+  box-shadow:-15px 0 50px #0005;
+  transform:translateX(105%);
+  transition:transform .5s cubic-bezier(.22,.8,.24,1);
+}
+
+.mobile-menu.active{
+  transform:translateX(0);
+}
+
+.mobile-menu-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:4px 2px 22px;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.menu-close{
+  width:38px;
+  height:38px;
+  border:2px solid white;
+  border-radius:50%;
+  background:#ffffff22;
+  color:white;
+  font-size:27px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.mobile-nav{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.mobile-nav a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:57px;
+  padding:0 17px;
+  border:1px solid #ffffff44;
+  border-radius:15px;
+  background:#ffffff18;
+  color:white;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:1px;
+  transform:translateX(30px);
+  opacity:0;
+  transition:
+    transform .42s ease,
+    opacity .42s ease,
+    background .2s ease;
+}
+
+.mobile-menu.active .mobile-nav a{
+  transform:translateX(0);
+  opacity:1;
+}
+
+.mobile-menu.active .mobile-nav a:nth-child(1){transition-delay:.06s}
+.mobile-menu.active .mobile-nav a:nth-child(2){transition-delay:.10s}
+.mobile-menu.active .mobile-nav a:nth-child(3){transition-delay:.14s}
+.mobile-menu.active .mobile-nav a:nth-child(4){transition-delay:.18s}
+.mobile-menu.active .mobile-nav a:nth-child(5){transition-delay:.22s}
+.mobile-menu.active .mobile-nav a:nth-child(6){transition-delay:.26s}
+.mobile-menu.active .mobile-nav a:nth-child(7){transition-delay:.30s}
+.mobile-menu.active .mobile-nav a:nth-child(8){transition-delay:.34s}
+.mobile-menu.active .mobile-nav a:nth-child(9){transition-delay:.38s}
+.mobile-menu.active .mobile-nav a:nth-child(10){transition-delay:.42s}
+.mobile-menu.active .mobile-nav a:nth-child(11){transition-delay:.46s}
+.mobile-menu.active .mobile-nav a:nth-child(12){transition-delay:.50s}
+.mobile-menu.active .mobile-nav a:nth-child(13){transition-delay:.54s}
+.mobile-menu.active .mobile-nav a:nth-child(14){transition-delay:.58s}
+
+.mobile-nav a:active{
+  background:#ffffff30;
+}
+
+.mobile-nav small{
+  opacity:.65;
+}
+
+.mobile-ticket{
+  background:linear-gradient(90deg,#ffd83d,#ff75bd)!important;
+  color:#35154f!important;
+  border:none!important;
+}
+
+/* HERO */
 .hero{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 20px 45px;
-  text-align:center;
+  position:relative;
+  overflow:hidden;
+  min-height:500px;
+  padding:75px 22px 70px;
+  color:white;
+  background:
+    radial-gradient(circle at 12% 15%,#fff 0 2px,transparent 3px),
+    radial-gradient(circle at 86% 30%,#fff 0 3px,transparent 4px),
+    linear-gradient(135deg,#ff4da6,#8c5bff 50%,#45d9ff);
+  background-size:90px 90px,130px 130px,auto;
 }
 
-.kicker{
-  display:inline-block;
-  padding:7px 14px;
-  background:var(--cyan);
-  border:3px solid var(--ink);
-  border-radius:999px;
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:.12em;
-  box-shadow:4px 4px 0 var(--ink);
+.hero:before{
+  content:"✦  ✧  ✦  ✧  ✦";
+  position:absolute;
+  top:25px;
+  right:15px;
+  color:#ffe34b;
+  font-size:25px;
+  letter-spacing:8px;
+}
+
+.hero:after{
+  content:"MESSAGE";
+  position:absolute;
+  right:-18px;
+  bottom:-18px;
+  font-size:100px;
+  font-weight:900;
+  line-height:1;
+  color:#ffffff18;
+  transform:rotate(-8deg);
+  pointer-events:none;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  margin:auto;
+}
+
+.eyebrow{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:3px;
 }
 
 .hero h1{
-  margin:18px 0 8px;
-  font-size:clamp(42px,9vw,88px);
+  margin:22px 0 15px;
+  font-size:68px;
   line-height:.9;
-  letter-spacing:-.06em;
-  font-weight:1000;
-  color:var(--pink);
-  text-shadow:
-    4px 4px 0 var(--ink),
-    7px 7px 0 var(--yellow);
+  letter-spacing:-5px;
+  text-shadow:5px 6px #ff318f;
 }
 
-.hero h2{
-  margin:0;
-  font-size:clamp(20px,4vw,34px);
-  font-weight:1000;
+.hero h1 span{
+  color:#ffe34b;
 }
 
-.hero p{
-  max-width:650px;
-  margin:18px auto 0;
+.hero-lead{
+  max-width:620px;
+  font-size:20px;
+  line-height:1.7;
+  font-weight:bold;
+}
+
+.hero-note{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 15px;
+  background:white;
+  color:#35154f;
+  font-size:11px;
+  font-weight:900;
+  border:3px solid #35154f;
+  box-shadow:5px 5px #35154f;
+}
+
+/* COMMON */
+section{
+  padding:75px 22px;
+}
+
+.label{
+  color:#ff3fa4;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  margin-bottom:18px;
+}
+
+h2{
+  font-size:39px;
+  line-height:1;
+  margin:0 0 25px;
+}
+
+/* MESSAGE SECTION */
+.message-section{
+  background:#f3edff;
+}
+
+.message-intro{
+  max-width:700px;
+  margin-bottom:30px;
+}
+
+.message-intro p{
   line-height:1.9;
   font-weight:700;
 }
 
-.wrap{
-  max-width:900px;
-  margin:auto;
-  padding:0 20px 70px;
+/* NOTICE */
+.notice{
+  margin:0 0 25px;
+  padding:20px;
+  background:#fff4a8;
+  border:3px solid #35154f;
+  box-shadow:7px 7px #35154f;
 }
 
-.notice{
-  margin-bottom:24px;
-  padding:18px 20px;
-  background:#fff;
-  border:3px solid var(--ink);
-  border-radius:18px;
-  box-shadow:7px 7px 0 var(--purple);
+.notice-title{
+  margin-bottom:8px;
+  color:#ff3fa4;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.notice p{
+  margin:0;
   font-size:13px;
   line-height:1.8;
   font-weight:700;
 }
 
 .notice strong{
-  color:var(--pink);
+  color:#ff3fa4;
 }
 
-.card{
-  background:#fff;
-  border:3px solid var(--ink);
-  border-radius:24px;
-  box-shadow:9px 9px 0 var(--ink);
-  padding:30px;
+/* FORM CARD */
+.form-card{
+  background:white;
+  border:3px solid #35154f;
+  box-shadow:8px 8px #35154f;
+  padding:28px;
 }
 
-.card-title{
-  margin:0 0 24px;
-  font-size:25px;
-  font-weight:1000;
+.form-heading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:28px;
+  padding-bottom:15px;
+  border-bottom:3px solid #35154f;
 }
 
+.form-heading small{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:#8c5bff;
+}
+
+.form-heading h3{
+  margin:4px 0 0;
+  font-size:28px;
+}
+
+/* FIELDS */
 .field{
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
 
 .field label{
   display:block;
-  margin-bottom:8px;
-  font-weight:1000;
+  margin-bottom:9px;
+  font-size:14px;
+  font-weight:900;
+}
+
+.required{
+  display:inline-block;
+  margin-left:7px;
+  padding:3px 7px;
+  background:#ff3fa4;
+  color:white;
+  font-size:9px;
+  font-weight:900;
 }
 
 .optional{
   display:inline-block;
-  margin-left:6px;
-  padding:2px 7px;
-  border:2px solid var(--ink);
-  border-radius:999px;
-  background:var(--yellow);
-  font-size:10px;
-  vertical-align:middle;
+  margin-left:7px;
+  padding:3px 7px;
+  background:#ffd83d;
+  border:2px solid #35154f;
+  color:#35154f;
+  font-size:9px;
+  font-weight:900;
 }
 
 select,
 input,
 textarea{
   width:100%;
-  border:3px solid var(--ink);
-  border-radius:13px;
+  padding:14px;
+  border:3px solid #35154f;
+  border-radius:0;
   background:#fff;
-  color:var(--ink);
-  padding:13px 14px;
+  color:#35154f;
   outline:none;
   font-weight:700;
-  box-shadow:3px 3px 0 #ddd;
+  box-shadow:4px 4px #ddd;
 }
 
 select:focus,
 input:focus,
 textarea:focus{
-  box-shadow:4px 4px 0 var(--cyan);
+  box-shadow:5px 5px #45d9ff;
 }
 
 textarea{
-  min-height:180px;
+  min-height:190px;
   resize:vertical;
-  line-height:1.7;
+  line-height:1.8;
 }
 
 .help{
   margin-top:7px;
   font-size:11px;
+  line-height:1.6;
   font-weight:700;
-  opacity:.7;
+  opacity:.65;
 }
 
+/* SUBMIT */
 .submit{
   width:100%;
-  margin-top:4px;
-  padding:16px 20px;
-  border:3px solid var(--ink);
-  border-radius:15px;
-  background:var(--pink);
-  color:#fff;
+  padding:17px 20px;
+  border:3px solid #35154f;
+  border-radius:0;
+  background:#ff3fa4;
+  color:white;
   font-size:18px;
-  font-weight:1000;
+  font-weight:900;
   cursor:pointer;
-  box-shadow:6px 6px 0 var(--ink);
-  transition:.15s;
+  box-shadow:7px 7px #35154f;
+  transition:.18s ease;
 }
 
 .submit:hover{
   transform:translate(-3px,-3px);
-  box-shadow:9px 9px 0 var(--ink);
+  box-shadow:10px 10px #35154f;
 }
 
 .submit:active{
   transform:translate(3px,3px);
-  box-shadow:2px 2px 0 var(--ink);
+  box-shadow:3px 3px #35154f;
 }
 
+/* COMPLETE */
 .complete{
   display:none;
-  text-align:center;
-  padding:25px 10px 10px;
 }
 
 .complete.show{
@@ -276,147 +492,282 @@ textarea{
   display:none;
 }
 
-.complete-badge{
-  display:inline-block;
-  padding:8px 14px;
-  background:var(--cyan);
-  border:3px solid var(--ink);
-  border-radius:999px;
-  font-weight:1000;
-  box-shadow:4px 4px 0 var(--ink);
+.complete-top{
+  padding:24px;
+  background:linear-gradient(135deg,#ff3fa4,#8c5bff);
+  color:white;
+  border:3px solid #35154f;
+  box-shadow:7px 7px #35154f;
+  text-align:center;
+}
+
+.complete-label{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:3px;
 }
 
 .complete h2{
-  margin:22px 0 8px;
-  color:var(--pink);
-  font-size:clamp(32px,7vw,55px);
-  line-height:1;
-  font-weight:1000;
-  text-shadow:3px 3px 0 var(--ink);
+  margin:12px 0 5px;
+  font-size:50px;
+  color:#ffe34b;
+  text-shadow:4px 4px #35154f;
 }
 
-.complete p{
+.complete-top p{
+  margin:0;
   line-height:1.8;
   font-weight:700;
 }
 
 .received{
-  margin:25px auto;
-  max-width:550px;
-  padding:18px;
-  background:#fff7bd;
-  border:3px solid var(--ink);
-  border-radius:16px;
-  text-align:left;
+  margin-top:25px;
+  padding:20px;
+  background:white;
+  border:3px solid #35154f;
+  box-shadow:7px 7px #35154f;
+}
+
+.received-title{
+  margin-bottom:14px;
+  color:#ff3fa4;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
 }
 
 .received-row{
-  padding:10px 0;
-  border-bottom:2px dashed var(--ink);
+  padding:13px 0;
+  border-top:2px dashed #b9a9c5;
 }
 
-.received-row:last-child{
-  border-bottom:0;
+.received-row:first-child{
+  border-top:none;
 }
 
 .received-label{
   display:block;
-  font-size:11px;
-  font-weight:1000;
-  opacity:.65;
+  margin-bottom:4px;
+  color:#8c5bff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
 .received-value{
   display:block;
-  margin-top:4px;
+  font-size:15px;
   font-weight:900;
   white-space:pre-wrap;
   word-break:break-word;
 }
 
+.complete-note{
+  margin-top:22px;
+  padding:16px;
+  background:#fff4a8;
+  border:3px solid #35154f;
+  line-height:1.8;
+  font-size:12px;
+  font-weight:700;
+}
+
 .again{
-  display:inline-block;
-  margin-top:8px;
-  padding:12px 18px;
-  background:var(--purple);
-  color:#fff;
-  border:3px solid var(--ink);
-  border-radius:12px;
-  font-weight:1000;
-  box-shadow:5px 5px 0 var(--ink);
+  width:100%;
+  margin-top:20px;
+  padding:14px 18px;
+  background:#45d9ff;
+  color:#35154f;
+  border:3px solid #35154f;
+  font-weight:900;
+  box-shadow:6px 6px #35154f;
   cursor:pointer;
 }
 
-.links{
-  margin-top:30px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
+/* BACK TOP */
+.back-top{
+  padding:70px 22px;
+  background:
+    radial-gradient(circle at 10% 20%,#ffd83d 0 45px,transparent 46px),
+    radial-gradient(circle at 90% 70%,#45d9ff 0 65px,transparent 66px),
+    #fff0f7;
+  text-align:center;
 }
 
-.link-card{
-  display:block;
-  padding:18px;
-  background:#fff;
-  border:3px solid var(--ink);
-  border-radius:16px;
-  font-weight:1000;
-  box-shadow:5px 5px 0 var(--ink);
-  transition:.15s;
+.back-top .label{
+  margin-bottom:12px;
 }
 
-.link-card:hover{
-  transform:translate(-2px,-2px);
-  box-shadow:7px 7px 0 var(--pink);
+.back-top h2{
+  font-size:32px;
 }
 
-.link-card small{
-  display:block;
-  margin-top:5px;
-  font-size:11px;
-  opacity:.65;
+.top-button{
+  display:inline-block;
+  margin-top:10px;
+  padding:14px 25px;
+  background:#ffd83d;
+  border:3px solid #35154f;
+  font-weight:900;
+  box-shadow:6px 6px #35154f;
+  transition:.18s ease;
 }
 
+.top-button:hover{
+  transform:translate(-3px,-3px);
+  box-shadow:9px 9px #35154f;
+}
+
+/* FOOTER */
 footer{
   padding:35px 20px;
-  border-top:3px solid var(--ink);
   background:#35154f;
-  color:#fff;
-  text-align:center;
-  font-size:11px;
-  line-height:1.8;
+  color:white;
 }
 
-@media(max-width:650px){
-  .header-inner{
-    padding:12px 14px;
+footer .logo{
+  font-size:20px;
+}
+
+footer small{
+  display:block;
+  margin-top:15px;
+  line-height:1.8;
+  opacity:.75;
+}
+
+footer p{
+  font-size:10px;
+  opacity:.6;
+}
+
+/* DESKTOP */
+@media(min-width:800px){
+
+  .hamburger,
+  .mobile-menu,
+  .menu-overlay{
+    display:none;
   }
 
-  .logo-main{
-    font-size:17px;
+  header{
+    padding:0 5vw;
   }
 
-  .back{
-    padding:8px 11px;
-    font-size:12px;
+  header nav{
+    display:flex;
+    gap:20px;
+    font-size:11px;
+    font-weight:bold;
   }
 
   .hero{
-    padding:55px 15px 35px;
+    min-height:560px;
+    padding:105px 8vw 90px;
   }
 
-  .wrap{
-    padding:0 14px 55px;
+  .hero h1{
+    font-size:120px;
   }
 
-  .card{
-    padding:21px 17px;
-    border-radius:19px;
-    box-shadow:7px 7px 0 var(--ink);
+  .hero-lead{
+    font-size:22px;
   }
 
-  .links{
-    grid-template-columns:1fr;
+  section{
+    padding:110px 9vw;
+  }
+
+  .message-layout{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:60px;
+    align-items:start;
+  }
+
+  .message-intro{
+    margin:0;
+  }
+
+  .notice{
+    margin-top:0;
+  }
+
+  .form-card{
+    padding:35px;
+  }
+
+  .back-top{
+    padding:100px 20px;
+  }
+}
+
+/* SMALL MOBILE */
+@media(max-width:650px){
+
+  header{
+    padding:0 14px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  .hero{
+    min-height:460px;
+    padding:65px 16px 60px;
+  }
+
+  .hero h1{
+    font-size:58px;
+    letter-spacing:-4px;
+  }
+
+  .hero-lead{
+    font-size:17px;
+  }
+
+  .hero:after{
+    font-size:65px;
+  }
+
+  section{
+    padding:65px 14px;
+  }
+
+  h2{
+    font-size:34px;
+  }
+
+  .form-card{
+    padding:20px 16px;
+  }
+
+  .form-heading{
+    display:block;
+  }
+
+  .form-heading h3{
+    font-size:24px;
+  }
+
+  .complete h2{
+    font-size:42px;
+  }
+}
+
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
   }
 }
 </style>
@@ -424,234 +775,555 @@ footer{
 
 <body>
 
-<header class="header">
-  <div class="header-inner">
-    <a class="logo" href="../index.html">
-      <span class="logo-main">超アイドル祭</span>
-      <span class="logo-sub">OFFICIAL SITE</span>
-    </a>
+<!-- MOBILE MENU -->
+<button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
-    <a class="back" href="../index.html">
-      ← TOPへ戻る
-    </a>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<aside class="mobile-menu" id="mobileMenu">
+
+  <div class="mobile-menu-head">
+    <span>MENU</span>
+    <button class="menu-close" id="menuClose" type="button">×</button>
   </div>
+
+  <nav class="mobile-nav">
+    <a href="../index.html"><span>TOP</span><small>01</small></a>
+    <a href="../index.html#about"><span>ABOUT</span><small>02</small></a>
+    <a href="../index.html#stages"><span>STAGE</span><small>03</small></a>
+    <a href="../index.html#audition"><span>AUDITION</span><small>04</small></a>
+    <a href="../index.html#market"><span>MARKET</span><small>05</small></a>
+    <a href="../index.html#special"><span>SPECIAL</span><small>06</small></a>
+    <a href="../index.html#news"><span>NEWS</span><small>07</small></a>
+    <a href="../index.html#information"><span>INFORMATION</span><small>08</small></a>
+    <a href="../index.html#faq"><span>FAQ</span><small>09</small></a>
+    <a href="../goods/"><span>GOODS</span><small>10</small></a>
+    <a href="../local/"><span>LOCAL</span><small>11</small></a>
+    <a href="./"><span>MESSAGE</span><small>12</small></a>
+    <a href="../store/"><span>STORE</span><small>13</small></a>
+    <a href="../ticket/" class="mobile-ticket"><span>TICKET</span><small>OPEN</small></a>
+  </nav>
+
+</aside>
+
+<header>
+
+  <a href="../index.html" class="logo">
+    超<span>アイドル</span>祭
+  </a>
+
+  <nav>
+    <a href="../index.html#about">ABOUT</a>
+    <a href="../index.html#stages">STAGE</a>
+    <a href="../index.html#audition">AUDITION</a>
+    <a href="../index.html#market">MARKET</a>
+    <a href="../index.html#special">SPECIAL</a>
+    <a href="../index.html#news">NEWS</a>
+    <a href="../goods/">GOODS</a>
+    <a href="../local/">LOCAL</a>
+    <a href="./">MESSAGE</a>
+    <a href="../store/">STORE</a>
+    <a href="../ticket/" class="nav-ticket">TICKET</a>
+  </nav>
+
 </header>
 
 <main>
 
-  <section class="hero">
-    <span class="kicker">SUPPORT MESSAGE</span>
-    <h1>MESSAGE</h1>
-    <h2>アイドルへの応援メッセージ</h2>
-    <p>
-      好きなアイドルへ、あなたの「応援してる！」を届けよう。<br>
-      イベントサイト上でメッセージ受付を体験できるデモページです。
-    </p>
-  </section>
+<!-- HERO -->
+<section class="hero">
 
-  <div class="wrap">
+  <div class="hero-inner">
 
-    <div class="notice">
-      <strong>⚠ DEMO NOTICE</strong><br>
-      このページは「超アイドル祭 OFFICIAL SITE」の演出用デモです。
-      入力した内容は実際には送信・保存されません。
-      <br>
-      <strong>個人情報・住所・電話番号・メールアドレスなどは入力しないでください。</strong>
+    <div class="eyebrow">
+      THE BIGGEST IDOL FESTIVAL / MESSAGE
     </div>
 
-    <section class="card">
+    <h1>
+      応援を、<br>
+      <span>届けよう。</span>
+    </h1>
 
-      <div id="formArea" class="form-area">
+    <p class="hero-lead">
+      好きなアイドルへ、あなたの「応援してる！」を届けよう。<br>
+      超アイドル祭 MESSAGE CENTER
+    </p>
 
-        <h2 class="card-title"> MESSAGE FORM</h2>
+    <div class="hero-note">
+      SUPPORT / ENCOURAGEMENT / EMOTION
+    </div>
 
-        <form id="messageForm">
+  </div>
 
-          <div class="field">
-            <label for="idol">
-              応援するアイドル
-            </label>
+</section>
 
-            <select id="idol" required>
-              <option value="">アイドルを選択してください</option>
-              <option value="星乃ミク">星乃ミク</option>
-              <option value="天音ルナ">天音ルナ</option>
-              <option value="桜井ノア">桜井ノア</option>
-              <option value="白石ユイ">白石ユイ</option>
-              <option value="猪村さえ">桜井ノア</option>
-              <option value="虹川リオ">虹川リオ</option>
-              <option value="月島アカリ">月島アカリ</option>
-            </select>
-          </div>
+<!-- MESSAGE -->
+<section class="message-section">
 
-          <div class="field">
-            <label for="nickname">
-              ニックネーム
-              <span class="optional">任意</span>
-            </label>
+  <div class="label">07 / MESSAGE</div>
 
-            <input
-              id="nickname"
-              type="text"
-              maxlength="30"
-              placeholder="例：アイドル祭だいすき！"
-            >
+  <div class="message-layout">
 
-            <div class="help">
-              本名ではなく、ニックネームを使ってください。
-            </div>
-          </div>
+    <div class="message-intro">
 
-          <div class="field">
-            <label for="message">
-              応援メッセージ
-            </label>
+      <h2>
+        MESSAGE<br>
+        CENTER
+      </h2>
 
-            <textarea
-              id="message"
-              maxlength="300"
-              required
-              placeholder="アイドルへの応援メッセージを書いてね！&#10;&#10;例：ステージ楽しみにしています！ずっと応援しています！"
-            ></textarea>
+      <p>
+        超アイドル祭では、出演アイドルへの
+        応援メッセージを受付しています。
+      </p>
 
-            <div class="help">
-              300文字以内で入力してください。
-            </div>
-          </div>
+      <p>
+        あなたの言葉が、ステージに立つ
+        アイドルの力になるかもしれません。
+      </p>
 
-          <button class="submit" type="submit">
-             メッセージを送る
-          </button>
+      <p>
+        このページはイベントサイト上で
+        メッセージ受付を体験できるデモです。
+      </p>
 
-        </form>
+    </div>
 
-      </div>
+    <div>
 
-      <div id="complete" class="complete">
+      <!-- NOTICE -->
+      <div class="notice">
 
-        <span class="complete-badge">MESSAGE RECEIVED!</span>
-
-        <h2>THANK YOU!</h2>
-
-        <p>
-          応援メッセージを受け付けました！<br>
-          あなたの応援が、ステージをもっと盛り上げます。
-        </p>
-
-        <div class="received">
-
-          <div class="received-row">
-            <span class="received-label">IDOL</span>
-            <span id="receivedIdol" class="received-value"></span>
-          </div>
-
-          <div class="received-row">
-            <span class="received-label">NICKNAME</span>
-            <span id="receivedNickname" class="received-value"></span>
-          </div>
-
-          <div class="received-row">
-            <span class="received-label">MESSAGE</span>
-            <span id="receivedMessage" class="received-value"></span>
-          </div>
-
+        <div class="notice-title">
+          DEMO NOTICE
         </div>
 
         <p>
-          ※これはサイト演出用のデモです。<br>
-          実際の送信・保存は行われていません。
+          このページは「超アイドル祭 OFFICIAL SITE」の
+          演出用デモです。
+          入力した内容は実際には送信・保存されません。
         </p>
 
-        <button id="again" class="again" type="button">
-          ＋ もう一度メッセージを送る
-        </button>
+        <p style="margin-top:8px">
+          <strong>
+            個人情報・住所・電話番号・メールアドレスなどは入力しないでください。
+          </strong>
+        </p>
 
       </div>
 
-    </section>
+      <!-- FORM -->
+      <section class="form-card">
 
-    <div class="links">
+        <div id="formArea" class="form-area">
 
-      <a class="link-card" href="../index.html">
-        🏠 OFFICIAL SITE
-        <small>超アイドル祭トップへ戻る</small>
-      </a>
+          <div class="form-heading">
 
-      <a class="link-card" href="../goods/">
-        🛍 GOODS
-        <small>公式イベントグッズを見る</small>
-      </a>
+            <div>
+              <small>OFFICIAL MESSAGE SYSTEM</small>
+              <h3>MESSAGE FORM</h3>
+            </div>
 
-      <a class="link-card" href="../local/">
-        📍 LOCAL PROJECT
-        <small>地域コラボレーションを見る</small>
-      </a>
+            <small>
+              SEND YOUR SUPPORT
+            </small>
 
-      <a class="link-card" href="../store/">
-        🛒 ONLINE STORE
-        <small>公式オンラインストアへ</small>
-      </a>
+          </div>
+
+          <form id="messageForm">
+
+            <div class="field">
+
+              <label for="idol">
+                応援するアイドル
+                <span class="required">必須</span>
+              </label>
+
+              <select id="idol" required>
+
+                <option value="">
+                  アイドルを選択してください
+                </option>
+
+                <option value="星乃ミク">
+                  星乃ミク
+                </option>
+
+                <option value="天音ルナ">
+                  天音ルナ
+                </option>
+
+                <option value="桜井ノア">
+                  桜井ノア
+                </option>
+
+                <option value="白石ユイ">
+                  白石ユイ
+                </option>
+
+                <option value="猪村さえ">
+                  猪村さえ
+                </option>
+
+                <option value="虹川リオ">
+                  虹川リオ
+                </option>
+
+                <option value="月島アカリ">
+                  月島アカリ
+                </option>
+
+              </select>
+
+            </div>
+
+            <div class="field">
+
+              <label for="nickname">
+                ニックネーム
+                <span class="optional">任意</span>
+              </label>
+
+              <input
+                id="nickname"
+                type="text"
+                maxlength="30"
+                placeholder="例：アイドル祭だいすき！"
+              >
+
+              <div class="help">
+                本名ではなく、ニックネームを使ってください。
+              </div>
+
+            </div>
+
+            <div class="field">
+
+              <label for="message">
+                応援メッセージ
+                <span class="required">必須</span>
+              </label>
+
+              <textarea
+                id="message"
+                maxlength="300"
+                required
+                placeholder="アイドルへの応援メッセージを書いてね！&#10;&#10;例：ステージ楽しみにしています！ずっと応援しています！"
+              ></textarea>
+
+              <div class="help">
+                300文字以内で入力してください。
+              </div>
+
+            </div>
+
+            <button
+              class="submit"
+              type="submit"
+            >
+              メッセージを送る
+            </button>
+
+          </form>
+
+        </div>
+
+        <!-- COMPLETE -->
+        <div id="complete" class="complete">
+
+          <div class="complete-top">
+
+            <div class="complete-label">
+              MESSAGE RECEIVED
+            </div>
+
+            <h2>
+              THANK YOU!
+            </h2>
+
+            <p>
+              応援メッセージを受け付けました！<br>
+              あなたの応援が、ステージをもっと盛り上げます。
+            </p>
+
+          </div>
+
+          <div class="received">
+
+            <div class="received-title">
+              RECEIVED MESSAGE
+            </div>
+
+            <div class="received-row">
+              <span class="received-label">
+                IDOL
+              </span>
+
+              <span
+                id="receivedIdol"
+                class="received-value"
+              ></span>
+            </div>
+
+            <div class="received-row">
+              <span class="received-label">
+                NICKNAME
+              </span>
+
+              <span
+                id="receivedNickname"
+                class="received-value"
+              ></span>
+            </div>
+
+            <div class="received-row">
+              <span class="received-label">
+                MESSAGE
+              </span>
+
+              <span
+                id="receivedMessage"
+                class="received-value"
+              ></span>
+            </div>
+
+          </div>
+
+          <div class="complete-note">
+            ※これはサイト演出用のデモです。<br>
+            実際の送信・保存は行われていません。
+          </div>
+
+          <button
+            id="again"
+            class="again"
+            type="button"
+          >
+            もう一度メッセージを送る
+          </button>
+
+        </div>
+
+      </section>
 
     </div>
 
   </div>
 
+</section>
+
+<!-- BACK TO TOP -->
+<section class="back-top">
+
+  <div class="label">
+    OFFICIAL SITE
+  </div>
+
+  <h2>
+    超アイドル祭<br>
+    TOPへ戻る
+  </h2>
+
+  <a
+    href="../index.html"
+    class="top-button"
+  >
+    トップページへ戻る ↗
+  </a>
+
+</section>
+
 </main>
 
 <footer>
-  © 超アイドル祭 OFFICIAL SITE<br>
-  本サイトおよびイベント・掲載情報は架空のものです。
-  実在の人物・団体・イベント・企業等とは関係ありません。
+
+  <div class="logo">
+    超<span>アイドル</span>祭
+  </div>
+
+  <small>
+    ※本ページのメッセージ機能は演出用デモです。<br>
+    ※入力された内容は実際には送信・保存されません。<br>
+    ※本サイトの「超アイドル祭」および関連情報は、すべて創作上の架空の設定です。
+    実在する人物・団体・イベントとは一切関係ありません。
+  </small>
+
+  <p>
+    © 超アイドル祭公式運営委員会
+  </p>
+
 </footer>
 
 <script>
-const form = document.getElementById("messageForm");
-const formArea = document.getElementById("formArea");
-const complete = document.getElementById("complete");
 
-const idol = document.getElementById("idol");
-const nickname = document.getElementById("nickname");
-const message = document.getElementById("message");
+/* HAMBURGER */
 
-const receivedIdol = document.getElementById("receivedIdol");
-const receivedNickname = document.getElementById("receivedNickname");
-const receivedMessage = document.getElementById("receivedMessage");
+const hamburger =
+  document.getElementById("hamburgerBtn");
 
-const again = document.getElementById("again");
+const mobileMenu =
+  document.getElementById("mobileMenu");
 
-form.addEventListener("submit", function(e){
+const overlay =
+  document.getElementById("menuOverlay");
+
+const menuClose =
+  document.getElementById("menuClose");
+
+
+function openMenu(){
+
+  mobileMenu.classList.add("active");
+
+  overlay.classList.add("active");
+
+  hamburger.classList.add("active");
+
+  document.body.style.overflow="hidden";
+
+}
+
+
+function closeMenu(){
+
+  mobileMenu.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+  hamburger.classList.remove("active");
+
+  document.body.style.overflow="";
+
+}
+
+
+hamburger.onclick=function(){
+
+  if(mobileMenu.classList.contains("active")){
+
+    closeMenu();
+
+  }else{
+
+    openMenu();
+
+  }
+
+};
+
+
+menuClose.onclick=closeMenu;
+
+overlay.onclick=closeMenu;
+
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key==="Escape"){
+
+    closeMenu();
+
+  }
+
+});
+
+
+/* MOBILE NAV */
+
+document.querySelectorAll(".mobile-nav a").forEach(function(link){
+
+  link.addEventListener("click",function(){
+
+    closeMenu();
+
+  });
+
+});
+
+
+/* MESSAGE FORM */
+
+const form =
+  document.getElementById("messageForm");
+
+const formArea =
+  document.getElementById("formArea");
+
+const complete =
+  document.getElementById("complete");
+
+const idol =
+  document.getElementById("idol");
+
+const nickname =
+  document.getElementById("nickname");
+
+const message =
+  document.getElementById("message");
+
+const receivedIdol =
+  document.getElementById("receivedIdol");
+
+const receivedNickname =
+  document.getElementById("receivedNickname");
+
+const receivedMessage =
+  document.getElementById("receivedMessage");
+
+const again =
+  document.getElementById("again");
+
+
+form.addEventListener("submit",function(e){
+
   e.preventDefault();
 
   if(!idol.value || !message.value.trim()){
+
     return;
+
   }
 
-  receivedIdol.textContent = idol.value;
-  receivedNickname.textContent = nickname.value.trim() || "匿名";
-  receivedMessage.textContent = message.value.trim();
+  receivedIdol.textContent =
+    idol.value;
+
+  receivedNickname.textContent =
+    nickname.value.trim() || "匿名";
+
+  receivedMessage.textContent =
+    message.value.trim();
 
   formArea.classList.add("hide");
+
   complete.classList.add("show");
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
 });
 
-again.addEventListener("click", function(){
+
+again.addEventListener("click",function(){
+
   form.reset();
 
   complete.classList.remove("show");
+
   formArea.classList.remove("hide");
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
 });
+
 </script>
 
 </body>
 </html>
-```
