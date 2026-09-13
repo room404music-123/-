@@ -455,9 +455,6 @@ footer p{font-size:10px;opacity:.6}
 .special-box{
   min-height:250px;
 }
-.special-idol{
-  background:linear-gradient(135deg,#8c5bff,#ff3fa4 58%,#ffd83d);
-}
 .special-fortune{
   background:linear-gradient(135deg,#35154f,#8c5bff 55%,#45d9ff);
   color:white;
@@ -492,7 +489,6 @@ footer p{font-size:10px;opacity:.6}
 .fortune-meta b{display:block;font-size:15px;color:#ff3fa4}
 @media(min-width:800px){
   .special-grid{grid-template-columns:1fr 1fr}
-  .special-fortune{grid-column:1 / -1}
 }
 @media(max-width:500px){
   .fortune-meta{grid-template-columns:1fr}
@@ -734,15 +730,9 @@ footer p{font-size:10px;opacity:.6}
       <span class="special-play">診断をはじめる ↗</span>
     </a>
 
-    <a class="special-box special-idol reveal" href="game/idol/">
-      <small>OFFICIAL MINI GAME / 02</small>
-      <h3>自分だけの<br>アイドルをつくろう！</h3>
-      <p>髪型・衣装・アクセサリーを選んで、あなただけのアイドル宣材写真を作成。</p>
-      <span class="special-play">アイドルをつくる ↗</span>
-    </a>
 
     <div class="special-box special-fortune reveal" role="button" tabindex="0" onclick="drawFortune()" onkeydown="if(event.key==='Enter'||event.key===' ')drawFortune()">
-      <small>OFFICIAL MINI GAME / 03</small>
+      <small>OFFICIAL MINI GAME / 02</small>
       <h3>今日の<br>アイドル運勢！</h3>
       <p>ボタンを押すだけ。今日のステージ運とラッキーアイテムをチェック。</p>
       <span class="special-play">運勢をみる ↗</span>
