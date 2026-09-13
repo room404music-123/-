@@ -321,7 +321,15 @@ h2{font-size:39px;line-height:1;margin:0 0 25px}
 .audit-box strong{color:#ff75bd}
 
 /* MARKET */
-.market{background:#fff0f7}
+.market{
+  background:
+    radial-gradient(circle at 90% 10%,#ffd83d55 0 55px,transparent 56px),
+    radial-gradient(circle at 8% 85%,#45d9ff33 0 90px,transparent 91px),
+    #fff0f7;
+}
+.market-lead{max-width:620px}
+.market-lead .lead{margin-bottom:8px}
+.market-intro{line-height:1.9;font-size:14px;margin:0 0 28px}
 .tags{display:flex;flex-wrap:wrap;gap:10px}
 .tags span{
   padding:12px 17px;
@@ -330,7 +338,36 @@ h2{font-size:39px;line-height:1;margin:0 0 25px}
   background:white;
   font-size:11px;
   font-weight:900;
+  transition:transform .25s ease,background .25s ease;
 }
+.tags span:hover{transform:translateY(-4px) rotate(-2deg);background:#ffe34b}
+.market-grid{display:grid;gap:16px;margin-top:28px}
+.market-card{
+  position:relative;padding:22px;min-height:150px;border:3px solid #35154f;
+  box-shadow:7px 7px #35154f;overflow:hidden;
+  transition:transform .3s cubic-bezier(.22,.8,.24,1),box-shadow .3s ease;
+}
+.market-card:hover{transform:translate(-2px,-5px) rotate(-.5deg);box-shadow:9px 12px #35154f}
+.market-card:nth-child(1){background:#ffd83d}
+.market-card:nth-child(2){background:#ff75bd;color:#35154f}
+.market-card:nth-child(3){background:#8c5bff;color:white}
+.market-card:nth-child(4){background:#45d9ff;color:#35154f}
+.market-card small{font-size:10px;font-weight:900;letter-spacing:2px}
+.market-card h3{margin:28px 0 8px;font-size:22px}
+.market-card p{margin:0;line-height:1.7;font-size:12px;max-width:90%}
+.market-card .num{position:absolute;right:15px;top:12px;font-size:38px;font-weight:900;opacity:.22}
+.market-feature{
+  margin-top:30px;padding:25px;background:#35154f;color:white;border:3px solid #35154f;
+  box-shadow:8px 8px #ff3fa4;position:relative;overflow:hidden;
+}
+.market-feature:after{
+  content:'CREATOR SPOTLIGHT';position:absolute;right:-28px;top:20px;padding:7px 35px;
+  background:#ffe34b;color:#35154f;font-size:9px;font-weight:900;transform:rotate(8deg);
+}
+.market-feature h3{color:#ffe34b;font-size:25px;margin:5px 0 10px}
+.market-feature p{line-height:1.8;font-size:13px}
+.market-feature b{color:#ff75bd}
+.market-cta{display:inline-block;margin-top:8px;padding:12px 18px;background:#ffe34b;color:#35154f;border:3px solid #35154f;font-weight:900;cursor:pointer}
 
 /* NEWS */
 .news{background:white}
@@ -407,6 +444,11 @@ footer p{font-size:10px;opacity:.6}
 .special-box h3{font-size:30px;margin:12px 0 8px}
 .special-box p{line-height:1.7;margin:0 0 20px}
 .special-play{display:inline-block;background:#ffe34b;color:#35154f;padding:12px 18px;border:3px solid #35154f;font-weight:900}
+@media(max-width:799px){
+  .hero .stage-screen{top:105px}
+  .market-feature:after{right:-42px}
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -442,6 +484,7 @@ footer p{font-size:10px;opacity:.6}
   }
   .theme-card{margin-top:0}
   .cards{grid-template-columns:1fr 1fr}
+  .market-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -606,19 +649,25 @@ footer p{font-size:10px;opacity:.6}
 
 <section id="market" class="market">
   <div class="label">04 / MARKET</div>
-  <h2>Creators<br>Market</h2>
-
-  <p class="lead">
-    アイドルを支える<br>
-    “創る側”の祭典。
-  </p>
-
-  <div class="tags reveal">
-    <span>MUSIC</span>
-    <span>ILLUSTRATION</span>
-    <span>COSTUME</span>
-    <span>ACCESSORY</span>
-    <span>FAN ART</span>
+  <div class="market-lead">
+    <h2>Creators<br>Market</h2>
+    <p class="lead">アイドルを支える<br>“創る側”の祭典。</p>
+    <p class="market-intro">楽曲、イラスト、衣装、アクセサリー。<br>ステージの外にも、アイドルを輝かせる人がいる。<br>超アイドル祭では、クリエイター自身も主役です。</p>
+    <div class="tags reveal">
+      <span>MUSIC</span><span>ILLUSTRATION</span><span>COSTUME</span><span>ACCESSORY</span><span>FAN ART</span>
+    </div>
+  </div>
+  <div class="market-grid">
+    <article class="market-card reveal"><span class="num">01</span><small>BOOTH / MUSIC</small><h3>音楽をつくる。</h3><p>作曲・編曲・トラックメイクなど、アイドルの音を生み出すクリエイター。</p></article>
+    <article class="market-card reveal"><span class="num">02</span><small>BOOTH / ART</small><h3>世界観を描く。</h3><p>イラスト、ロゴ、グッズデザイン。ステージの「見える部分」をつくる。</p></article>
+    <article class="market-card reveal"><span class="num">03</span><small>BOOTH / FASHION</small><h3>衣装をつくる。</h3><p>衣装・アクセサリー・小物まで。アイドルの一瞬を形にする。</p></article>
+    <article class="market-card reveal"><span class="num">04</span><small>BOOTH / FAN</small><h3>好きから、つくる。</h3><p>ファンアートや創作グッズなど、「好き」を作品にして届ける。</p></article>
+  </div>
+  <div class="market-feature reveal">
+    <small>CREATOR SPOTLIGHT / 2026</small>
+    <h3>創る人が、次のステージをつくる。</h3>
+    <p>超アイドル祭では、出演アイドルだけでなく、その活動を支えるクリエイターにもスポットライトを当てます。<b>あなたの作品が、誰かの「推し」を生むかもしれない。</b></p>
+    <button class="market-cta" onclick="openPanel('market')">出店・参加について ↗</button>
   </div>
 </section>
 
@@ -890,9 +939,18 @@ market:{
 title:"CREATORS MARKET",
 body:`
 <h2>Creators Market</h2>
-<p>音楽・イラスト・衣装・アクセサリー・ファンアートなど、
-アイドルを支える「創る側」の祭典。</p>
-<p><b>出店受付期間：2026年7月1日〜8月10日</b></p>
+<p>音楽・イラスト・衣装・アクセサリー・ファンアートなど、アイドルを支える「創る側」の祭典。</p>
+<div style="padding:18px;background:#ffe34b;border:3px solid #35154f;margin:20px 0"><b>2026 CREATORS MARKET</b><br>出店受付期間：2026年7月1日〜8月10日</div>
+<h3>出店ジャンル</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0">
+<div style="padding:14px;background:#ff75bd;border:2px solid #35154f"><b>MUSIC</b><br><small>作曲・編曲・音源制作</small></div>
+<div style="padding:14px;background:#45d9ff;border:2px solid #35154f"><b>ART</b><br><small>イラスト・デザイン</small></div>
+<div style="padding:14px;background:#8c5bff;color:white;border:2px solid #35154f"><b>FASHION</b><br><small>衣装・アクセサリー</small></div>
+<div style="padding:14px;background:#ffd83d;border:2px solid #35154f"><b>FAN</b><br><small>ファンアート・創作</small></div>
+</div>
+<h3>CREATOR SPOTLIGHT</h3><p>今年は、会場内のクリエイターから注目作品を選出。公式サイト・会場展示で紹介します。</p>
+<p style="padding:14px;background:#f3edff;border:2px solid #35154f"><b>参加について</b><br>個人・サークル・クリエイターチームで参加可能。<br>アイドル活動をしていないクリエイターも参加できます。</p>
+<p><b>※現在、2026年度の出店受付は終了しています。</b></p>
 `
 },
 
