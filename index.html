@@ -11,192 +11,79 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:"Arial","Hiragino Kaku Gothic ProN",sans-serif;
+  font-family:Arial,"Hiragino Kaku Gothic ProN",sans-serif;
   color:#35154f;
   background:#fff;
 }
 a{color:inherit;text-decoration:none}
+button{font:inherit}
 
-/* HEADER */
 header{
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:1000;
   height:68px;
-  background:white;
+  background:#fff;
   border-bottom:3px solid #35154f;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 18px;
+  padding:0 20px;
 }
-.logo{font-size:21px;font-weight:900;white-space:nowrap}
-.logo span{color:#ff3fa4}
-nav{display:none}
-.ticket{
-  border:none;
-  background:#ffd83d;
-  color:#35154f;
-  border-radius:30px;
-  padding:11px 16px;
+.logo{
+  font-size:21px;
   font-weight:900;
-  cursor:pointer;
+}
+.logo span{color:#ff3fa4}
+
+.desktop-nav{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+.desktop-nav a{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+.nav-ticket{
+  background:#ffd83d;
+  padding:11px 17px;
+  border-radius:25px;
 }
 
-/* HAMBURGER */
 .hamburger{
-  display:block;
-  position:fixed;
-  top:9px;
-  right:12px;
-  z-index:1200;
-  width:50px;
-  height:50px;
+  display:none;
+  width:48px;
+  height:48px;
   border:2px solid #35154f;
-  border-radius:14px;
+  border-radius:13px;
   background:#fff;
-  cursor:pointer;
-  padding:0;
 }
 .hamburger span{
   display:block;
-  width:23px;
+  width:22px;
   height:3px;
-  margin:4px auto;
-  border-radius:5px;
   background:#35154f;
-  transition:.35s ease;
-}
-.hamburger.active span:nth-child(1){
-  transform:translateY(7px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2){
-  opacity:0;
-}
-.hamburger.active span:nth-child(3){
-  transform:translateY(-7px) rotate(-45deg);
-}
-
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  z-index:1100;
-  background:rgba(20,5,35,.58);
-  opacity:0;
-  visibility:hidden;
-  transition:.4s ease;
-}
-.menu-overlay.active{
-  opacity:1;
-  visibility:visible;
+  margin:4px auto;
 }
 
 .mobile-menu{
-  position:fixed;
-  top:0;
-  right:0;
-  z-index:1150;
-  width:min(84vw,390px);
-  height:100dvh;
-  overflow-y:auto;
-  padding:22px 20px 30px;
-  background:linear-gradient(150deg,#ff3fa4,#8c5bff 55%,#35154f);
-  color:white;
-  box-shadow:-15px 0 50px #0005;
-  transform:translateX(105%);
-  transition:transform .5s cubic-bezier(.22,.8,.24,1);
-}
-.mobile-menu.active{transform:translateX(0)}
-
-.mobile-menu-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:4px 2px 22px;
-  font-size:14px;
-  font-weight:900;
-  letter-spacing:3px;
-}
-.menu-close{
-  width:38px;
-  height:38px;
-  border:2px solid white;
-  border-radius:50%;
-  background:#ffffff22;
-  color:white;
-  font-size:27px;
-  line-height:1;
-}
-.mobile-nav{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-.mobile-nav a{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  min-height:57px;
-  padding:0 17px;
-  border:1px solid #ffffff44;
-  border-radius:15px;
-  background:#ffffff18;
-  color:white;
-  font-size:14px;
-  font-weight:900;
-  letter-spacing:1px;
-  transform:translateX(30px);
-  opacity:0;
-  transition:
-    transform .42s ease,
-    opacity .42s ease,
-    background .2s ease;
-}
-.mobile-menu.active .mobile-nav a{
-  transform:translateX(0);
-  opacity:1;
-}
-.mobile-menu.active .mobile-nav a:nth-child(1){transition-delay:.06s}
-.mobile-menu.active .mobile-nav a:nth-child(2){transition-delay:.10s}
-.mobile-menu.active .mobile-nav a:nth-child(3){transition-delay:.14s}
-.mobile-menu.active .mobile-nav a:nth-child(4){transition-delay:.18s}
-.mobile-menu.active .mobile-nav a:nth-child(5){transition-delay:.22s}
-.mobile-menu.active .mobile-nav a:nth-child(6){transition-delay:.26s}
-.mobile-menu.active .mobile-nav a:nth-child(7){transition-delay:.30s}
-.mobile-menu.active .mobile-nav a:nth-child(8){transition-delay:.34s}
-.mobile-menu.active .mobile-nav a:nth-child(9){transition-delay:.38s}
-.mobile-nav a:active{background:#ffffff30}
-.mobile-nav small{opacity:.65}
-.mobile-ticket{
-  margin-top:10px;
-  background:linear-gradient(90deg,#ffd83d,#ff75bd)!important;
-  color:#35154f!important;
-  border:none!important;
+  display:none;
 }
 
-/* HERO */
 .hero{
   min-height:700px;
   position:relative;
   overflow:hidden;
-  color:white;
-  padding:70px 22px 40px;
+  color:#fff;
+  padding:75px 22px 40px;
   background:
     radial-gradient(circle at 15% 15%,#fff 0 2px,transparent 3px),
     radial-gradient(circle at 80% 30%,#fff 0 3px,transparent 4px),
     linear-gradient(135deg,#ff4da6,#8c5bff 50%,#45d9ff);
   background-size:90px 90px,130px 130px,auto;
 }
-.hero:before{
-  content:"✦  ✧  ✦  ✧  ✦";
-  position:absolute;
-  top:25px;
-  right:15px;
-  color:#ffe34b;
-  font-size:25px;
-  letter-spacing:8px;
-}
-.eyebrow{font-size:11px;font-weight:900;letter-spacing:3px}
 .hero h1{
   margin:25px 0 20px;
   font-size:64px;
@@ -204,29 +91,38 @@ nav{display:none}
   letter-spacing:-5px;
   text-shadow:5px 6px #ff318f;
 }
-.theme{display:flex;align-items:center;gap:12px}
-.theme span{font-size:12px}
+.eyebrow{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+.theme{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
 .theme strong{
-  font-size:38px;
   color:#ffe34b;
+  font-size:38px;
   text-shadow:3px 3px #7b3cff;
 }
-.catch{font-size:19px;line-height:1.8}
-.catch strong{font-size:26px}
+.catch{
+  font-size:19px;
+  line-height:1.8;
+}
 .event{
   display:inline-block;
   margin-top:15px;
   padding:12px 15px;
-  background:white;
+  background:#fff;
   color:#35154f;
   font-size:10px;
-  font-weight:bold;
+  font-weight:900;
 }
 
-/* STAGE ILLUS */
 .stage{
   position:absolute;
-  bottom:-30px;
+  bottom:-25px;
   left:5%;
   width:90%;
   height:330px;
@@ -242,14 +138,12 @@ nav{display:none}
   background:#35154f;
   box-shadow:10px 10px #ff3fa4;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
   font-size:52px;
   font-weight:900;
-  line-height:.8;
 }
-.stage-screen small{display:block;font-size:14px}
 .light{
   position:absolute;
   bottom:0;
@@ -271,7 +165,6 @@ nav{display:none}
     0 0/45px 55px;
 }
 
-/* COMMON */
 section{padding:75px 22px}
 .label{
   color:#ff3fa4;
@@ -280,11 +173,16 @@ section{padding:75px 22px}
   letter-spacing:2px;
   margin-bottom:18px;
 }
-h2{font-size:39px;line-height:1;margin:0 0 25px}
+h2{
+  font-size:39px;
+  line-height:1;
+  margin:0 0 25px;
+}
 
-/* ABOUT */
-.about{background:white}
-.about .lead{font-size:21px;font-weight:bold}
+.about .lead{
+  font-size:21px;
+  font-weight:900;
+}
 .about p{line-height:2}
 .theme-card{
   margin-top:35px;
@@ -292,85 +190,129 @@ h2{font-size:39px;line-height:1;margin:0 0 25px}
   background:#ffd83d;
   border:3px solid #35154f;
   box-shadow:7px 7px #35154f;
-  transform:rotate(1deg);
 }
-.theme-card small{font-weight:bold}
-.theme-card strong{display:block;font-size:39px;margin:8px 0}
+.theme-card strong{
+  display:block;
+  font-size:39px;
+  margin:8px 0;
+}
 
-/* STAGES */
 .stages{background:#f3edff}
-.cards{display:grid;gap:18px}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
 .card{
   min-height:210px;
   padding:25px;
-  color:white;
+  color:#fff;
   border:3px solid #35154f;
   box-shadow:7px 7px #35154f;
 }
-.card h3{margin-top:45px;font-size:27px}
+.card h3{
+  margin-top:45px;
+  font-size:27px;
+}
 .card p{line-height:1.7}
 .main{background:#ff3fa4}
 .sub{background:#45cfff}
 .new{background:#8c5bff}
-.tv{background:#ffbd3d;color:#35154f}
+.tv{
+  background:#ffbd3d;
+  color:#35154f;
+}
 
-/* AUDITION */
-.audition{background:#35154f;color:white}
-.audit-box{border:3px solid #ffe34b;padding:25px}
+.audition{
+  background:#35154f;
+  color:#fff;
+}
+.audit-box{
+  border:3px solid #ffe34b;
+  padding:25px;
+}
 .audit-box h2{color:#ffe34b}
 .audit-box strong{color:#ff75bd}
 
-/* MARKET */
 .market{
-  background:
-    radial-gradient(circle at 90% 10%,#ffd83d55 0 55px,transparent 56px),
-    radial-gradient(circle at 8% 85%,#45d9ff33 0 90px,transparent 91px),
-    #fff0f7;
+  background:#fff0f7;
 }
-.market-lead{max-width:620px}
-.market-lead .lead{margin-bottom:8px}
-.market-intro{line-height:1.9;font-size:14px;margin:0 0 28px}
-.tags{display:flex;flex-wrap:wrap;gap:10px}
-.tags span{
-  padding:12px 17px;
-  border:3px solid #35154f;
-  border-radius:30px;
-  background:white;
-  font-size:11px;
-  font-weight:900;
-  transition:transform .25s ease,background .25s ease;
+.market-intro{
+  line-height:1.9;
 }
-.tags span:hover{transform:translateY(-4px) rotate(-2deg);background:#ffe34b}
-.market-grid{display:grid;gap:16px;margin-top:28px}
+.market-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
 .market-card{
-  position:relative;padding:22px;min-height:150px;border:3px solid #35154f;
-  box-shadow:7px 7px #35154f;overflow:hidden;
-  transition:transform .3s cubic-bezier(.22,.8,.24,1),box-shadow .3s ease;
+  padding:22px;
+  min-height:150px;
+  border:3px solid #35154f;
+  box-shadow:7px 7px #35154f;
 }
-.market-card:hover{transform:translate(-2px,-5px) rotate(-.5deg);box-shadow:9px 12px #35154f}
 .market-card:nth-child(1){background:#ffd83d}
-.market-card:nth-child(2){background:#ff75bd;color:#35154f}
-.market-card:nth-child(3){background:#8c5bff;color:white}
-.market-card:nth-child(4){background:#45d9ff;color:#35154f}
-.market-card small{font-size:10px;font-weight:900;letter-spacing:2px}
-.market-card h3{margin:28px 0 8px;font-size:22px}
-.market-card p{margin:0;line-height:1.7;font-size:12px;max-width:90%}
-.market-card .num{position:absolute;right:15px;top:12px;font-size:38px;font-weight:900;opacity:.22}
-.market-feature{
-  margin-top:30px;padding:25px;background:#35154f;color:white;border:3px solid #35154f;
-  box-shadow:8px 8px #ff3fa4;position:relative;overflow:hidden;
-}
-.market-feature:after{
-  content:'CREATOR SPOTLIGHT';position:absolute;right:-28px;top:20px;padding:7px 35px;
-  background:#ffe34b;color:#35154f;font-size:9px;font-weight:900;transform:rotate(8deg);
-}
-.market-feature h3{color:#ffe34b;font-size:25px;margin:5px 0 10px}
-.market-feature p{line-height:1.8;font-size:13px}
-.market-feature b{color:#ff75bd}
-.market-cta{display:inline-block;margin-top:8px;padding:12px 18px;background:#ffe34b;color:#35154f;border:3px solid #35154f;font-weight:900;cursor:pointer}
+.market-card:nth-child(2){background:#ff75bd}
+.market-card:nth-child(3){background:#8c5bff;color:#fff}
+.market-card:nth-child(4){background:#45d9ff}
+.market-card h3{font-size:22px}
 
-/* NEWS */
-.news{background:white}
+.special{
+  background:#f3edff;
+}
+.special-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.special-card{
+  padding:25px;
+  border:3px solid #35154f;
+  background:#fff;
+  box-shadow:7px 7px #35154f;
+}
+.special-card h3{
+  margin-top:0;
+  font-size:23px;
+}
+.special-card button,
+.special-card a{
+  display:inline-block;
+  margin-top:12px;
+  padding:11px 15px;
+  background:#ff3fa4;
+  color:#fff;
+  border:0;
+  font-weight:900;
+  cursor:pointer;
+}
+.special-card.yellow button{
+  background:#ffd83d;
+  color:#35154f;
+}
+
+.fortune{
+  margin-top:25px;
+  padding:25px;
+  background:#ffd83d;
+  border:3px solid #35154f;
+}
+.fortune-result{
+  display:none;
+  margin-top:20px;
+  padding:22px;
+  background:#fff;
+  border:3px solid #35154f;
+}
+.fortune-result.show{display:block}
+.fortune-rank{
+  font-size:48px;
+  font-weight:900;
+  color:#ff3fa4;
+}
+.fortune-result p{line-height:1.8}
+
+.news{background:#fff}
 .news-item{
   padding:22px 0;
   border-top:1px solid #b9a9c5;
@@ -378,30 +320,26 @@ h2{font-size:39px;line-height:1;margin:0 0 25px}
 .news-item time{
   display:block;
   font-size:11px;
+  font-weight:900;
   margin-bottom:8px;
-  font-weight:bold;
 }
-.news-item b{font-size:15px}
 
-/* FINAL */
 .final{
   text-align:center;
   padding:90px 20px;
   background:linear-gradient(135deg,#ffe34b,#ff75bd,#9c76ff);
 }
-.final p{line-height:2}
 .final h2{font-size:43px}
 .final em{
-  color:white;
+  color:#fff;
   font-style:normal;
   text-shadow:4px 4px #ff3fa4;
 }
 
-/* FOOTER */
 footer{
   padding:35px 20px;
   background:#35154f;
-  color:white;
+  color:#fff;
 }
 footer small{
   display:block;
@@ -409,367 +347,359 @@ footer small{
   line-height:1.8;
   opacity:.75;
 }
-footer p{font-size:10px;opacity:.6}
-
-/* SCROLL REVEAL / MOTION */
-.reveal{
-  opacity:0;
-  transform:translateY(34px);
-  transition:opacity .75s ease, transform .75s cubic-bezier(.22,.8,.24,1);
-}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.card.reveal:nth-child(2){transition-delay:.08s}
-.card.reveal:nth-child(3){transition-delay:.16s}
-.card.reveal:nth-child(4){transition-delay:.24s}
-.news-item.reveal:nth-of-type(2){transition-delay:.08s}
-.news-item.reveal:nth-of-type(3){transition-delay:.16s}
-.news-item.reveal:nth-of-type(4){transition-delay:.24s}
-.special-box{
-  margin-top:25px;
-  display:block;
-  padding:30px 25px;
-  color:white;
-  background:linear-gradient(135deg,#ff3fa4,#8c5bff 58%,#45d9ff);
-  border:3px solid #35154f;
-  box-shadow:8px 8px #35154f;
-  position:relative;
-  overflow:hidden;
-  transition:transform .35s cubic-bezier(.22,.8,.24,1),box-shadow .35s ease;
-}
-.special-box:before{
-  content:'✦';position:absolute;right:22px;top:10px;font-size:70px;color:#ffe34b;opacity:.8;transform:rotate(12deg);
-}
-.special-box:hover{transform:translateY(-5px);box-shadow:8px 13px #35154f}
-.special-box small{font-weight:900;letter-spacing:2px}
-.special-box h3{font-size:30px;margin:12px 0 8px}
-.special-box p{line-height:1.7;margin:0 0 20px}
-.special-play{display:inline-block;background:#ffe34b;color:#35154f;padding:12px 18px;border:3px solid #35154f;font-weight:900}
-@media(max-width:799px){
-  .hero .stage-screen{top:105px}
-  .market-feature:after{right:-42px}
+footer p{
+  font-size:10px;
+  opacity:.6;
 }
 
-
-/* SPECIAL GAMES */
-.special-grid{display:grid;gap:18px}
-.special-box{
-  min-height:250px;
-}
-.special-fortune{
-  background:linear-gradient(135deg,#35154f,#8c5bff 55%,#45d9ff);
-  color:white;
-  cursor:pointer;
-}
-.special-fortune .special-play{
-  background:#ffe34b;
-}
-.fortune-result{
+.modal{
   display:none;
-  margin-top:25px;
-  padding:28px 24px;
-  background:white;
-  border:3px solid #35154f;
-  box-shadow:8px 8px #35154f;
-  text-align:center;
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  background:#35154fee;
+  padding:16px;
+  overflow:auto;
 }
-.fortune-result.show{
-  display:block;
-  animation:fortuneIn .45s cubic-bezier(.22,.8,.24,1) both;
+.modal-box{
+  max-width:760px;
+  margin:30px auto;
+  background:#fff;
+  border:4px solid #35154f;
+  box-shadow:10px 10px #ff3fa4;
 }
-@keyframes fortuneIn{
-  from{opacity:0;transform:translateY(15px) scale(.97) rotate(-1deg)}
-  to{opacity:1;transform:none}
+.modal-head{
+  padding:14px 16px;
+  background:#ffd83d;
+  border-bottom:3px solid #35154f;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-.fortune-label{font-size:10px;font-weight:900;letter-spacing:2px;color:#ff3fa4}
-.fortune-rank{font-size:64px;font-weight:1000;color:#8c5bff;line-height:1;margin:10px 0}
-.fortune-result h3{font-size:27px;margin:0 0 8px}
-.fortune-result p{line-height:1.8;margin:0 auto 20px;max-width:560px}
-.fortune-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.fortune-meta span{padding:14px;background:#f3edff;border:2px solid #35154f;font-size:10px;font-weight:900;line-height:1.6}
-.fortune-meta b{display:block;font-size:15px;color:#ff3fa4}
-@media(min-width:800px){
-  .special-grid{grid-template-columns:1fr 1fr}
+.modal-head button{
+  border:2px solid #35154f;
+  background:#fff;
+  font-size:22px;
 }
-@media(max-width:500px){
-  .fortune-meta{grid-template-columns:1fr}
+.modal-body{
+  padding:25px;
+  line-height:1.9;
+}
+.modal-body a{
+  color:#ff3fa4;
+  font-weight:900;
+  text-decoration:underline;
 }
 
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
-}
+@media(max-width:800px){
+  .desktop-nav{display:none}
+  .hamburger{
+    display:block;
+    position:fixed;
+    right:12px;
+    top:9px;
+    z-index:6000;
+  }
 
-/* DESKTOP */
-@media(min-width:800px){
-  .hamburger,.mobile-menu,.menu-overlay{display:none}
-  header{padding:0 5vw}
-  nav{
+  .mobile-menu{
+    display:block;
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:5500;
+    width:85vw;
+    max-width:390px;
+    height:100dvh;
+    padding:25px 20px;
+    background:linear-gradient(150deg,#ff3fa4,#8c5bff,#35154f);
+    color:#fff;
+    transform:translateX(105%);
+    transition:.4s ease;
+  }
+  .mobile-menu.active{transform:translateX(0)}
+  .mobile-menu a{
     display:flex;
-    gap:20px;
-    font-size:11px;
-    font-weight:bold;
+    justify-content:space-between;
+    padding:17px;
+    margin:8px 0;
+    border:1px solid #ffffff55;
+    border-radius:14px;
+    font-weight:900;
   }
+  .mobile-menu .ticket-mobile{
+    background:#ffd83d;
+    color:#35154f;
+  }
+
   .hero{
-    min-height:760px;
-    padding:110px 8vw;
+    min-height:650px;
   }
-  .hero h1{font-size:130px}
-  .theme strong{font-size:52px}
-  .stage{
-    left:48%;
-    width:50%;
-    height:500px;
+  .hero h1{
+    font-size:51px;
   }
-  section{padding:110px 9vw}
-  .about{
-    display:grid;
-    grid-template-columns:1fr 300px;
-    gap:60px;
+  .stage-screen{
+    font-size:35px;
   }
-  .theme-card{margin-top:0}
-  .cards{grid-template-columns:1fr 1fr}
-  .market-grid{grid-template-columns:1fr 1fr}
+  .cards,
+  .market-grid,
+  .special-grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- MOBILE MENU -->
-<button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
-  <span></span><span></span><span></span>
-</button>
-
-<div class="menu-overlay" id="menuOverlay"></div>
-
-<aside class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-head">
-    <span>MENU</span>
-    <button class="menu-close" id="menuClose">×</button>
-  </div>
-
-  <nav class="mobile-nav">
-    <a href="#top" data-action="top"><span>TOP</span><small>01</small></a>
-    <a href="#about" data-action="about"><span>ABOUT</span><small>02</small></a>
-    <a href="#stages" data-action="stage"><span>STAGE</span><small>03</small></a>
-    <a href="#audition" data-action="audition"><span>AUDITION</span><small>04</small></a>
-    <a href="#market" data-action="market"><span>MARKET</span><small>05</small></a>
-    <a href="#special" data-action="special"><span>SPECIAL</span><small>06</small></a>
-    <a href="#news" data-action="news"><span>NEWS</span><small>07</small></a>
-    <a href="#information" data-action="info"><span>INFORMATION</span><small>08</small></a>
-    <a href="#faq" data-action="faq"><span>FAQ</span><small>09</small></a>
-    <a href="ticket/" class="mobile-ticket"><span>TICKET</span><small>OPEN</small></a>
-  </nav>
-</aside>
-
 <header>
-  <div class="logo">超<span>アイドル</span>祭</div>
+  <a class="logo" href="./index.html">超<span>アイドル</span>祭</a>
 
-  <nav>
+  <nav class="desktop-nav">
     <a href="#about">ABOUT</a>
-    <a href="#stages">STAGE</a>
+    <a href="#stages">STAGES</a>
     <a href="#audition">AUDITION</a>
     <a href="#market">MARKET</a>
     <a href="#special">SPECIAL</a>
     <a href="#news">NEWS</a>
-    <a href="ticket/" class="nav-ticket">TICKET</a>
+    <a class="nav-ticket" href="./ticket/index.html">TICKET</a>
   </nav>
 
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">ABOUT</a>
+  <a href="#stages" onclick="closeMenu()">STAGES</a>
+  <a href="#audition" onclick="closeMenu()">AUDITION</a>
+  <a href="#market" onclick="closeMenu()">MARKET</a>
+  <a href="#special" onclick="closeMenu()">SPECIAL</a>
+  <a href="#news" onclick="closeMenu()">NEWS</a>
+  <a class="ticket-mobile" href="./ticket/index.html">TICKET <span>↗</span></a>
+</div>
 
 <main>
 
-<section class="hero" id="top">
-  <div>
-    <div class="eyebrow">THE BIGGEST IDOL FESTIVAL</div>
-    <h1>超<br>アイドル祭</h1>
+<section class="hero">
+  <div class="eyebrow">OFFICIAL SITE / 2026</div>
 
-    <div class="theme">
-      <span>今年のテーマ</span>
-      <strong>成長期</strong>
-    </div>
+  <h1>
+    超<br>
+    アイドル<br>
+    祭
+  </h1>
 
-    <p class="catch">
-      まだ途中。<br>
-      <strong>だからこそ、輝ける。</strong>
-    </p>
+  <div class="theme">
+    <span>2026 THEME</span>
+    <strong>成長期</strong>
+  </div>
 
-    <div class="event">
-      MUSIC / DANCE / EXPRESSION / EMOTION
-    </div>
+  <p class="catch">
+    勝っても、負けても。<br>
+    進んだ一歩は、消えない。
+  </p>
+
+  <div class="event">
+    2026.09.26 SAT / 09.27 SUN<br>
+    超アイドル祭 特設会場
   </div>
 
   <div class="stage">
+    <div class="stage-screen">
+      超アイドル祭
+    </div>
     <div class="light light1"></div>
     <div class="light light2"></div>
     <div class="light light3"></div>
-
-    <div class="stage-screen">
-      超<br><small>アイドル祭</small>
-    </div>
-
     <div class="crowd"></div>
   </div>
 </section>
 
-<section id="about" class="about reveal">
-  <div>
-    <div class="label">01 / ABOUT</div>
-    <h2>超アイドル祭とは</h2>
+<section class="about" id="about">
+  <div class="label">01 / ABOUT</div>
+  <h2>超アイドル祭とは</h2>
 
-    <p class="lead">完成したスターのための場所ではない。</p>
+  <p class="lead">
+    アイドルの「今」を、全部ステージに。
+  </p>
 
-    <p>
-      ここは、成長の途中に立つアイドルたちが<br>
-      “今この瞬間”をぶつけ合うステージ。
-    </p>
+  <p>
+    超アイドル祭は、ジャンルや活動歴を問わず、
+    アイドル・クリエイター・ファンが集まる大型アイドルフェス。
+    複数ステージ、オーディション、クリエイターズマーケット、
+    公開番組など、さまざまな形でアイドル文化を楽しめます。
+  </p>
 
-    <p>
-      毎年開催地を変え、音楽・ダンス・表現・そして想いが
-      街ごとひとつになる、国内最大級のアイドルフェス。
-    </p>
-  </div>
-
-  <div class="theme-card reveal">
-    <small>THIS YEAR'S THEME SONG</small>
-    <strong>成長期</strong>
-    <small>前年アイドリティ優勝者</small>
+  <div class="theme-card">
+    <small>2026 OFFICIAL THEME</small>
+    <strong>「成長期」</strong>
+    <span>
+      まだ完成していないからこそ、まぶしい。
+    </span>
   </div>
 </section>
 
-<section id="stages" class="stages">
-  <div class="label">02 / STAGE</div>
-  <h2>STAGE<br>LINEUP</h2>
+<section class="stages" id="stages">
+  <div class="label">02 / STAGES</div>
+  <h2>STAGE LINEUP</h2>
 
   <div class="cards">
-
-    <article class="card main reveal" onclick="openPanel('main')">
-      <small>01</small>
+    <article class="card main">
+      <small>MAIN STAGE</small>
       <h3>MAIN STAGE</h3>
-      <p>選ばれた者だけが立てる、最終到達点。</p>
-      <b>FC 100,000+ / AUDITION</b>
+      <p>
+        超アイドル祭最大の舞台。
+        選ばれた者だけが立てる、最終到達点。
+      </p>
     </article>
 
-    <article class="card sub reveal" onclick="openPanel('sub')">
-      <small>02</small>
-      <h3>SUB STAGE 1・2</h3>
-      <p>“魅せ方”で勝負するアイドルが集う。</p>
-      <b>ENTRY / FIRST COME</b>
+    <article class="card sub">
+      <small>SUB STAGE 1・2</small>
+      <h3>SUB STAGE</h3>
+      <p>
+        “魅せ方”で勝負するアイドルが集う、
+        自由度の高いステージ。
+      </p>
     </article>
 
-    <article class="card new reveal" onclick="openPanel('new')">
-      <small>03</small>
-      <h3>NEW STAR</h3>
-      <p>新人アイドル専用ステージ。<br>ここから、物語が始まる。</p>
-      <b>新人アイドル専用</b>
+    <article class="card new">
+      <small>NEW STAR</small>
+      <h3>NEW STAR STAGE</h3>
+      <p>
+        新人アイドル専用ステージ。
+        ここから物語が始まる。
+      </p>
     </article>
 
-    <article class="card tv reveal" onclick="openPanel('tv')">
-      <small>04</small>
+    <article class="card tv">
+      <small>OFFICIAL PROGRAM</small>
       <h3>TV STAGE</h3>
-      <p>参加型オーディション<br>「アイドリティ」</p>
-      <b>WINNER → MAIN STAGE</b>
+      <p>
+        公式番組「アイドリティ」公開収録ステージ。
+      </p>
     </article>
-
   </div>
 </section>
 
-<section id="audition" class="audition">
+<section class="audition" id="audition">
   <div class="label">03 / AUDITION</div>
 
-  <div class="audit-box reveal">
-    <div class="eyebrow">OFFICIAL PROGRAM</div>
-    <h2>アイドリティ</h2>
+  <div class="audit-box">
+    <h2>超アイドル<br>オーディション</h2>
 
     <p>
-      ニュースターステージでの<br>
-      ファン投票数上位者が出場可能。
+      超アイドル祭のメインステージ出演権をかけた
+      公式オーディション。
     </p>
 
     <p>
-      勝者には、<strong>メインステージ出演権</strong>が与えられる。
+      2026年度の課題曲は
+      <strong>「成長期」</strong>。
     </p>
+
+    <button
+      onclick="openModal('audition')"
+      style="margin-top:15px;padding:12px 18px;border:0;background:#ff3fa4;color:#fff;font-weight:900;cursor:pointer">
+      募集要項を見る
+    </button>
   </div>
 </section>
 
-<section id="market" class="market">
+<section class="market" id="market">
   <div class="label">04 / MARKET</div>
-  <div class="market-lead">
-    <h2>Creators<br>Market</h2>
-    <p class="lead">アイドルを支える<br>“創る側”の祭典。</p>
-    <p class="market-intro">楽曲、イラスト、衣装、アクセサリー。<br>ステージの外にも、アイドルを輝かせる人がいる。<br>超アイドル祭では、クリエイター自身も主役です。</p>
-    <div class="tags reveal">
-      <span>MUSIC</span><span>ILLUSTRATION</span><span>COSTUME</span><span>ACCESSORY</span><span>FAN ART</span>
+  <h2>CREATORS MARKET</h2>
+
+  <p class="market-intro">
+    音楽、イラスト、衣装、アクセサリー、ファンアート。
+    アイドルを支える「創る側」も、超アイドル祭の主役です。
+  </p>
+
+  <div class="market-grid">
+    <div class="market-card">
+      <h3>MUSIC</h3>
+      <p>作曲・編曲・音源制作</p>
+    </div>
+
+    <div class="market-card">
+      <h3>ART</h3>
+      <p>イラスト・デザイン</p>
+    </div>
+
+    <div class="market-card">
+      <h3>FASHION</h3>
+      <p>衣装・アクセサリー</p>
+    </div>
+
+    <div class="market-card">
+      <h3>FAN</h3>
+      <p>ファンアート・創作</p>
     </div>
   </div>
-  <div class="market-grid">
-    <article class="market-card reveal"><span class="num">01</span><small>BOOTH / MUSIC</small><h3>音楽をつくる。</h3><p>作曲・編曲・トラックメイクなど、アイドルの音を生み出すクリエイター。</p></article>
-    <article class="market-card reveal"><span class="num">02</span><small>BOOTH / ART</small><h3>世界観を描く。</h3><p>イラスト、ロゴ、グッズデザイン。ステージの「見える部分」をつくる。</p></article>
-    <article class="market-card reveal"><span class="num">03</span><small>BOOTH / FASHION</small><h3>衣装をつくる。</h3><p>衣装・アクセサリー・小物まで。アイドルの一瞬を形にする。</p></article>
-    <article class="market-card reveal"><span class="num">04</span><small>BOOTH / FAN</small><h3>好きから、つくる。</h3><p>ファンアートや創作グッズなど、「好き」を作品にして届ける。</p></article>
-  </div>
-  <div class="market-feature reveal">
-    <small>CREATOR SPOTLIGHT / 2026</small>
-    <h3>創る人が、次のステージをつくる。</h3>
-    <p>超アイドル祭では、出演アイドルだけでなく、その活動を支えるクリエイターにもスポットライトを当てます。<b>あなたの作品が、誰かの「推し」を生むかもしれない。</b></p>
-    <button class="market-cta" onclick="openPanel('market')">出店・参加について ↗</button>
-  </div>
 </section>
 
-
-<section id="special" class="special" style="background:#f3edff">
+<section class="special" id="special">
   <div class="label">05 / SPECIAL</div>
-  <h2>PLAY &amp;<br>DISCOVER</h2>
+  <h2>SPECIAL CONTENTS</h2>
 
   <div class="special-grid">
 
-    <a class="special-box reveal" href="game/">
-      <small>OFFICIAL MINI GAME / 01</small>
-      <h3>あなたに合う<br>ステージを診断！</h3>
-      <p>いくつかの質問に答えて、あなたにぴったりの超アイドル祭ステージをチェック。</p>
-      <span class="special-play">診断をはじめる ↗</span>
-    </a>
-
-
-    <div class="special-box special-fortune reveal" role="button" tabindex="0" onclick="drawFortune()" onkeydown="if(event.key==='Enter'||event.key===' ')drawFortune()">
-      <small>OFFICIAL MINI GAME / 02</small>
-      <h3>今日の<br>アイドル運勢！</h3>
-      <p>ボタンを押すだけ。今日のステージ運とラッキーアイテムをチェック。</p>
-      <span class="special-play">運勢をみる ↗</span>
+    <div class="special-card">
+      <h3>あなたに合うステージを診断</h3>
+      <p>
+        4つの質問に答えて、
+        あなたにぴったりのステージをチェック。
+      </p>
+      <a href="./game/index.html">診断スタート ↗</a>
     </div>
 
-  </div>
+    <div class="special-card yellow">
+      <h3>今日のアイドル運勢</h3>
+      <p>
+        今日のステージ運・ラッキーアイテムを占います。
+      </p>
+      <button onclick="fortune()">運勢を見る</button>
 
-  <div id="fortuneResult" class="fortune-result" aria-live="polite">
-    <div class="fortune-label">TODAY'S IDOL FORTUNE</div>
-    <div id="fortuneRank" class="fortune-rank">—</div>
-    <h3 id="fortuneTitle">今日の運勢を引いてみよう</h3>
-    <p id="fortuneText">あなたの今日のステージ運がここに表示されます。</p>
-    <div class="fortune-meta">
-      <span>LUCKY STAGE <b id="fortuneStage">—</b></span>
-      <span>LUCKY ITEM <b id="fortuneItem">—</b></span>
+      <div class="fortune-result" id="fortuneResult">
+        <div class="fortune-rank" id="fortuneRank"></div>
+        <h3 id="fortuneTitle"></h3>
+        <p id="fortuneText"></p>
+        <p>
+          <strong>おすすめステージ：</strong>
+          <span id="fortuneStage"></span>
+        </p>
+        <p>
+          <strong>ラッキーアイテム：</strong>
+          <span id="fortuneItem"></span>
+        </p>
+      </div>
     </div>
+
   </div>
 </section>
 
-<section id="news" class="news">
+<section class="news" id="news">
   <div class="label">06 / NEWS</div>
-  <h2>LATEST<br>NEWS</h2>
+  <h2>NEWS</h2>
 
-  <div class="news-item reveal">
+  <div class="news-item">
     <time>09.13.2026</time>
     <b>超アイドル祭 OFFICIAL SITE OPEN</b>
   </div>
 
-  <div class="news-item reveal">
+  <div class="news-item">
     <time>08.01.2026</time>
-    <b>今年のテーマ「成長期」発表</b>
+    <b>2026年度テーマ「成長期」発表</b>
   </div>
 
-  <div class="news-item reveal">
+  <div class="news-item">
     <time>07.15.2026</time>
-    <b>超アイドル祭 開催決定</b>
+    <b>超アイドル祭 2026 開催決定</b>
+  </div>
+
+  <div class="news-item">
+    <time>07.01.2026</time>
+    <b>Creators Market 出店受付開始</b>
   </div>
 </section>
 
@@ -791,314 +721,99 @@ footer p{font-size:10px;opacity:.6}
   <div class="logo">超<span>アイドル</span>祭</div>
 
   <small>
-    ※ご来場・ご参加にあたっての注意事項<br>
-    ※本サイトの「超アイドル祭」および関連情報は、すべて創作上の架空の設定です。実在する人物・団体・イベントとは一切関係ありません。<br>
-    各ステージおよびオーディションの内容は、
-    出演者の安全および運営判断により、
-    予告なく変更・中止となる場合があります。
+    ※本サイトの「超アイドル祭」および関連情報は、
+    すべて創作上の架空の設定です。<br>
+    実在する人物・団体・イベントとは一切関係ありません。
   </small>
 
   <p>© 超アイドル祭公式運営委員会</p>
 </footer>
 
-<!-- MODAL -->
-<div id="panel"
- style="display:none;position:fixed;inset:0;z-index:9999;background:#35154fee;padding:16px;overflow:auto">
-
-  <div style="max-width:760px;margin:20px auto;background:#fff;border:4px solid #35154f;box-shadow:10px 10px #ff3fa4">
-
-    <div style="background:#ffd83d;border-bottom:3px solid #35154f;padding:14px 16px;display:flex;justify-content:space-between;align-items:center">
-      <b id="panelTitle">OFFICIAL INFORMATION</b>
-      <button onclick="closePanel()" style="border:2px solid #35154f;background:#fff;padding:5px 10px;font-weight:900">×</button>
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <b id="modalTitle"></b>
+      <button onclick="closeModal()">×</button>
     </div>
-
-    <div id="panelBody" style="padding:24px;line-height:1.9"></div>
+    <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
 <script>
-/* HAMBURGER */
-const hamburger=document.getElementById("hamburgerBtn");
-const mobileMenu=document.getElementById("mobileMenu");
-const overlay=document.getElementById("menuOverlay");
-const menuClose=document.getElementById("menuClose");
+function toggleMenu(){
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
 
-function openMenu(){
-  mobileMenu.classList.add("active");
-  overlay.classList.add("active");
-  hamburger.classList.add("active");
+function closeMenu(){
+  document.getElementById("mobileMenu").classList.remove("active");
+}
+
+const modalData={
+  audition:{
+    title:"超アイドルオーディション",
+    body:`
+      <h2>2026年度 オーディション</h2>
+      <p>
+        超アイドル祭のメインステージ出演権をかけた
+        公式オーディションです。
+      </p>
+      <p>
+        <strong>課題曲：「成長期」</strong><br>
+        歌唱：安藤未来 / アンドゥー・ミケゥ
+      </p>
+      <div style="padding:18px;background:#fff4a8;border:2px solid #35154f">
+        <b>CREATOR</b><br>
+        情熱 努（パッション・つとむ）<br>
+        情熱 彰（パッション・あきら）
+      </div>
+      <p>
+        課題曲の歌唱を担当する
+        アンドゥー・ミケゥの公式サイトはこちら。
+      </p>
+      <a href="./miku/index.html">アンドゥー・ミケゥ OFFICIAL SITE ↗</a>
+    `
+  }
+};
+
+function openModal(key){
+  document.getElementById("modalTitle").textContent=modalData[key].title;
+  document.getElementById("modalBody").innerHTML=modalData[key].body;
+  document.getElementById("modal").style.display="block";
   document.body.style.overflow="hidden";
 }
-function closeMenu(){
-  mobileMenu.classList.remove("active");
-  overlay.classList.remove("active");
-  hamburger.classList.remove("active");
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
   document.body.style.overflow="";
 }
 
-hamburger.onclick=()=>{
-  mobileMenu.classList.contains("active")?closeMenu():openMenu();
-};
-menuClose.onclick=closeMenu;
-overlay.onclick=closeMenu;
-
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape")closeMenu();
-});
-
-document.querySelectorAll(".mobile-nav a").forEach(a=>{
-  a.onclick=e=>{
-    e.preventDefault();
-    const action=a.dataset.action;
-    closeMenu();
-
-    setTimeout(()=>{
-      if(action==="top"){
-        window.scrollTo({top:0,behavior:"smooth"});
-      }
-      else if(action==="about"){
-        document.querySelector("#about").scrollIntoView({behavior:"smooth"});
-      }
-      else if(action==="stage"){
-        document.querySelector("#stages").scrollIntoView({behavior:"smooth"});
-      }
-      else if(action==="audition"){
-        openPanel("audition");
-      }
-      else if(action==="market"){
-        openPanel("market");
-      }
-      else if(action==="special"){
-         document.querySelector("#special").scrollIntoView({behavior:"smooth"});
-       }
-       else if(action==="news"){
-        openPanel("news");
-      }
-      else if(action==="info"){
-        openPanel("info");
-      }
-      else if(action==="faq"){
-        openPanel("faq");
-      }
-    },180);
-  };
-});
-
-/* SCROLL REVEAL */
-const revealItems=document.querySelectorAll(".reveal");
-const revealObserver=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
-revealItems.forEach(el=>revealObserver.observe(el));
-
-
-/* FORTUNE */
-const fortuneData=[
-  {rank:'SSS',title:'今日は主役級！',text:'やってみたいと思ったことに勢いよく飛び込むほど、ステージ運が上昇。あなたの「やってみたい」が今日のセンターです。',stage:'MAIN STAGE',item:'星型アクセサリー'},
-  {rank:'SS',title:'キラキラ絶好調！',text:'表現力がいつも以上に輝く日。好きな曲を聴いたり、好きなものを語ったりするとさらに運気アップ。',stage:'NEW STAR STAGE',item:'お気に入りの曲'},
-  {rank:'A',title:'いい流れが来てる！',text:'小さな一歩が次のチャンスにつながりそう。焦らず、自分のペースで楽しむのがポイント。',stage:'SUB STAGE 1・2',item:'カラフルなペン'},
-  {rank:'B',title:'じわじわ上昇中！',text:'今日は準備の日。明日の自分がもっと輝けるように、好きなことをひとつ大切にしてみよう。',stage:'TV STAGE',item:'イヤホン'},
-  {rank:'C',title:'のんびり充電！',text:'無理に全力を出さなくても大丈夫。休むこともアイドル活動の一部。ゆっくり楽しもう。',stage:'SUB STAGE 1・2',item:'ふわふわのタオル'}
+const fortunes=[
+  ["SSS","今日は主役級！","やってみたいと思ったことに勢いよく飛び込むほど、ステージ運が上昇。","MAIN STAGE","星型アクセサリー"],
+  ["SS","キラキラ絶好調！","表現力がいつも以上に輝く日。好きな曲を楽しむとさらに運気アップ。","NEW STAR STAGE","お気に入りの曲"],
+  ["A","いい流れが来てる！","小さな一歩が次のチャンスにつながりそう。","SUB STAGE 1・2","カラフルなペン"],
+  ["B","じわじわ上昇中！","今日は準備の日。自分のペースを大切に。","TV STAGE","イヤホン"],
+  ["C","のんびり充電！","無理に全力を出さなくても大丈夫。ゆっくり楽しもう。","SUB STAGE 1・2","ふわふわのタオル"]
 ];
 
-function drawFortune(){
-  const data=fortuneData[Math.floor(Math.random()*fortuneData.length)];
-  document.getElementById('fortuneRank').textContent=data.rank;
-  document.getElementById('fortuneTitle').textContent=data.title;
-  document.getElementById('fortuneText').textContent=data.text;
-  document.getElementById('fortuneStage').textContent=data.stage;
-  document.getElementById('fortuneItem').textContent=data.item;
-  const box=document.getElementById('fortuneResult');
-  box.classList.remove('show');
-  void box.offsetWidth;
-  box.classList.add('show');
-  setTimeout(()=>box.scrollIntoView({behavior:'smooth',block:'center'}),80);
+function fortune(){
+  const d=fortunes[Math.floor(Math.random()*fortunes.length)];
+
+  document.getElementById("fortuneRank").textContent=d[0];
+  document.getElementById("fortuneTitle").textContent=d[1];
+  document.getElementById("fortuneText").textContent=d[2];
+  document.getElementById("fortuneStage").textContent=d[3];
+  document.getElementById("fortuneItem").textContent=d[4];
+
+  const r=document.getElementById("fortuneResult");
+  r.classList.add("show");
+
+  setTimeout(()=>{
+    r.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+  },100);
 }
-
-/* MODAL DATA */
-const panelData={
-
-main:{
-title:"MAIN STAGE",
-body:`
-<h2>MAIN STAGE</h2>
-<p>超アイドル祭最大の舞台。選ばれた者だけが立てる、最終到達点。</p>
-<table style="width:100%;border-collapse:collapse">
-<tr><th style="text-align:left;padding:9px;background:#f3edff">出演条件</th><td style="padding:9px">ファンクラブ会員数10万人以上</td></tr>
-<tr><th style="text-align:left;padding:9px;background:#f3edff">選出</th><td style="padding:9px">超アイドルオーディション合格</td></tr>
-<tr><th style="text-align:left;padding:9px;background:#f3edff">演出</th><td style="padding:9px">大型ステージ・特別演出</td></tr>
-</table>
-`
-},
-
-sub:{
-title:"SUB STAGE 1・2",
-body:`
-<h2>SUB STAGE 1・2</h2>
-<p>“魅せ方”で勝負するアイドルが集う自由度の高いステージ。</p>
-<p><b>書類審査制・先着順</b></p>
-<p>活動歴やジャンルを問わず、ライブパフォーマンスで観客を沸かせるアイドルを募集します。</p>
-`
-},
-
-new:{
-title:"NEW STAR STAGE",
-body:`
-<h2>NEW STAR STAGE</h2>
-<p>新人アイドル専用ステージ。</p>
-<ul>
-<li>デビューから10年以内</li>
-<li>超アイドル祭でニュースターステージ以外への出場経験がないこと</li>
-<li>超ニュースターオーディション合格</li>
-</ul>
-<p><b>ここから、物語が始まる。</b></p>
-`
-},
-
-tv:{
-title:"TV STAGE / アイドリティ",
-body:`
-<h2>アイドリティ</h2>
-<p>超アイドル祭公式番組の公開収録ステージ。</p>
-<p>ニュースターステージのファン投票上位者が参加可能。
-勝者には<b>メインステージ出演権</b>が与えられます。</p>
-`
-},
-
-audition:{
-title:"AUDITION",
-body:`
-<h2>超アイドルオーディション</h2>
-<p>超アイドル祭のメインステージへの出演権をかけた公式オーディション。</p>
-<p>応募資格、審査日程、結果発表については募集要項をご確認ください。</p>
-<p style="margin-top:26px;padding-top:18px;border-top:2px solid #d9cbe2"><b>2026年度 課題曲</b><br>オーディション参加者は、指定の課題曲をご確認ください。</p>
-<p><button onclick="openPanel('song')" style="background:#ff3fa4;color:white;border:3px solid #35154f;padding:11px 18px;font-weight:900;cursor:pointer">課題曲を見る ↗</button></p>
-`
-},
-
-song:{
-title:"2026年度 課題曲 / CHALLENGE SONG",
-body:`
-<h2 style="margin-top:0">2026年度 課題曲</h2>
-<div style="padding:20px;background:linear-gradient(135deg,#ff3fa4,#8c5bff);color:white;border:3px solid #35154f;margin-bottom:24px">
-<small style="font-weight:900;letter-spacing:2px">CHALLENGE SONG</small>
-<h3 style="font-size:30px;margin:8px 0 4px">「成長期」</h3>
-<p style="margin:0;font-weight:900">歌唱：安藤未来 / アンドゥー・ミケゥ</p>
-</div>
-<h3>課題曲について</h3>
-<p>2026年度「超アイドル祭」公式オーディション課題曲。<br>今年のテーマ「成長期」を象徴する楽曲として、歌唱・表現の両面から参加者の現在地を問います。</p>
-<div style="padding:18px;background:#fff4a8;border:2px solid #35154f;margin:22px 0"><b>CREATOR</b><br>情熱 努（パッション・つとむ）<br>情熱 彰（パッション・あきら）</div>
-<h3>歌唱</h3>
-<p>安藤未来（アンドゥー・ミケゥ）</p>
-<p style="font-size:13px">※課題曲の歌詞・音源等は公式案内にて順次公開予定です。</p>
-<div style="margin-top:28px;padding-top:22px;border-top:2px solid #d9cbe2"><b>関連アーティスト</b><p style="margin-bottom:8px">本楽曲の歌唱を担当するアンドゥー・ミケゥのプロフィール・活動情報はこちら。</p><a href="miku/" style="text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;font-weight:900;color:#ff3fa4">アンドゥー・ミケゥ OFFICIAL SITEはこちら ↗</a></div>
-`
-},
-
-market:{
-title:"CREATORS MARKET",
-body:`
-<h2>Creators Market</h2>
-<p>音楽・イラスト・衣装・アクセサリー・ファンアートなど、アイドルを支える「創る側」の祭典。</p>
-<div style="padding:18px;background:#ffe34b;border:3px solid #35154f;margin:20px 0"><b>2026 CREATORS MARKET</b><br>出店受付期間：2026年7月1日〜8月10日</div>
-<h3>出店ジャンル</h3>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0">
-<div style="padding:14px;background:#ff75bd;border:2px solid #35154f"><b>MUSIC</b><br><small>作曲・編曲・音源制作</small></div>
-<div style="padding:14px;background:#45d9ff;border:2px solid #35154f"><b>ART</b><br><small>イラスト・デザイン</small></div>
-<div style="padding:14px;background:#8c5bff;color:white;border:2px solid #35154f"><b>FASHION</b><br><small>衣装・アクセサリー</small></div>
-<div style="padding:14px;background:#ffd83d;border:2px solid #35154f"><b>FAN</b><br><small>ファンアート・創作</small></div>
-</div>
-<h3>CREATOR SPOTLIGHT</h3><p>今年は、会場内のクリエイターから注目作品を選出。公式サイト・会場展示で紹介します。</p>
-<p style="padding:14px;background:#f3edff;border:2px solid #35154f"><b>参加について</b><br>個人・サークル・クリエイターチームで参加可能。<br>アイドル活動をしていないクリエイターも参加できます。</p>
-<p><b>※現在、2026年度の出店受付は終了しています。</b></p>
-`
-},
-
-news:{
-title:"NEWS ARCHIVE",
-body:`
-<h2>NEWS ARCHIVE</h2>
-<p><b>09.13.2026</b>　超アイドル祭 OFFICIAL SITE OPEN</p>
-<p><b>08.01.2026</b>　今年のテーマ「成長期」発表</p>
-<p><b>07.15.2026</b>　超アイドル祭 開催決定</p>
-<p><b>07.01.2026</b>　Creators Market 出店受付開始</p>
-<p><b>06.20.2026</b>　「アイドリティ」参加者募集要項公開</p>
-`
-},
-
-info:{
-title:"開催概要・注意事項",
-body:`
-<h2>OFFICIAL INFORMATION</h2>
-<p>開催日：2026年9月26日（土）・27日（日）</p>
-<p>開場：9:00予定　開演：10:00予定</p>
-<p>主催：超アイドル祭公式運営委員会</p>
-<p>各ステージおよびオーディションは、安全・運営上の理由により変更・中止となる場合があります。</p>
-`
-},
-
-faq:{
-title:"FAQ",
-body:`
-<h2>よくあるご質問</h2>
-<p><b>Q. 再入場できますか？</b><br>
-A. 原則可能です。チケット確認を行います。</p>
-
-<p><b>Q. 雨天の場合は？</b><br>
-A. 荒天時は内容を変更・中止する場合があります。</p>
-
-<p><b>Q. 撮影できますか？</b><br>
-A. ステージごとの案内に従ってください。</p>
-`
-}
-};
-
-/* MODAL */
-function openPanel(key){
-  document.getElementById("panelTitle").textContent=panelData[key].title;
-  document.getElementById("panelBody").innerHTML=panelData[key].body;
-  document.getElementById("panel").style.display="block";
-  document.body.style.overflow="hidden";
-}
-
-function closePanel(){
-  document.getElementById("panel").style.display="none";
-  document.body.style.overflow="";
-}
-
-function fakeBuy(){
-  alert(
-    "チケット受付ページへ移動します。\n\n"+
-    "※このサイトは創作サイトのため、実際の購入処理は行われません。"
-  );
-}
-
-/* DESKTOP NAV */
-document.querySelectorAll('a[href="#audition"]').forEach(a=>{
-  a.onclick=e=>{
-    e.preventDefault();
-    openPanel("audition");
-  };
-});
-
-document.querySelectorAll('a[href="#market"]').forEach(a=>{
-  a.onclick=e=>{
-    e.preventDefault();
-    openPanel("market");
-  };
-});
-
-document.querySelectorAll('a[href="#news"]').forEach(a=>{
-  a.onclick=e=>{
-    e.preventDefault();
-    openPanel("news");
-  };
-});
 </script>
 
 </body>
