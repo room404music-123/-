@@ -449,6 +449,55 @@ footer p{font-size:10px;opacity:.6}
   .market-feature:after{right:-42px}
 }
 
+
+/* SPECIAL GAMES */
+.special-grid{display:grid;gap:18px}
+.special-box{
+  min-height:250px;
+}
+.special-idol{
+  background:linear-gradient(135deg,#8c5bff,#ff3fa4 58%,#ffd83d);
+}
+.special-fortune{
+  background:linear-gradient(135deg,#35154f,#8c5bff 55%,#45d9ff);
+  color:white;
+  cursor:pointer;
+}
+.special-fortune .special-play{
+  background:#ffe34b;
+}
+.fortune-result{
+  display:none;
+  margin-top:25px;
+  padding:28px 24px;
+  background:white;
+  border:3px solid #35154f;
+  box-shadow:8px 8px #35154f;
+  text-align:center;
+}
+.fortune-result.show{
+  display:block;
+  animation:fortuneIn .45s cubic-bezier(.22,.8,.24,1) both;
+}
+@keyframes fortuneIn{
+  from{opacity:0;transform:translateY(15px) scale(.97) rotate(-1deg)}
+  to{opacity:1;transform:none}
+}
+.fortune-label{font-size:10px;font-weight:900;letter-spacing:2px;color:#ff3fa4}
+.fortune-rank{font-size:64px;font-weight:1000;color:#8c5bff;line-height:1;margin:10px 0}
+.fortune-result h3{font-size:27px;margin:0 0 8px}
+.fortune-result p{line-height:1.8;margin:0 auto 20px;max-width:560px}
+.fortune-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fortune-meta span{padding:14px;background:#f3edff;border:2px solid #35154f;font-size:10px;font-weight:900;line-height:1.6}
+.fortune-meta b{display:block;font-size:15px;color:#ff3fa4}
+@media(min-width:800px){
+  .special-grid{grid-template-columns:1fr 1fr}
+  .special-fortune{grid-column:1 / -1}
+}
+@media(max-width:500px){
+  .fortune-meta{grid-template-columns:1fr}
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -676,12 +725,41 @@ footer p{font-size:10px;opacity:.6}
   <div class="label">05 / SPECIAL</div>
   <h2>PLAY &amp;<br>DISCOVER</h2>
 
-  <a class="special-box reveal" href="game/">
-    <small>OFFICIAL MINI GAME</small>
-    <h3>あなたに合うステージを診断！</h3>
-    <p>いくつかの質問に答えて、あなたにぴったりの超アイドル祭ステージをチェック。</p>
-    <span class="special-play">診断をはじめる ↗</span>
-  </a>
+  <div class="special-grid">
+
+    <a class="special-box reveal" href="game/">
+      <small>OFFICIAL MINI GAME / 01</small>
+      <h3>あなたに合う<br>ステージを診断！</h3>
+      <p>いくつかの質問に答えて、あなたにぴったりの超アイドル祭ステージをチェック。</p>
+      <span class="special-play">診断をはじめる ↗</span>
+    </a>
+
+    <a class="special-box special-idol reveal" href="game/idol/">
+      <small>OFFICIAL MINI GAME / 02</small>
+      <h3>自分だけの<br>アイドルをつくろう！</h3>
+      <p>髪型・衣装・アクセサリーを選んで、あなただけのアイドル宣材写真を作成。</p>
+      <span class="special-play">アイドルをつくる ↗</span>
+    </a>
+
+    <div class="special-box special-fortune reveal" role="button" tabindex="0" onclick="drawFortune()" onkeydown="if(event.key==='Enter'||event.key===' ')drawFortune()">
+      <small>OFFICIAL MINI GAME / 03</small>
+      <h3>今日の<br>アイドル運勢！</h3>
+      <p>ボタンを押すだけ。今日のステージ運とラッキーアイテムをチェック。</p>
+      <span class="special-play">運勢をみる ↗</span>
+    </div>
+
+  </div>
+
+  <div id="fortuneResult" class="fortune-result" aria-live="polite">
+    <div class="fortune-label">TODAY'S IDOL FORTUNE</div>
+    <div id="fortuneRank" class="fortune-rank">—</div>
+    <h3 id="fortuneTitle">今日の運勢を引いてみよう</h3>
+    <p id="fortuneText">あなたの今日のステージ運がここに表示されます。</p>
+    <div class="fortune-meta">
+      <span>LUCKY STAGE <b id="fortuneStage">—</b></span>
+      <span>LUCKY ITEM <b id="fortuneItem">—</b></span>
+    </div>
+  </div>
 </section>
 
 <section id="news" class="news">
@@ -829,6 +907,30 @@ const revealObserver=new IntersectionObserver((entries)=>{
   });
 },{threshold:.12,rootMargin:"0px 0px -40px 0px"});
 revealItems.forEach(el=>revealObserver.observe(el));
+
+
+/* FORTUNE */
+const fortuneData=[
+  {rank:'SSS',title:'今日は主役級！',text:'やってみたいと思ったことに勢いよく飛び込むほど、ステージ運が上昇。あなたの「やってみたい」が今日のセンターです。',stage:'MAIN STAGE',item:'星型アクセサリー'},
+  {rank:'SS',title:'キラキラ絶好調！',text:'表現力がいつも以上に輝く日。好きな曲を聴いたり、好きなものを語ったりするとさらに運気アップ。',stage:'NEW STAR STAGE',item:'お気に入りの曲'},
+  {rank:'A',title:'いい流れが来てる！',text:'小さな一歩が次のチャンスにつながりそう。焦らず、自分のペースで楽しむのがポイント。',stage:'SUB STAGE 1・2',item:'カラフルなペン'},
+  {rank:'B',title:'じわじわ上昇中！',text:'今日は準備の日。明日の自分がもっと輝けるように、好きなことをひとつ大切にしてみよう。',stage:'TV STAGE',item:'イヤホン'},
+  {rank:'C',title:'のんびり充電！',text:'無理に全力を出さなくても大丈夫。休むこともアイドル活動の一部。ゆっくり楽しもう。',stage:'SUB STAGE 1・2',item:'ふわふわのタオル'}
+];
+
+function drawFortune(){
+  const data=fortuneData[Math.floor(Math.random()*fortuneData.length)];
+  document.getElementById('fortuneRank').textContent=data.rank;
+  document.getElementById('fortuneTitle').textContent=data.title;
+  document.getElementById('fortuneText').textContent=data.text;
+  document.getElementById('fortuneStage').textContent=data.stage;
+  document.getElementById('fortuneItem').textContent=data.item;
+  const box=document.getElementById('fortuneResult');
+  box.classList.remove('show');
+  void box.offsetWidth;
+  box.classList.add('show');
+  setTimeout(()=>box.scrollIntoView({behavior:'smooth',block:'center'}),80);
+}
 
 /* MODAL DATA */
 const panelData={
