@@ -1,610 +1,500 @@
-```html
-<!doctype html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>LOCAL PROJECT | 超アイドル祭 OFFICIAL SITE</title>
-
-<style>
-:root{
-  --ink:#35154f;
-  --pink:#ff3fa4;
-  --purple:#8c5bff;
-  --cyan:#45d9ff;
-  --yellow:#ffd83d;
-  --paper:#fff9ff;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex, nofollow"><title>LOCAL PROJECT | 超アイドル祭 OFFICIAL SITE</title><style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
-    sans-serif;
-  line-height:1.7;
+  font-family:"Arial","Hiragino Kaku Gothic ProN",sans-serif;
+  color:#35154f;
+  background:#fff;
 }
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-.wrap{
-  width:min(1100px,92%);
-  margin:auto;
-}
+a{color:inherit;text-decoration:none}
 
 /* HEADER */
-
-.top{
+header{
   position:sticky;
   top:0;
-  z-index:20;
-  background:#fff;
-  border-bottom:3px solid var(--ink);
-  box-shadow:0 5px 0 var(--ink);
+  z-index:100;
+  height:68px;
+  background:white;
+  border-bottom:3px solid #35154f;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
 }
+.logo{font-size:21px;font-weight:900;white-space:nowrap}
+.logo span{color:#ff3fa4}
+nav{display:none}
 
-header{
-  padding:16px 0;
-}
-
-.brand{
-  font-weight:900;
-  font-size:20px;
-  letter-spacing:.04em;
-}
-
-.brand small{
+/* HAMBURGER */
+.hamburger{
   display:block;
-  font-size:11px;
+  position:fixed;
+  top:9px;
+  right:12px;
+  z-index:1200;
+  width:50px;
+  height:50px;
+  border:2px solid #35154f;
+  border-radius:14px;
+  background:#fff;
+  cursor:pointer;
+  padding:0;
+}
+.hamburger span{
+  display:block;
+  width:23px;
+  height:3px;
+  margin:4px auto;
+  border-radius:5px;
+  background:#35154f;
+  transition:.35s ease;
+}
+.hamburger.active span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+.hamburger.active span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  z-index:1100;
+  background:rgba(20,5,35,.58);
+  opacity:0;
+  visibility:hidden;
+  transition:.4s ease;
+}
+.menu-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:0;
+  z-index:1150;
+  width:min(84vw,390px);
+  height:100dvh;
+  overflow-y:auto;
+  padding:22px 20px 30px;
+  background:linear-gradient(150deg,#ff3fa4,#8c5bff 55%,#35154f);
+  color:white;
+  box-shadow:-15px 0 50px #0005;
+  transform:translateX(105%);
+  transition:transform .5s cubic-bezier(.22,.8,.24,1);
+}
+.mobile-menu.active{transform:translateX(0)}
+
+.mobile-menu-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:4px 2px 22px;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+.menu-close{
+  position:relative;
+  z-index:1201;
+  width:38px;
+  height:38px;
+  border:2px solid white;
+  border-radius:50%;
+  background:#ffffff22;
+  color:white;
+  font-size:27px;
+  line-height:1;
+}
+.mobile-nav{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.mobile-nav a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:57px;
+  padding:0 17px;
+  border:1px solid #ffffff44;
+  border-radius:15px;
+  background:#ffffff18;
+  color:white;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:1px;
+  transform:translateX(30px);
+  opacity:0;
+  transition:
+    transform .42s ease,
+    opacity .42s ease,
+    background .2s ease;
+}
+.mobile-menu.active .mobile-nav a{
+  transform:translateX(0);
+  opacity:1;
+}
+.mobile-menu.active .mobile-nav a:nth-child(1){transition-delay:.06s}
+.mobile-menu.active .mobile-nav a:nth-child(2){transition-delay:.10s}
+.mobile-menu.active .mobile-nav a:nth-child(3){transition-delay:.14s}
+.mobile-menu.active .mobile-nav a:nth-child(4){transition-delay:.18s}
+.mobile-menu.active .mobile-nav a:nth-child(5){transition-delay:.22s}
+.mobile-menu.active .mobile-nav a:nth-child(6){transition-delay:.26s}
+.mobile-menu.active .mobile-nav a:nth-child(7){transition-delay:.30s}
+.mobile-menu.active .mobile-nav a:nth-child(8){transition-delay:.34s}
+.mobile-menu.active .mobile-nav a:nth-child(9){transition-delay:.38s}
+.mobile-nav a:active{background:#ffffff30}
+.mobile-nav small{opacity:.65}
+.mobile-ticket{
+  margin-top:10px;
+  background:linear-gradient(90deg,#ffd83d,#ff75bd)!important;
+  color:#35154f!important;
+  border:none!important;
 }
 
 /* HERO */
-
 .hero{
-  padding:64px 0 48px;
+  min-height:590px;
+  position:relative;
+  overflow:hidden;
+  color:white;
+  padding:85px 22px 70px;
   background:
-    linear-gradient(
-      135deg,
-      #ffe5f3 0 48%,
-      #e9ddff 48% 72%,
-      #d9f7ff 72%
-    );
-  border-bottom:3px solid var(--ink);
+    radial-gradient(circle at 15% 15%,#fff 0 2px,transparent 3px),
+    radial-gradient(circle at 80% 30%,#fff 0 3px,transparent 4px),
+    linear-gradient(135deg,#ff4da6,#8c5bff 50%,#45d9ff);
+  background-size:90px 90px,130px 130px,auto;
 }
-
-.kicker{
-  font-weight:900;
-  letter-spacing:.12em;
+.hero:before{
+  content:"✦  ✧  ✦  ✧  ✦";
+  position:absolute;
+  top:25px;
+  right:15px;
+  color:#ffe34b;
+  font-size:25px;
+  letter-spacing:8px;
 }
-
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:3px}
 .hero h1{
-  font-size:clamp(38px,8vw,78px);
-  line-height:.98;
-  margin:10px 0 18px;
-  font-weight:1000;
+  margin:25px 0 20px;
+  font-size:64px;
+  line-height:.9;
+  letter-spacing:-5px;
+  text-shadow:5px 6px #ff318f;
 }
-
-.hero p{
-  font-weight:800;
-}
-
-/* CONTENT */
-
-section{
-  padding:52px 0;
-}
-
-.section-title{
-  font-size:32px;
-  margin:0 0 8px;
-  font-weight:1000;
-}
-
-.lead{
-  margin:0 0 26px;
-  font-weight:700;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.card{
-  background:#fff;
-  border:3px solid var(--ink);
-  border-radius:18px;
-  padding:22px;
-  box-shadow:7px 7px 0 var(--ink);
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
-}
-
-.card:hover{
-  transform:translate(-2px,-2px);
-  box-shadow:9px 9px 0 var(--ink);
-}
-
-.card h3{
-  margin:0 0 8px;
-  font-size:21px;
-}
-
-.tag{
-  display:inline-block;
-  background:#dff8ff;
-  border:2px solid var(--ink);
-  border-radius:999px;
-  padding:2px 9px;
-  font-size:12px;
-  font-weight:900;
-  margin-bottom:10px;
-}
-
-.card-number{
+.theme{display:flex;align-items:center;gap:12px}
+.theme span{font-size:12px}
+.theme strong{
   font-size:38px;
-  font-weight:1000;
-  line-height:1;
-  margin-bottom:15px;
+  color:#ffe34b;
+  text-shadow:3px 3px #7b3cff;
 }
-
-.notice{
-  padding:14px 16px;
-  border:3px solid var(--ink);
-  border-radius:14px;
-  background:#fff4a8;
-  font-weight:800;
-  margin:24px 0 30px;
-}
-
-.actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-top:32px;
-}
-
-.btn{
+.catch{font-size:19px;line-height:1.8}
+.catch strong{font-size:26px}
+.event{
   display:inline-block;
-  padding:12px 18px;
-  border:3px solid var(--ink);
-  border-radius:12px;
-  background:var(--pink);
-  font-weight:1000;
-  box-shadow:4px 4px 0 var(--ink);
-  cursor:pointer;
+  margin-top:15px;
+  padding:12px 15px;
+  background:white;
+  color:#35154f;
+  font-size:10px;
+  font-weight:bold;
 }
 
-.btn.alt{
-  background:var(--cyan);
+/* COMMON */
+section{padding:75px 22px}
+.label{
+  color:#ff3fa4;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  margin-bottom:18px;
 }
+h2{font-size:39px;line-height:1;margin:0 0 25px}
 
-.btn.yellow{
-  background:var(--yellow);
+/* ABOUT */
+.about{background:white}
+.about .lead{font-size:21px;font-weight:bold}
+.about p{line-height:2}
+.theme-card{
+  margin-top:35px;
+  padding:25px;
+  background:#ffd83d;
+  border:3px solid #35154f;
+  box-shadow:7px 7px #35154f;
+  transform:rotate(1deg);
+}
+.theme-card small{font-weight:bold}
+.theme-card strong{display:block;font-size:39px;margin:8px 0}
+
+/* STAGES */
+.stages{background:#f3edff}
+.cards{display:grid;gap:18px}
+.card{
+  min-height:210px;
+  padding:25px;
+  color:white;
+  border:3px solid #35154f;
+  box-shadow:7px 7px #35154f;
+}
+.card h3{margin-top:45px;font-size:27px}
+.card p{line-height:1.7}
+.main{background:#ff3fa4}
+.sub{background:#45cfff}
+.new{background:#8c5bff}
+.tv{background:#ffbd3d;color:#35154f}
+
+/* AUDITION */
+.audition{background:#35154f;color:white}
+.audit-box{border:3px solid #ffe34b;padding:25px}
+.audit-box h2{color:#ffe34b}
+.audit-box strong{color:#ff75bd}
+
+/* MARKET */
+.market{
+  background:
+    radial-gradient(circle at 90% 10%,#ffd83d55 0 55px,transparent 56px),
+    radial-gradient(circle at 8% 85%,#45d9ff33 0 90px,transparent 91px),
+    #fff0f7;
+}
+.market-lead{max-width:620px}
+.market-lead .lead{margin-bottom:8px}
+.market-intro{line-height:1.9;font-size:14px;margin:0 0 28px}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags span{
+  padding:12px 17px;
+  border:3px solid #35154f;
+  border-radius:30px;
+  background:white;
+  font-size:11px;
+  font-weight:900;
+  transition:transform .25s ease,background .25s ease;
+}
+.tags span:hover{transform:translateY(-4px) rotate(-2deg);background:#ffe34b}
+.market-grid{display:grid;gap:16px;margin-top:28px}
+.market-card{
+  position:relative;padding:22px;min-height:150px;border:3px solid #35154f;
+  box-shadow:7px 7px #35154f;overflow:hidden;
+  transition:transform .3s cubic-bezier(.22,.8,.24,1),box-shadow .3s ease;
+}
+.market-card:hover{transform:translate(-2px,-5px) rotate(-.5deg);box-shadow:9px 12px #35154f}
+.market-card:nth-child(1){background:#ffd83d}
+.market-card:nth-child(2){background:#ff75bd;color:#35154f}
+.market-card:nth-child(3){background:#8c5bff;color:white}
+.market-card:nth-child(4){background:#45d9ff;color:#35154f}
+.market-card:nth-child(5){background:#ff75bd;color:#35154f}
+.market-card:nth-child(6){background:#45d9ff;color:#35154f}
+.market-card:nth-child(7){background:#8c5bff;color:white}
+.market-card small{font-size:10px;font-weight:900;letter-spacing:2px}
+.market-card h3{margin:28px 0 8px;font-size:22px}
+.market-card p{margin:0;line-height:1.7;font-size:12px;max-width:90%}
+.market-card .num{position:absolute;right:15px;top:12px;font-size:38px;font-weight:900;opacity:.22}
+.market-feature{
+  margin-top:30px;padding:25px;background:#35154f;color:white;border:3px solid #35154f;
+  box-shadow:8px 8px #ff3fa4;position:relative;overflow:hidden;
+}
+.market-feature:after{
+  content:'CREATOR SPOTLIGHT';position:absolute;right:-28px;top:20px;padding:7px 35px;
+  background:#ffe34b;color:#35154f;font-size:9px;font-weight:900;transform:rotate(8deg);
+}
+.market-feature h3{color:#ffe34b;font-size:25px;margin:5px 0 10px}
+.market-feature p{line-height:1.8;font-size:13px}
+.market-feature b{color:#ff75bd}
+.market-cta{display:inline-block;margin-top:8px;padding:12px 18px;background:#ffe34b;color:#35154f;border:3px solid #35154f;font-weight:900;cursor:pointer}
+
+/* NEWS */
+.news{background:white}
+.news-item{
+  padding:22px 0;
+  border-top:1px solid #b9a9c5;
+}
+.news-item time{
+  display:block;
+  font-size:11px;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+.news-item b{font-size:15px}
+
+/* FINAL */
+.final{
+  text-align:center;
+  padding:90px 20px;
+  background:linear-gradient(135deg,#ffe34b,#ff75bd,#9c76ff);
+}
+.final p{line-height:2}
+.final h2{font-size:43px}
+.final em{
+  color:white;
+  font-style:normal;
+  text-shadow:4px 4px #ff3fa4;
 }
 
 /* FOOTER */
-
 footer{
-  padding:30px 0;
-  background:var(--ink);
-  color:#fff;
+  padding:35px 20px;
+  background:#35154f;
+  color:white;
+}
+footer small{
+  display:block;
+  margin-top:15px;
+  line-height:1.8;
+  opacity:.75;
+}
+footer p{font-size:10px;opacity:.6}
+
+/* SCROLL REVEAL / MOTION */
+.reveal{
+  opacity:0;
+  transform:translateY(34px);
+  transition:opacity .75s ease, transform .75s cubic-bezier(.22,.8,.24,1);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.card.reveal:nth-child(2){transition-delay:.08s}
+.card.reveal:nth-child(3){transition-delay:.16s}
+.card.reveal:nth-child(4){transition-delay:.24s}
+.news-item.reveal:nth-of-type(2){transition-delay:.08s}
+.news-item.reveal:nth-of-type(3){transition-delay:.16s}
+.news-item.reveal:nth-of-type(4){transition-delay:.24s}
+.special-box{
+  margin-top:25px;
+  display:block;
+  padding:30px 25px;
+  color:white;
+  background:linear-gradient(135deg,#ff3fa4,#8c5bff 58%,#45d9ff);
+  border:3px solid #35154f;
+  box-shadow:8px 8px #35154f;
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.22,.8,.24,1),box-shadow .35s ease;
+}
+.special-box:before{
+  content:'✦';position:absolute;right:22px;top:10px;font-size:70px;color:#ffe34b;opacity:.8;transform:rotate(12deg);
+}
+.special-box:hover{transform:translateY(-5px);box-shadow:8px 13px #35154f}
+.special-box small{font-weight:900;letter-spacing:2px}
+.special-box h3{font-size:30px;margin:12px 0 8px}
+.special-box p{line-height:1.7;margin:0 0 20px}
+.special-play{display:inline-block;background:#ffe34b;color:#35154f;padding:12px 18px;border:3px solid #35154f;font-weight:900}
+@media(max-width:799px){
+  .market-feature:after{right:-42px}
+}
+
+
+/* SPECIAL GAMES */
+.special-grid{display:grid;gap:18px}
+.special-box{
+  min-height:250px;
+}
+.special-fortune{
+  background:linear-gradient(135deg,#35154f,#8c5bff 55%,#45d9ff);
+  color:white;
+  cursor:pointer;
+}
+.special-fortune .special-play{
+  background:#ffe34b;
+}
+.fortune-result{
+  display:none;
+  margin-top:25px;
+  padding:28px 24px;
+  background:white;
+  border:3px solid #35154f;
+  box-shadow:8px 8px #35154f;
   text-align:center;
-  font-size:12px;
+}
+.fortune-result.show{
+  display:block;
+  animation:fortuneIn .45s cubic-bezier(.22,.8,.24,1) both;
+}
+@keyframes fortuneIn{
+  from{opacity:0;transform:translateY(15px) scale(.97) rotate(-1deg)}
+  to{opacity:1;transform:none}
+}
+.fortune-label{font-size:10px;font-weight:900;letter-spacing:2px;color:#ff3fa4}
+.fortune-rank{font-size:64px;font-weight:1000;color:#8c5bff;line-height:1;margin:10px 0}
+.fortune-result h3{font-size:27px;margin:0 0 8px}
+.fortune-result p{line-height:1.8;margin:0 auto 20px;max-width:560px}
+.fortune-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fortune-meta span{padding:14px;background:#f3edff;border:2px solid #35154f;font-size:10px;font-weight:900;line-height:1.6}
+.fortune-meta b{display:block;font-size:15px;color:#ff3fa4}
+@media(min-width:800px){
+  .special-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+  .fortune-meta{grid-template-columns:1fr}
 }
 
-/* MOBILE */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
 
-@media(max-width:760px){
-
-  .grid{
-    grid-template-columns:1fr;
+/* DESKTOP */
+@media(min-width:800px){
+  .hamburger,.mobile-menu,.menu-overlay{display:none}
+  header{padding:0 5vw}
+  nav{
+    display:flex;
+    gap:20px;
+    font-size:11px;
+    font-weight:bold;
   }
-
   .hero{
-    padding:44px 0 36px;
+    min-height:650px;
+    padding:110px 8vw;
   }
-
-  .card{
-    box-shadow:5px 5px 0 var(--ink);
+  .hero h1{font-size:130px}
+  .theme strong{font-size:52px}
+  section{padding:110px 9vw}
+  .about{
+    display:grid;
+    grid-template-columns:1fr 300px;
+    gap:60px;
   }
-
-  .card:hover{
-    transform:none;
-    box-shadow:5px 5px 0 var(--ink);
-  }
-
+  .theme-card{margin-top:0}
+  .cards{grid-template-columns:1fr 1fr}
+  .market-grid{grid-template-columns:1fr 1fr}
 }
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-
-<div class="top">
-
-<header class="wrap">
-
-<a
-  class="brand"
-  href="../index.html"
->
-超アイドル祭
-<small>OFFICIAL SITE</small>
-</a>
-
-</header>
-
-</div>
-
-
+</style><style>.market-grid{grid-template-columns:1fr}.market-card{min-height:190px}@media(min-width:800px){.market-grid{grid-template-columns:1fr 1fr}}</style></head><body><!-- MOBILE MENU -->
+<button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+<div class="menu-overlay" id="menuOverlay"></div>
+<aside class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu-head"><span>MENU</span><button class="menu-close" id="menuClose">×</button></div>
+<nav class="mobile-nav">
+<a href="../index.html#top"><span>TOP</span><small>01</small></a><a href="../index.html#about"><span>ABOUT</span><small>02</small></a><a href="../index.html#stages"><span>STAGE</span><small>03</small></a><a href="../index.html#audition"><span>AUDITION</span><small>04</small></a><a href="../index.html#market"><span>MARKET</span><small>05</small></a><a href="../index.html#special"><span>SPECIAL</span><small>06</small></a><a href="../index.html#news"><span>NEWS</span><small>07</small></a><a href="../index.html"><span>INFORMATION</span><small>08</small></a><a href="../index.html"><span>FAQ</span><small>09</small></a><a href="../goods/"><span>GOODS</span><small>10</small></a><a href="./"><span>LOCAL</span><small>11</small></a><a href="../message/"><span>MESSAGE</span><small>12</small></a><a href="../store/"><span>STORE</span><small>13</small></a><a href="../ticket/"><span>TICKET</span><small>OPEN</small></a>
+</nav></aside>
+<header><div class="logo">超<span>アイドル</span>祭</div><nav><a href="../index.html#about">ABOUT</a><a href="../index.html#stages">STAGE</a><a href="../index.html#audition">AUDITION</a><a href="../index.html#market">MARKET</a><a href="../index.html#special">SPECIAL</a><a href="../index.html#news">NEWS</a><a href="../goods/">GOODS</a><a href="./">LOCAL</a><a href="../message/">MESSAGE</a><a href="../store/">STORE</a><a href="../ticket/" class="nav-ticket">TICKET</a></nav></header>
 <main>
-
-
-<!-- HERO -->
-
-<div class="hero">
-
-<div class="wrap">
-
-<div class="kicker">
-COMMUNITY COLLABORATION
-</div>
-
-<h1>
-LOCAL
-</h1>
-
-<p>
-街と一緒につくる、超アイドル祭。
-</p>
-
-</div>
-
-</div>
-
-
-<!-- INTRO -->
-
-<section>
-
-<div class="wrap">
-
-<h2 class="section-title">
-LOCAL PROJECT
-</h2>
-
-<p class="lead">
-超アイドル祭は、会場の中だけで終わらない。
-地域の学生、クリエイター、店舗、企業、交通機関などと一緒に、
-街全体をイベントの舞台にしていきます。
-</p>
-
-<div class="notice">
-このページに登場する大学・企業・店舗・商品などの名称や設定は架空です。
-実在の団体・企業との提携を示すものではありません。
-</div>
-
-
-<div class="grid">
-
-
-<!-- 01 -->
-
-<div class="card">
-
-<div class="card-number">
-01
-</div>
-
-<span class="tag">
-MOVIE
-</span>
-
-<h3>
-地元大学生 × オープニング映像
-</h3>
-
-<p>
-架空の地元大学に通う学生クリエイターが、
-超アイドル祭のオープニング映像を制作。
-企画・撮影・編集まで学生チームが担当します。
-</p>
-
-</div>
-
-
-<!-- 02 -->
-
-<div class="card">
-
-<div class="card-number">
-02
-</div>
-
-<span class="tag">
-SWEETS
-</span>
-
-<h3>
-ご当地スイーツコラボ
-</h3>
-
-<p>
-架空の地元菓子店と一緒に、
-イベント限定パッケージのご当地スイーツを開発。
-会場や街のお店で楽しめる企画です。
-</p>
-
-</div>
-
-
-<!-- 03 -->
-
-<div class="card">
-
-<div class="card-number">
-03
-</div>
-
-<span class="tag">
-BUSINESS
-</span>
-
-<h3>
-地域企業コラボ
-</h3>
-
-<p>
-架空の印刷・製造・デザイン事業者と協力し、
-ポスター、会場装飾、イベントツール、
-一部グッズなどを制作します。
-</p>
-
-</div>
-
-
-<!-- 04 -->
-
-<div class="card">
-
-<div class="card-number">
-04
-</div>
-
-<span class="tag">
-STATION
-</span>
-
-<h3>
-駅・交通ウェルカムプロジェクト
-</h3>
-
-<p>
-駅や交通機関と連動したウェルカム企画。
-イベント当日は街に到着した瞬間から
-「超アイドル祭」を感じられる空間を目指します。
-</p>
-
-</div>
-
-
-<!-- 05 -->
-
-<div class="card">
-
-<div class="card-number">
-05
-</div>
-
-<span class="tag">
-SHOPPING STREET
-</span>
-
-<h3>
-商店街コラボ
-</h3>
-
-<p>
-商店街の店舗を巡りながら楽しめる
-期間限定企画を開催。
-イベント参加者と街のお店をつなぎます。
-</p>
-
-</div>
-
-
-<!-- 06 -->
-
-<div class="card">
-
-<div class="card-number">
-06
-</div>
-
-<span class="tag">
-CREATORS
-</span>
-
-<h3>
-地元クリエイター展示
-</h3>
-
-<p>
-地域で活動する架空のイラストレーター、
-写真家、映像クリエイターなどの作品を
-会場や周辺エリアで紹介します。
-</p>
-
-</div>
-
-
-<!-- 07 -->
-
-<div class="card">
-
-<div class="card-number">
-07
-</div>
-
-<span class="tag">
-STAMP RALLY
-</span>
-
-<h3>
-まち歩きスタンプラリー
-</h3>
-
-<p>
-街のさまざまな場所を巡って
-スタンプを集める回遊型企画。
-ライブの前後も街を楽しめます。
-</p>
-
-</div>
-
-
-</div>
-
-
-<!-- PROJECT FLOW -->
-
-<section>
-
-<h2 class="section-title">
-PROJECT FLOW
-</h2>
-
-<p class="lead">
-イベントをきっかけに、街のいろいろな場所へ。
-</p>
-
-<div class="grid">
-
-
-<div class="card">
-
-<span class="tag">
-STEP 01
-</span>
-
-<h3>
-駅に到着
-</h3>
-
-<p>
-ウェルカム企画で
-「超アイドル祭」の世界へ。
-</p>
-
-</div>
-
-
-<div class="card">
-
-<span class="tag">
-STEP 02
-</span>
-
-<h3>
-街を歩く
-</h3>
-
-<p>
-商店街やコラボ店舗を巡って
-スタンプを集めよう。
-</p>
-
-</div>
-
-
-<div class="card">
-
-<span class="tag">
-STEP 03
-</span>
-
-<h3>
-会場へ
-</h3>
-
-<p>
-地元クリエイターや学生が
-つくったコンテンツも楽しめます。
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- LINKS -->
-
-<div class="actions">
-
-<a
-  class="btn alt"
-  href="../index.html"
->
-メインページへ
-</a>
-
-<a
-  class="btn yellow"
-  href="../goods/"
->
-公式GOODSを見る
-</a>
-
-<a
-  class="btn"
-  href="../message/"
->
-アイドルにメッセージ
-</a>
-
-</div>
-
-</div>
-
-</section>
-
+<section class="hero" id="top"><div><div class="eyebrow">THE BIGGEST IDOL FESTIVAL / LOCAL PROJECT</div><h1>LOCAL<br>PROJECT</h1><div class="theme"><span>今年のテーマ</span><strong>街とつながる</strong></div><p class="catch">フェスは、会場だけじゃない。<br><strong>街全体が、ステージになる。</strong></p><div class="event">CITY / COMMUNITY / CULTURE / IDOL</div></div></section>
+<section class="about reveal"><div><div class="label">01 / LOCAL PROJECT</div><h2>街と、ひとつになる。</h2><p class="lead">超アイドル祭は、会場の中だけで完結するフェスではありません。</p><p>開催地の街、そこに暮らす人たち、地域のお店や企業、クリエイター。さまざまな人たちと一緒に、フェスの時間を街全体へ広げていきます。</p><p>アイドルをきっかけに街を知り、街を歩き、街の魅力に出会う。そんな新しいフェス体験をつくるのが「LOCAL PROJECT」です。</p></div><div class="theme-card"><small>THIS YEAR'S IDEA</small><h3>CITY × IDOL</h3><p>アイドルと地域が一緒になって、開催地そのものをもっと楽しく。</p></div></section>
+<section class="market reveal"><div class="label">02 / PROJECT</div><h2>LOCAL PROJECTS</h2><p class="market-intro">フェスに来た人にも、街に暮らす人にも、新しい出会いが生まれる7つの企画。</p><div class="market-grid">
+<article class="market-card"><div class="num">01</div><small>MOVIE</small><h3>地元大学生 × オープニング映像</h3><p>地元大学の学生が、開催地の魅力や街の風景を撮影。超アイドル祭のオープニング映像として会場で上映します。</p></article>
+<article class="market-card"><div class="num">02</div><small>SWEETS</small><h3>ご当地スイーツコラボ</h3><p>地元のお店とアイドルがコラボレーション。開催期間限定のご当地スイーツを展開します。</p></article>
+<article class="market-card"><div class="num">03</div><small>BUSINESS</small><h3>地域企業コラボ</h3><p>地域企業と連携し、街の魅力や仕事、文化を紹介。アイドルと地域をつなぐ企画を実施します。</p></article>
+<article class="market-card"><div class="num">04</div><small>STATION</small><h3>駅・交通ウェルカムプロジェクト</h3><p>駅や交通機関と連携し、街を訪れるファンを歓迎。開催地に到着した瞬間からフェスを楽しめる空間をつくります。</p></article>
+<article class="market-card"><div class="num">05</div><small>SHOPPING STREET</small><h3>商店街コラボ</h3><p>商店街のお店とコラボレーション。ファンが街を歩きながら楽しめる企画や限定展開を予定しています。</p></article>
+<article class="market-card"><div class="num">06</div><small>CREATORS</small><h3>地元クリエイター展示</h3><p>地元で活動するイラストレーターや写真家、デザイナーなどの作品を街や会場周辺で展示します。</p></article>
+<article class="market-card"><div class="num">07</div><small>STAMP RALLY</small><h3>まち歩きスタンプラリー</h3><p>街のさまざまな場所を巡りながら楽しめるスタンプラリー。フェスと街歩きを一緒に楽しめる企画です。</p></article></div>
+<div class="market-feature"><h3>来てよかった、が街にも残る。</h3><p>フェスが終わったあとにも「またこの街に来たい」と思ってもらえるように。<b>アイドル、ファン、地域、クリエイター、企業。</b>それぞれが交わることで生まれる、新しいフェスの形を目指します。</p></div></section>
+<section class="stages reveal"><div class="label">03 / PROJECT FLOW</div><h2>フェスの一日が、<br>街の一日になる。</h2><div class="cards"><article class="card main"><small>STEP 01</small><h3>駅に到着</h3><p>駅や交通機関から、超アイドル祭の空気がスタート。開催地に着いた瞬間からフェスを感じられる仕掛けを展開します。</p></article><article class="card sub"><small>STEP 02</small><h3>街を歩く</h3><p>ご当地グルメ、商店街、展示、スタンプラリー。街を歩くことそのものが、フェスの楽しみになります。</p></article><article class="card new"><small>STEP 03</small><h3>会場へ</h3><p>街で出会ったものを持って、いよいよ会場へ。ここから本編のライブとエンターテインメントが始まります。</p></article></div></section>
+<section class="audition reveal"><div class="audit-box"><div class="label">04 / NOTE</div><h2>LOCAL PROJECT<br>OFFICIAL NOTE</h2><p>LOCAL PROJECTの内容は、開催地・協力企業・各種団体との調整により変更となる場合があります。</p></div></section>
 </main>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-超アイドル祭 OFFICIAL SITE<br>
-このサイト・イベント・掲載情報は架空のものです。<br>
-実在の人物・団体・企業・イベントとは関係ありません。
-
-</footer>
-
-</body>
-</html>
-```
+<footer><div class="logo">超<span>アイドル</span>祭</div><small>※ご来場・ご参加にあたっての注意事項<br>※本サイトの「超アイドル祭」および関連情報は、すべて創作上の架空の設定です。実在する人物・団体・イベントとは一切関係ありません。<br>各ステージおよびオーディションの内容は、出演者の安全および運営判断により、予告なく変更・中止となる場合があります。</small><p>© 超アイドル祭公式運営委員会</p></footer>
+<script>
+const hamburgerBtn=document.getElementById("hamburgerBtn"),mobileMenu=document.getElementById("mobileMenu"),menuOverlay=document.getElementById("menuOverlay"),menuClose=document.getElementById("menuClose");
+function openMenu(){hamburgerBtn.classList.add("active");mobileMenu.classList.add("active");menuOverlay.classList.add("active");document.body.style.overflow="hidden"}
+function closeMenu(){hamburgerBtn.classList.remove("active");mobileMenu.classList.remove("active");menuOverlay.classList.remove("active");document.body.style.overflow=""}
+hamburgerBtn.addEventListener("click",()=>{if(mobileMenu.classList.contains("active")){closeMenu()}else{openMenu()}});menuClose.addEventListener("click",closeMenu);menuOverlay.addEventListener("click",closeMenu);document.querySelectorAll(".mobile-nav a").forEach(a=>a.addEventListener("click",closeMenu));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("visible")}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body></html>
