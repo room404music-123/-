@@ -1,0 +1,656 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>MESSAGE｜超アイドル祭 OFFICIAL SITE</title>
+
+<style>
+:root{
+  --ink:#35154f;
+  --pink:#ff3fa4;
+  --purple:#8c5bff;
+  --cyan:#45d9ff;
+  --yellow:#ffd83d;
+  --white:#fff;
+  --bg:#fff8fd;
+}
+
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,63,164,.13) 0 55px,transparent 56px),
+    radial-gradient(circle at 90% 30%,rgba(69,217,255,.13) 0 70px,transparent 71px),
+    var(--bg);
+  color:var(--ink);
+  font-family:
+    system-ui,-apple-system,BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:3px solid var(--ink);
+  box-shadow:0 5px 0 var(--ink);
+}
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-weight:1000;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+.logo-main{
+  font-size:20px;
+}
+
+.logo-sub{
+  display:block;
+  margin-top:4px;
+  font-size:10px;
+  letter-spacing:.16em;
+}
+
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 14px;
+  background:var(--yellow);
+  border:3px solid var(--ink);
+  border-radius:999px;
+  font-weight:900;
+  box-shadow:3px 3px 0 var(--ink);
+  transition:.15s;
+}
+
+.back:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:5px 5px 0 var(--ink);
+}
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:70px 20px 45px;
+  text-align:center;
+}
+
+.kicker{
+  display:inline-block;
+  padding:7px 14px;
+  background:var(--cyan);
+  border:3px solid var(--ink);
+  border-radius:999px;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.12em;
+  box-shadow:4px 4px 0 var(--ink);
+}
+
+.hero h1{
+  margin:18px 0 8px;
+  font-size:clamp(42px,9vw,88px);
+  line-height:.9;
+  letter-spacing:-.06em;
+  font-weight:1000;
+  color:var(--pink);
+  text-shadow:
+    4px 4px 0 var(--ink),
+    7px 7px 0 var(--yellow);
+}
+
+.hero h2{
+  margin:0;
+  font-size:clamp(20px,4vw,34px);
+  font-weight:1000;
+}
+
+.hero p{
+  max-width:650px;
+  margin:18px auto 0;
+  line-height:1.9;
+  font-weight:700;
+}
+
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:0 20px 70px;
+}
+
+.notice{
+  margin-bottom:24px;
+  padding:18px 20px;
+  background:#fff;
+  border:3px solid var(--ink);
+  border-radius:18px;
+  box-shadow:7px 7px 0 var(--purple);
+  font-size:13px;
+  line-height:1.8;
+  font-weight:700;
+}
+
+.notice strong{
+  color:var(--pink);
+}
+
+.card{
+  background:#fff;
+  border:3px solid var(--ink);
+  border-radius:24px;
+  box-shadow:9px 9px 0 var(--ink);
+  padding:30px;
+}
+
+.card-title{
+  margin:0 0 24px;
+  font-size:25px;
+  font-weight:1000;
+}
+
+.field{
+  margin-bottom:22px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:1000;
+}
+
+.optional{
+  display:inline-block;
+  margin-left:6px;
+  padding:2px 7px;
+  border:2px solid var(--ink);
+  border-radius:999px;
+  background:var(--yellow);
+  font-size:10px;
+  vertical-align:middle;
+}
+
+select,
+input,
+textarea{
+  width:100%;
+  border:3px solid var(--ink);
+  border-radius:13px;
+  background:#fff;
+  color:var(--ink);
+  padding:13px 14px;
+  outline:none;
+  font-weight:700;
+  box-shadow:3px 3px 0 #ddd;
+}
+
+select:focus,
+input:focus,
+textarea:focus{
+  box-shadow:4px 4px 0 var(--cyan);
+}
+
+textarea{
+  min-height:180px;
+  resize:vertical;
+  line-height:1.7;
+}
+
+.help{
+  margin-top:7px;
+  font-size:11px;
+  font-weight:700;
+  opacity:.7;
+}
+
+.submit{
+  width:100%;
+  margin-top:4px;
+  padding:16px 20px;
+  border:3px solid var(--ink);
+  border-radius:15px;
+  background:var(--pink);
+  color:#fff;
+  font-size:18px;
+  font-weight:1000;
+  cursor:pointer;
+  box-shadow:6px 6px 0 var(--ink);
+  transition:.15s;
+}
+
+.submit:hover{
+  transform:translate(-3px,-3px);
+  box-shadow:9px 9px 0 var(--ink);
+}
+
+.submit:active{
+  transform:translate(3px,3px);
+  box-shadow:2px 2px 0 var(--ink);
+}
+
+.complete{
+  display:none;
+  text-align:center;
+  padding:25px 10px 10px;
+}
+
+.complete.show{
+  display:block;
+}
+
+.form-area.hide{
+  display:none;
+}
+
+.complete-badge{
+  display:inline-block;
+  padding:8px 14px;
+  background:var(--cyan);
+  border:3px solid var(--ink);
+  border-radius:999px;
+  font-weight:1000;
+  box-shadow:4px 4px 0 var(--ink);
+}
+
+.complete h2{
+  margin:22px 0 8px;
+  color:var(--pink);
+  font-size:clamp(32px,7vw,55px);
+  line-height:1;
+  font-weight:1000;
+  text-shadow:3px 3px 0 var(--ink);
+}
+
+.complete p{
+  line-height:1.8;
+  font-weight:700;
+}
+
+.received{
+  margin:25px auto;
+  max-width:550px;
+  padding:18px;
+  background:#fff7bd;
+  border:3px solid var(--ink);
+  border-radius:16px;
+  text-align:left;
+}
+
+.received-row{
+  padding:10px 0;
+  border-bottom:2px dashed var(--ink);
+}
+
+.received-row:last-child{
+  border-bottom:0;
+}
+
+.received-label{
+  display:block;
+  font-size:11px;
+  font-weight:1000;
+  opacity:.65;
+}
+
+.received-value{
+  display:block;
+  margin-top:4px;
+  font-weight:900;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+.again{
+  display:inline-block;
+  margin-top:8px;
+  padding:12px 18px;
+  background:var(--purple);
+  color:#fff;
+  border:3px solid var(--ink);
+  border-radius:12px;
+  font-weight:1000;
+  box-shadow:5px 5px 0 var(--ink);
+  cursor:pointer;
+}
+
+.links{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.link-card{
+  display:block;
+  padding:18px;
+  background:#fff;
+  border:3px solid var(--ink);
+  border-radius:16px;
+  font-weight:1000;
+  box-shadow:5px 5px 0 var(--ink);
+  transition:.15s;
+}
+
+.link-card:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:7px 7px 0 var(--pink);
+}
+
+.link-card small{
+  display:block;
+  margin-top:5px;
+  font-size:11px;
+  opacity:.65;
+}
+
+footer{
+  padding:35px 20px;
+  border-top:3px solid var(--ink);
+  background:#35154f;
+  color:#fff;
+  text-align:center;
+  font-size:11px;
+  line-height:1.8;
+}
+
+@media(max-width:650px){
+  .header-inner{
+    padding:12px 14px;
+  }
+
+  .logo-main{
+    font-size:17px;
+  }
+
+  .back{
+    padding:8px 11px;
+    font-size:12px;
+  }
+
+  .hero{
+    padding:55px 15px 35px;
+  }
+
+  .wrap{
+    padding:0 14px 55px;
+  }
+
+  .card{
+    padding:21px 17px;
+    border-radius:19px;
+    box-shadow:7px 7px 0 var(--ink);
+  }
+
+  .links{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html">
+      <span class="logo-main">超アイドル祭</span>
+      <span class="logo-sub">OFFICIAL SITE</span>
+    </a>
+
+    <a class="back" href="../index.html">
+      ← TOPへ戻る
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <span class="kicker">SUPPORT MESSAGE</span>
+    <h1>MESSAGE</h1>
+    <h2>アイドルへの応援メッセージ</h2>
+    <p>
+      好きなアイドルへ、あなたの「応援してる！」を届けよう。<br>
+      イベントサイト上でメッセージ受付を体験できるデモページです。
+    </p>
+  </section>
+
+  <div class="wrap">
+
+    <div class="notice">
+      <strong>⚠ DEMO NOTICE</strong><br>
+      このページは「超アイドル祭 OFFICIAL SITE」の演出用デモです。
+      入力した内容は実際には送信・保存されません。
+      <br>
+      <strong>個人情報・住所・電話番号・メールアドレスなどは入力しないでください。</strong>
+    </div>
+
+    <section class="card">
+
+      <div id="formArea" class="form-area">
+
+        <h2 class="card-title">💌 MESSAGE FORM</h2>
+
+        <form id="messageForm">
+
+          <div class="field">
+            <label for="idol">
+              応援するアイドル
+            </label>
+
+            <select id="idol" required>
+              <option value="">アイドルを選択してください</option>
+              <option value="星乃ミク">星乃ミク</option>
+              <option value="天音ルナ">天音ルナ</option>
+              <option value="桜井ノア">桜井ノア</option>
+              <option value="白石ユイ">白石ユイ</option>
+              <option value="虹川リオ">虹川リオ</option>
+              <option value="月島アカリ">月島アカリ</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="nickname">
+              ニックネーム
+              <span class="optional">任意</span>
+            </label>
+
+            <input
+              id="nickname"
+              type="text"
+              maxlength="30"
+              placeholder="例：アイドル祭だいすき！"
+            >
+
+            <div class="help">
+              本名ではなく、ニックネームを使ってください。
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">
+              応援メッセージ
+            </label>
+
+            <textarea
+              id="message"
+              maxlength="300"
+              required
+              placeholder="アイドルへの応援メッセージを書いてね！&#10;&#10;例：ステージ楽しみにしています！ずっと応援しています！"
+            ></textarea>
+
+            <div class="help">
+              300文字以内で入力してください。
+            </div>
+          </div>
+
+          <button class="submit" type="submit">
+            💌 メッセージを送る
+          </button>
+
+        </form>
+
+      </div>
+
+      <div id="complete" class="complete">
+
+        <span class="complete-badge">MESSAGE RECEIVED!</span>
+
+        <h2>THANK YOU!</h2>
+
+        <p>
+          応援メッセージを受け付けました！<br>
+          あなたの応援が、ステージをもっと盛り上げます。
+        </p>
+
+        <div class="received">
+
+          <div class="received-row">
+            <span class="received-label">IDOL</span>
+            <span id="receivedIdol" class="received-value"></span>
+          </div>
+
+          <div class="received-row">
+            <span class="received-label">NICKNAME</span>
+            <span id="receivedNickname" class="received-value"></span>
+          </div>
+
+          <div class="received-row">
+            <span class="received-label">MESSAGE</span>
+            <span id="receivedMessage" class="received-value"></span>
+          </div>
+
+        </div>
+
+        <p>
+          ※これはサイト演出用のデモです。<br>
+          実際の送信・保存は行われていません。
+        </p>
+
+        <button id="again" class="again" type="button">
+          ＋ もう一度メッセージを送る
+        </button>
+
+      </div>
+
+    </section>
+
+    <div class="links">
+
+      <a class="link-card" href="../index.html">
+        🏠 OFFICIAL SITE
+        <small>超アイドル祭トップへ戻る</small>
+      </a>
+
+      <a class="link-card" href="../goods/">
+        🛍 GOODS
+        <small>公式イベントグッズを見る</small>
+      </a>
+
+      <a class="link-card" href="../local/">
+        📍 LOCAL PROJECT
+        <small>地域コラボレーションを見る</small>
+      </a>
+
+      <a class="link-card" href="../store/">
+        🛒 ONLINE STORE
+        <small>公式オンラインストアへ</small>
+      </a>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  © 超アイドル祭 OFFICIAL SITE<br>
+  本サイトおよびイベント・掲載情報は架空のものです。
+  実在の人物・団体・イベント・企業等とは関係ありません。
+</footer>
+
+<script>
+const form = document.getElementById("messageForm");
+const formArea = document.getElementById("formArea");
+const complete = document.getElementById("complete");
+
+const idol = document.getElementById("idol");
+const nickname = document.getElementById("nickname");
+const message = document.getElementById("message");
+
+const receivedIdol = document.getElementById("receivedIdol");
+const receivedNickname = document.getElementById("receivedNickname");
+const receivedMessage = document.getElementById("receivedMessage");
+
+const again = document.getElementById("again");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  if(!idol.value || !message.value.trim()){
+    return;
+  }
+
+  receivedIdol.textContent = idol.value;
+  receivedNickname.textContent = nickname.value.trim() || "匿名";
+  receivedMessage.textContent = message.value.trim();
+
+  formArea.classList.add("hide");
+  complete.classList.add("show");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+});
+
+again.addEventListener("click", function(){
+  form.reset();
+
+  complete.classList.remove("show");
+  formArea.classList.remove("hide");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+});
+</script>
+
+</body>
+</html>
+```
