@@ -374,6 +374,45 @@ footer small{
 }
 footer p{font-size:10px;opacity:.6}
 
+/* SCROLL REVEAL / MOTION */
+.reveal{
+  opacity:0;
+  transform:translateY(34px);
+  transition:opacity .75s ease, transform .75s cubic-bezier(.22,.8,.24,1);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.card.reveal:nth-child(2){transition-delay:.08s}
+.card.reveal:nth-child(3){transition-delay:.16s}
+.card.reveal:nth-child(4){transition-delay:.24s}
+.news-item.reveal:nth-of-type(2){transition-delay:.08s}
+.news-item.reveal:nth-of-type(3){transition-delay:.16s}
+.news-item.reveal:nth-of-type(4){transition-delay:.24s}
+.special-box{
+  margin-top:25px;
+  display:block;
+  padding:30px 25px;
+  color:white;
+  background:linear-gradient(135deg,#ff3fa4,#8c5bff 58%,#45d9ff);
+  border:3px solid #35154f;
+  box-shadow:8px 8px #35154f;
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.22,.8,.24,1),box-shadow .35s ease;
+}
+.special-box:before{
+  content:'✦';position:absolute;right:22px;top:10px;font-size:70px;color:#ffe34b;opacity:.8;transform:rotate(12deg);
+}
+.special-box:hover{transform:translateY(-5px);box-shadow:8px 13px #35154f}
+.special-box small{font-weight:900;letter-spacing:2px}
+.special-box h3{font-size:30px;margin:12px 0 8px}
+.special-box p{line-height:1.7;margin:0 0 20px}
+.special-play{display:inline-block;background:#ffe34b;color:#35154f;padding:12px 18px;border:3px solid #35154f;font-weight:900}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+
 /* DESKTOP */
 @media(min-width:800px){
   .hamburger,.mobile-menu,.menu-overlay{display:none}
@@ -428,9 +467,10 @@ footer p{font-size:10px;opacity:.6}
     <a href="#stages" data-action="stage"><span>STAGE</span><small>03</small></a>
     <a href="#audition" data-action="audition"><span>AUDITION</span><small>04</small></a>
     <a href="#market" data-action="market"><span>MARKET</span><small>05</small></a>
-    <a href="#news" data-action="news"><span>NEWS</span><small>06</small></a>
-    <a href="#information" data-action="info"><span>INFORMATION</span><small>07</small></a>
-    <a href="#faq" data-action="faq"><span>FAQ</span><small>08</small></a>
+    <a href="#special" data-action="special"><span>SPECIAL</span><small>06</small></a>
+    <a href="#news" data-action="news"><span>NEWS</span><small>07</small></a>
+    <a href="#information" data-action="info"><span>INFORMATION</span><small>08</small></a>
+    <a href="#faq" data-action="faq"><span>FAQ</span><small>09</small></a>
     <a href="#ticket" class="mobile-ticket" data-action="ticket"><span>TICKET</span><small>OPEN</small></a>
   </nav>
 </aside>
@@ -443,6 +483,7 @@ footer p{font-size:10px;opacity:.6}
     <a href="#stages">STAGE</a>
     <a href="#audition">AUDITION</a>
     <a href="#market">MARKET</a>
+    <a href="#special">SPECIAL</a>
     <a href="#news">NEWS</a>
   </nav>
 
@@ -483,7 +524,7 @@ footer p{font-size:10px;opacity:.6}
   </div>
 </section>
 
-<section id="about" class="about">
+<section id="about" class="about reveal">
   <div>
     <div class="label">01 / ABOUT</div>
     <h2>超アイドル祭とは</h2>
@@ -501,7 +542,7 @@ footer p{font-size:10px;opacity:.6}
     </p>
   </div>
 
-  <div class="theme-card">
+  <div class="theme-card reveal">
     <small>THIS YEAR'S THEME SONG</small>
     <strong>成長期</strong>
     <small>前年アイドリティ優勝者</small>
@@ -514,28 +555,28 @@ footer p{font-size:10px;opacity:.6}
 
   <div class="cards">
 
-    <article class="card main" onclick="openPanel('main')">
+    <article class="card main reveal" onclick="openPanel('main')">
       <small>01</small>
       <h3>MAIN STAGE</h3>
       <p>選ばれた者だけが立てる、最終到達点。</p>
       <b>FC 100,000+ / AUDITION</b>
     </article>
 
-    <article class="card sub" onclick="openPanel('sub')">
+    <article class="card sub reveal" onclick="openPanel('sub')">
       <small>02</small>
       <h3>SUB STAGE 1・2</h3>
       <p>“魅せ方”で勝負するアイドルが集う。</p>
       <b>ENTRY / FIRST COME</b>
     </article>
 
-    <article class="card new" onclick="openPanel('new')">
+    <article class="card new reveal" onclick="openPanel('new')">
       <small>03</small>
       <h3>NEW STAR</h3>
       <p>新人アイドル専用ステージ。<br>ここから、物語が始まる。</p>
       <b>新人アイドル専用</b>
     </article>
 
-    <article class="card tv" onclick="openPanel('tv')">
+    <article class="card tv reveal" onclick="openPanel('tv')">
       <small>04</small>
       <h3>TV STAGE</h3>
       <p>参加型オーディション<br>「アイドリティ」</p>
@@ -548,7 +589,7 @@ footer p{font-size:10px;opacity:.6}
 <section id="audition" class="audition">
   <div class="label">03 / AUDITION</div>
 
-  <div class="audit-box">
+  <div class="audit-box reveal">
     <div class="eyebrow">OFFICIAL PROGRAM</div>
     <h2>アイドリティ</h2>
 
@@ -572,7 +613,7 @@ footer p{font-size:10px;opacity:.6}
     “創る側”の祭典。
   </p>
 
-  <div class="tags">
+  <div class="tags reveal">
     <span>MUSIC</span>
     <span>ILLUSTRATION</span>
     <span>COSTUME</span>
@@ -581,21 +622,34 @@ footer p{font-size:10px;opacity:.6}
   </div>
 </section>
 
+
+<section id="special" class="special" style="background:#f3edff">
+  <div class="label">05 / SPECIAL</div>
+  <h2>PLAY &amp;<br>DISCOVER</h2>
+
+  <a class="special-box reveal" href="game/">
+    <small>OFFICIAL MINI GAME</small>
+    <h3>あなたに合うステージを診断！</h3>
+    <p>いくつかの質問に答えて、あなたにぴったりの超アイドル祭ステージをチェック。</p>
+    <span class="special-play">診断をはじめる ↗</span>
+  </a>
+</section>
+
 <section id="news" class="news">
-  <div class="label">05 / NEWS</div>
+  <div class="label">06 / NEWS</div>
   <h2>LATEST<br>NEWS</h2>
 
-  <div class="news-item">
+  <div class="news-item reveal">
     <time>09.13.2026</time>
     <b>超アイドル祭 OFFICIAL SITE OPEN</b>
   </div>
 
-  <div class="news-item">
+  <div class="news-item reveal">
     <time>08.01.2026</time>
     <b>今年のテーマ「成長期」発表</b>
   </div>
 
-  <div class="news-item">
+  <div class="news-item reveal">
     <time>07.15.2026</time>
     <b>超アイドル祭 開催決定</b>
   </div>
@@ -696,7 +750,10 @@ document.querySelectorAll(".mobile-nav a").forEach(a=>{
       else if(action==="market"){
         openPanel("market");
       }
-      else if(action==="news"){
+      else if(action==="special"){
+         document.querySelector("#special").scrollIntoView({behavior:"smooth"});
+       }
+       else if(action==="news"){
         openPanel("news");
       }
       else if(action==="info"){
@@ -711,6 +768,18 @@ document.querySelectorAll(".mobile-nav a").forEach(a=>{
     },180);
   };
 });
+
+/* SCROLL REVEAL */
+const revealItems=document.querySelectorAll(".reveal");
+const revealObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+revealItems.forEach(el=>revealObserver.observe(el));
 
 /* MODAL DATA */
 const panelData={
