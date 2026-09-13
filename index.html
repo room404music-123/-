@@ -1,1 +1,713 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>超アイドル祭 OFFICIAL SITE</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", "Hiragino Kaku Gothic ProN", sans-serif;
+  color: #35154f;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 68px;
+  background: white;
+  border-bottom: 3px solid #35154f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: #ff3fa4;
+}
+
+nav {
+  display: none;
+}
+
+.ticket {
+  border: none;
+  background: #ffd83d;
+  color: #35154f;
+  border-radius: 30px;
+  padding: 11px 16px;
+  font-weight: 900;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 700px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  padding: 70px 22px 40px;
+  background:
+    radial-gradient(circle at 15% 15%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 30%, #ffffff 0 3px, transparent 4px),
+    linear-gradient(135deg, #ff4da6, #8c5bff 50%, #45d9ff);
+  background-size: 90px 90px, 130px 130px, auto;
+}
+
+.hero::before {
+  content: "✦  ✧  ✦  ✧  ✦";
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  color: #ffe34b;
+  font-size: 25px;
+  letter-spacing: 8px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  margin: 25px 0 20px;
+  font-size: 64px;
+  line-height: .9;
+  letter-spacing: -5px;
+  text-shadow: 5px 6px #ff318f;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme span {
+  font-size: 12px;
+}
+
+.theme strong {
+  font-size: 38px;
+  color: #ffe34b;
+  text-shadow: 3px 3px #7b3cff;
+}
+
+.catch {
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.catch strong {
+  font-size: 26px;
+}
+
+.event {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 15px;
+  background: white;
+  color: #35154f;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* STAGE ILLUS */
+
+.stage {
+  position: absolute;
+  bottom: -30px;
+  left: 5%;
+  width: 90%;
+  height: 330px;
+}
+
+.stage-screen {
+  position: absolute;
+  top: 30px;
+  left: 13%;
+  width: 74%;
+  height: 170px;
+  border: 8px solid #ffe34b;
+  border-radius: 10px;
+  background: #35154f;
+  box-shadow: 10px 10px #ff3fa4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: .8;
+}
+
+.stage-screen small {
+  display: block;
+  font-size: 14px;
+}
+
+.light {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+  height: 300px;
+  background: #ffffff55;
+  transform-origin: bottom;
+}
+
+.light1 {
+  left: 10%;
+  transform: rotate(25deg);
+}
+
+.light2 {
+  left: 40%;
+}
+
+.light3 {
+  right: 10%;
+  transform: rotate(-25deg);
+}
+
+.crowd {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 75px;
+  background:
+    radial-gradient(circle, #35154f 0 17px, transparent 18px)
+    0 0 / 45px 55px;
+}
+
+/* COMMON */
+
+section {
+  padding: 75px 22px;
+}
+
+.label {
+  color: #ff3fa4;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 39px;
+  line-height: 1;
+  margin: 0 0 25px;
+}
+
+/* ABOUT */
+
+.about {
+  background: white;
+}
+
+.about .lead {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.about p {
+  line-height: 2;
+}
+
+.theme-card {
+  margin-top: 35px;
+  padding: 25px;
+  background: #ffd83d;
+  border: 3px solid #35154f;
+  box-shadow: 7px 7px #35154f;
+  transform: rotate(1deg);
+}
+
+.theme-card small {
+  font-weight: bold;
+}
+
+.theme-card strong {
+  display: block;
+  font-size: 39px;
+  margin: 8px 0;
+}
+
+/* STAGES */
+
+.stages {
+  background: #f3edff;
+}
+
+.cards {
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  min-height: 210px;
+  padding: 25px;
+  color: white;
+  border: 3px solid #35154f;
+  box-shadow: 7px 7px #35154f;
+}
+
+.card h3 {
+  margin-top: 45px;
+  font-size: 27px;
+}
+
+.card p {
+  line-height: 1.7;
+}
+
+.main {
+  background: #ff3fa4;
+}
+
+.sub {
+  background: #45cfff;
+}
+
+.new {
+  background: #8c5bff;
+}
+
+.tv {
+  background: #ffbd3d;
+  color: #35154f;
+}
+
+/* AUDITION */
+
+.audition {
+  background: #35154f;
+  color: white;
+}
+
+.audit-box {
+  border: 3px solid #ffe34b;
+  padding: 25px;
+}
+
+.audit-box h2 {
+  color: #ffe34b;
+}
+
+.audit-box strong {
+  color: #ff75bd;
+}
+
+/* MARKET */
+
+.market {
+  background: #fff0f7;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags span {
+  padding: 12px 17px;
+  border: 3px solid #35154f;
+  border-radius: 30px;
+  background: white;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+/* NEWS */
+
+.news {
+  background: white;
+}
+
+.news-item {
+  padding: 22px 0;
+  border-top: 1px solid #b9a9c5;
+}
+
+.news-item time {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.news-item b {
+  font-size: 15px;
+}
+
+/* FINAL */
+
+.final {
+  text-align: center;
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #ffe34b, #ff75bd, #9c76ff);
+}
+
+.final p {
+  line-height: 2;
+}
+
+.final h2 {
+  font-size: 43px;
+}
+
+.final em {
+  color: white;
+  font-style: normal;
+  text-shadow: 4px 4px #ff3fa4;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 20px;
+  background: #35154f;
+  color: white;
+}
+
+footer small {
+  display: block;
+  margin-top: 15px;
+  line-height: 1.8;
+  opacity: .75;
+}
+
+footer p {
+  font-size: 10px;
+  opacity: .6;
+}
+
+/* DESKTOP */
+
+@media (min-width: 800px) {
+
+  header {
+    padding: 0 5vw;
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .hero {
+    min-height: 760px;
+    padding: 110px 8vw;
+  }
+
+  .hero h1 {
+    font-size: 130px;
+  }
+
+  .theme strong {
+    font-size: 52px;
+  }
+
+  .stage {
+    left: 48%;
+    width: 50%;
+    height: 500px;
+  }
+
+  section {
+    padding: 110px 9vw;
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 60px;
+  }
+
+  .theme-card {
+    margin-top: 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">超<span>アイドル</span>祭</div>
+
+  <nav>
+    <a href="#about">ABOUT</a>
+    <a href="#stages">STAGE</a>
+    <a href="#audition">AUDITION</a>
+    <a href="#market">MARKET</a>
+    <a href="#news">NEWS</a>
+  </nav>
+
+  <button class="ticket">TICKET ↗</button>
+</header>
+
+<main>
+
+<section class="hero">
+
+  <div>
+    <div class="eyebrow">THE BIGGEST IDOL FESTIVAL</div>
+
+    <h1>超<br>アイドル祭</h1>
+
+    <div class="theme">
+      <span>今年のテーマ</span>
+      <strong>成長期</strong>
+    </div>
+
+    <p class="catch">
+      まだ途中。<br>
+      <strong>だからこそ、輝ける。</strong>
+    </p>
+
+    <div class="event">
+      MUSIC / DANCE / EXPRESSION / EMOTION
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="light light1"></div>
+    <div class="light light2"></div>
+    <div class="light light3"></div>
+
+    <div class="stage-screen">
+      超<br>
+      <small>アイドル祭</small>
+    </div>
+
+    <div class="crowd"></div>
+  </div>
+
+</section>
+
+
+<section id="about" class="about">
+
+  <div>
+    <div class="label">01 / ABOUT</div>
+
+    <h2>超アイドル祭とは</h2>
+
+    <p class="lead">
+      完成したスターのための場所ではない。
+    </p>
+
+    <p>
+      ここは、成長の途中に立つアイドルたちが<br>
+      “今この瞬間”をぶつけ合うステージ。
+    </p>
+
+    <p>
+      毎年開催地を変え、音楽・ダンス・表現・そして想いが
+      街ごとひとつになる、国内最大級のアイドルフェス。
+    </p>
+  </div>
+
+  <div class="theme-card">
+    <small>THIS YEAR'S THEME SONG</small>
+    <strong>成長期</strong>
+    <small>前年アイドリティ優勝者</small>
+  </div>
+
+</section>
+
+
+<section id="stages" class="stages">
+
+  <div class="label">02 / STAGE</div>
+
+  <h2>STAGE<br>LINEUP</h2>
+
+  <div class="cards">
+
+    <article class="card main">
+      <small>01</small>
+      <h3>MAIN STAGE</h3>
+      <p>
+        選ばれた者だけが立てる、最終到達点。
+      </p>
+      <b>FC 100,000+ / AUDITION</b>
+    </article>
+
+    <article class="card sub">
+      <small>02</small>
+      <h3>SUB STAGE 1・2</h3>
+      <p>
+        “魅せ方”で勝負するアイドルが集う。
+      </p>
+      <b>ENTRY / FIRST COME</b>
+    </article>
+
+    <article class="card new">
+      <small>03</small>
+      <h3>NEW STAR</h3>
+      <p>
+        新人アイドル専用ステージ。<br>
+        ここから、物語が始まる。
+      </p>
+      <b>新人アイドル専用</b>
+    </article>
+
+    <article class="card tv">
+      <small>04</small>
+      <h3>TV STAGE</h3>
+      <p>
+        参加型オーディション<br>
+        「アイドリティ」
+      </p>
+      <b>WINNER → MAIN STAGE</b>
+    </article>
+
+  </div>
+
+</section>
+
+
+<section id="audition" class="audition">
+
+  <div class="label">03 / AUDITION</div>
+
+  <div class="audit-box">
+
+    <div class="eyebrow">OFFICIAL PROGRAM</div>
+
+    <h2>アイドリティ</h2>
+
+    <p>
+      ニュースターステージでの<br>
+      ファン投票数上位者が出場可能。
+    </p>
+
+    <p>
+      勝者には、<strong>メインステージ出演権</strong>が与えられる。
+    </p>
+
+  </div>
+
+</section>
+
+
+<section id="market" class="market">
+
+  <div class="label">04 / MARKET</div>
+
+  <h2>Creators<br>Market</h2>
+
+  <p class="lead">
+    アイドルを支える<br>
+    “創る側”の祭典。
+  </p>
+
+  <div class="tags">
+    <span>MUSIC</span>
+    <span>ILLUSTRATION</span>
+    <span>COSTUME</span>
+    <span>ACCESSORY</span>
+    <span>FAN ART</span>
+  </div>
+
+</section>
+
+
+<section id="news" class="news">
+
+  <div class="label">05 / NEWS</div>
+
+  <h2>LATEST<br>NEWS</h2>
+
+  <div class="news-item">
+    <time>09.13.2026</time>
+    <b>超アイドル祭 OFFICIAL SITE OPEN</b>
+  </div>
+
+  <div class="news-item">
+    <time>08.01.2026</time>
+    <b>今年のテーマ「成長期」発表</b>
+  </div>
+
+  <div class="news-item">
+    <time>07.15.2026</time>
+    <b>超アイドル祭 開催決定</b>
+  </div>
+
+</section>
+
+
+<section class="final">
+
+  <p>
+    勝っても、負けても。<br>
+    進んだ一歩は、消えない。
+  </p>
+
+  <h2>
+    今のあなたが、<br>
+    <em>一番まぶしい。</em>
+  </h2>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="logo">
+    超<span>アイドル</span>祭
+  </div>
+
+  <small>
+    ※ご来場・ご参加にあたっての注意事項<br>
+    各ステージおよびオーディションの内容は、
+    出演者の安全および運営判断により、
+    予告なく変更・中止となる場合があります。
+  </small>
+
+  <p>
+    © 超アイドル祭公式運営委員会
+  </p>
+
+</footer>
+
+</body>
+</html>
