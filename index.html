@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -165,6 +166,11 @@ nav{display:none}
 .mobile-menu.active .mobile-nav a:nth-child(7){transition-delay:.30s}
 .mobile-menu.active .mobile-nav a:nth-child(8){transition-delay:.34s}
 .mobile-menu.active .mobile-nav a:nth-child(9){transition-delay:.38s}
+.mobile-menu.active .mobile-nav a:nth-child(10){transition-delay:.42s}
+.mobile-menu.active .mobile-nav a:nth-child(11){transition-delay:.46s}
+.mobile-menu.active .mobile-nav a:nth-child(12){transition-delay:.50s}
+.mobile-menu.active .mobile-nav a:nth-child(13){transition-delay:.54s}
+.mobile-menu.active .mobile-nav a:nth-child(14){transition-delay:.58s}
 .mobile-nav a:active{background:#ffffff30}
 .mobile-nav small{opacity:.65}
 .mobile-ticket{
@@ -529,7 +535,6 @@ footer p{font-size:10px;opacity:.6}
   }
   .theme-card{margin-top:0}
   .cards{grid-template-columns:1fr 1fr}
-  .market-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -559,6 +564,10 @@ footer p{font-size:10px;opacity:.6}
     <a href="#news" data-action="news"><span>NEWS</span><small>07</small></a>
     <a href="#information" data-action="info"><span>INFORMATION</span><small>08</small></a>
     <a href="#faq" data-action="faq"><span>FAQ</span><small>09</small></a>
+    <a href="goods/" data-action="goods"><span>GOODS</span><small>10</small></a>
+    <a href="local/" data-action="local"><span>LOCAL</span><small>11</small></a>
+    <a href="message/" data-action="message"><span>MESSAGE</span><small>12</small></a>
+    <a href="store/" data-action="store"><span>STORE</span><small>13</small></a>
     <a href="#ticket" class="mobile-ticket" data-action="ticket"><span>TICKET</span><small>OPEN</small></a>
   </nav>
 </aside>
@@ -573,6 +582,10 @@ footer p{font-size:10px;opacity:.6}
     <a href="#market">MARKET</a>
     <a href="#special">SPECIAL</a>
     <a href="#news">NEWS</a>
+    <a href="goods/">GOODS</a>
+    <a href="local/">LOCAL</a>
+    <a href="message/">MESSAGE</a>
+    <a href="store/">STORE</a>
     <a href="#ticket" class="nav-ticket">TICKET</a>
   </nav>
 
@@ -848,8 +861,20 @@ document.addEventListener("keydown",e=>{
 
 document.querySelectorAll(".mobile-nav a").forEach(a=>{
   a.onclick=e=>{
-    e.preventDefault();
     const action=a.dataset.action;
+
+    if(action==="goods"||action==="local"||action==="message"||action==="store"){
+      e.preventDefault();
+      closeMenu();
+
+      setTimeout(()=>{
+        window.location.href=a.getAttribute("href");
+      },180);
+
+      return;
+    }
+
+    e.preventDefault();
     closeMenu();
 
     setTimeout(()=>{
@@ -869,12 +894,12 @@ document.querySelectorAll(".mobile-nav a").forEach(a=>{
         openPanel("market");
       }
       else if(action==="special"){
-         document.querySelector("#special").scrollIntoView({behavior:"smooth"});
-       }
-       else if(action==="ticket"){
+        document.querySelector("#special").scrollIntoView({behavior:"smooth"});
+      }
+      else if(action==="ticket"){
         openPanel("ticket");
       }
-       else if(action==="news"){
+      else if(action==="news"){
         openPanel("news");
       }
       else if(action==="info"){
@@ -1150,3 +1175,4 @@ document.querySelectorAll('a[href="#news"]').forEach(a=>{
 
 </body>
 </html>
+```
