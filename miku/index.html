@@ -1,1 +1,1304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>安藤未来 OFFICIAL SITE | アンドゥー・ミケゥ</title>
+
+<meta name="description" content="安藤未来（アンドゥー・ミケゥ）公式サイト。歌唱・朗読・ステージ活動に関する最新情報をお届けします。">
+<meta name="robots" content="noindex, nofollow">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    Meiryo,
+    sans-serif;
+  background:#08080d;
+  color:#f8f7fb;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+::selection{
+  background:#ff4fa3;
+  color:#fff;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:72px;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5vw;
+  background:rgba(8,8,13,.78);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:14px;
+}
+
+.logo span{
+  display:block;
+  font-size:9px;
+  letter-spacing:.22em;
+  color:#ff65b1;
+  margin-bottom:2px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  font-size:11px;
+  letter-spacing:.14em;
+  font-weight:700;
+}
+
+nav a{
+  opacity:.72;
+  transition:.25s;
+}
+
+nav a:hover{
+  opacity:1;
+  color:#ff65b1;
+}
+
+.header-button{
+  padding:9px 16px;
+  border:1px solid rgba(255,101,177,.7);
+  color:#ff83bf;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  padding:120px 7vw 80px;
+  background:
+    radial-gradient(circle at 75% 45%,rgba(255,58,160,.22),transparent 28%),
+    radial-gradient(circle at 25% 80%,rgba(76,119,255,.13),transparent 30%),
+    #08080d;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:50%;
+  right:-180px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:430px;
+  height:430px;
+  border:1px solid rgba(255,101,177,.12);
+  border-radius:50%;
+  right:-70px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.hero-inner{
+  width:100%;
+  max-width:1400px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr 430px;
+  gap:70px;
+  align-items:center;
+}
+
+.hero-copy{
+  animation:fadeUp 1s ease both;
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:.32em;
+  color:#ff67b2;
+  font-weight:800;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:clamp(58px,9vw,128px);
+  line-height:.9;
+  letter-spacing:-.06em;
+  font-weight:950;
+}
+
+.hero h1 .jp{
+  display:block;
+  font-size:.32em;
+  letter-spacing:.12em;
+  margin-top:22px;
+  color:#e8e6ec;
+}
+
+.hero-name{
+  margin-top:28px;
+  font-size:14px;
+  letter-spacing:.22em;
+  color:#aaa8b2;
+}
+
+.hero-description{
+  margin-top:35px;
+  max-width:540px;
+  color:#aaa8b2;
+  font-size:13px;
+}
+
+.hero-links{
+  display:flex;
+  gap:12px;
+  margin-top:34px;
+}
+
+.hero-links a{
+  border:1px solid rgba(255,255,255,.18);
+  padding:12px 20px;
+  font-size:10px;
+  letter-spacing:.16em;
+  transition:.25s;
+}
+
+.hero-links a:first-child{
+  background:#ff4fa3;
+  border-color:#ff4fa3;
+}
+
+.hero-links a:hover{
+  transform:translateY(-3px);
+}
+
+.portrait{
+  width:100%;
+  aspect-ratio:4/5;
+  position:relative;
+  background:
+    linear-gradient(145deg,#161620,#0d0d13);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  animation:fadeIn 1.2s .15s ease both;
+}
+
+.portrait::before{
+  content:"";
+  position:absolute;
+  inset:16px;
+  border:1px solid rgba(255,101,177,.28);
+  z-index:2;
+  pointer-events:none;
+}
+
+.portrait img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.portrait-fallback{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  color:#666570;
+  letter-spacing:.2em;
+  font-size:10px;
+}
+
+.portrait-fallback strong{
+  font-size:25px;
+  color:#dddbe1;
+  letter-spacing:.1em;
+  margin-bottom:8px;
+}
+
+
+/* =========================
+   COMMON
+========================= */
+
+section{
+  padding:120px 7vw;
+  position:relative;
+}
+
+.section-inner{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-label{
+  font-size:9px;
+  letter-spacing:.3em;
+  color:#ff67b2;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.section-title{
+  font-size:clamp(34px,5vw,58px);
+  letter-spacing:-.04em;
+  line-height:1;
+  margin-bottom:55px;
+}
+
+.section-title small{
+  display:block;
+  font-size:11px;
+  letter-spacing:.2em;
+  color:#77757f;
+  margin-top:14px;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+  background:#0c0c12;
+}
+
+.profile-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+}
+
+.profile-text{
+  color:#aaa8b2;
+  font-size:13px;
+}
+
+.profile-text p+p{
+  margin-top:20px;
+}
+
+.profile-table{
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+.profile-row{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  padding:17px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  font-size:12px;
+}
+
+.profile-row dt{
+  color:#666570;
+  letter-spacing:.08em;
+}
+
+.profile-row dd{
+  color:#eee;
+}
+
+
+/* =========================
+   BIOGRAPHY
+========================= */
+
+.biography{
+  background:#08080d;
+}
+
+.timeline{
+  border-left:1px solid rgba(255,101,177,.35);
+}
+
+.timeline-item{
+  position:relative;
+  padding:0 0 42px 38px;
+}
+
+.timeline-item:last-child{
+  padding-bottom:0;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#ff65b1;
+  left:-4px;
+  top:8px;
+  box-shadow:0 0 18px rgba(255,101,177,.8);
+}
+
+.timeline-year{
+  color:#ff65b1;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.15em;
+  margin-bottom:7px;
+}
+
+.timeline-title{
+  font-size:18px;
+  font-weight:800;
+}
+
+.timeline-text{
+  margin-top:7px;
+  color:#85838d;
+  font-size:12px;
+}
+
+
+/* =========================
+   WORKS
+========================= */
+
+.works{
+  background:#0c0c12;
+}
+
+.works-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.work-card{
+  min-height:220px;
+  padding:30px;
+  border:1px solid rgba(255,255,255,.09);
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#111119,#0b0b10);
+  transition:.3s;
+}
+
+.work-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(255,101,177,.45);
+}
+
+.work-card::after{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  right:-60px;
+  bottom:-70px;
+  background:rgba(255,79,163,.12);
+}
+
+.work-type{
+  font-size:9px;
+  color:#ff67b2;
+  letter-spacing:.2em;
+}
+
+.work-card h3{
+  margin-top:22px;
+  font-size:25px;
+}
+
+.work-card p{
+  margin-top:10px;
+  font-size:11px;
+  color:#7e7c86;
+}
+
+.work-credit{
+  position:absolute;
+  bottom:28px;
+  left:30px;
+  font-size:10px;
+  color:#5e5c65;
+}
+
+
+/* =========================
+   FEATURE
+========================= */
+
+.feature{
+  background:
+    radial-gradient(circle at 80% 50%,rgba(255,79,163,.18),transparent 35%),
+    #08080d;
+}
+
+.feature-box{
+  border:1px solid rgba(255,101,177,.3);
+  padding:60px;
+  position:relative;
+  overflow:hidden;
+}
+
+.feature-box::before{
+  content:"SPECIAL PROJECT";
+  position:absolute;
+  right:30px;
+  top:25px;
+  font-size:9px;
+  letter-spacing:.25em;
+  color:#ff67b2;
+}
+
+.feature-title{
+  font-size:clamp(38px,6vw,76px);
+  line-height:.95;
+  letter-spacing:-.05em;
+}
+
+.feature-title span{
+  display:block;
+  color:#ff65b1;
+}
+
+.feature-description{
+  max-width:650px;
+  margin-top:28px;
+  font-size:13px;
+  color:#aaa8b2;
+}
+
+.feature-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:35px;
+  margin-top:40px;
+}
+
+.feature-meta div{
+  display:flex;
+  flex-direction:column;
+}
+
+.feature-meta small{
+  font-size:8px;
+  color:#666570;
+  letter-spacing:.2em;
+}
+
+.feature-meta strong{
+  margin-top:4px;
+  font-size:12px;
+}
+
+
+/* =========================
+   NEWS
+========================= */
+
+.news{
+  background:#0c0c12;
+}
+
+.news-list{
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+.news-item{
+  display:grid;
+  grid-template-columns:120px 90px 1fr;
+  gap:20px;
+  align-items:center;
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  transition:.2s;
+}
+
+.news-item:hover{
+  padding-left:8px;
+}
+
+.news-date{
+  color:#666570;
+  font-size:11px;
+}
+
+.news-tag{
+  font-size:8px;
+  letter-spacing:.1em;
+  color:#ff67b2;
+  border:1px solid rgba(255,101,177,.4);
+  padding:4px 7px;
+  width:max-content;
+}
+
+.news-title{
+  font-size:12px;
+}
+
+
+/* =========================
+   COMMENT
+========================= */
+
+.comment{
+  background:#08080d;
+}
+
+.comment-box{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+}
+
+.comment-mark{
+  font-size:70px;
+  line-height:.5;
+  color:#ff65b1;
+  opacity:.5;
+}
+
+.comment-box p{
+  margin-top:30px;
+  font-size:clamp(20px,3vw,32px);
+  font-weight:700;
+  line-height:1.8;
+  letter-spacing:.03em;
+}
+
+.comment-name{
+  margin-top:30px;
+  color:#77757f;
+  font-size:10px;
+  letter-spacing:.2em;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  background:#0c0c12;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.contact-card{
+  padding:30px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.contact-card span{
+  display:block;
+  font-size:9px;
+  color:#ff67b2;
+  letter-spacing:.2em;
+  margin-bottom:13px;
+}
+
+.contact-card strong{
+  font-size:14px;
+}
+
+.contact-card p{
+  margin-top:8px;
+  color:#74727c;
+  font-size:10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:50px 7vw;
+  background:#050507;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end;
+}
+
+.footer-logo{
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+.footer-logo small{
+  display:block;
+  font-size:8px;
+  color:#666570;
+  letter-spacing:.2em;
+  margin-top:5px;
+}
+
+.footer-copy{
+  color:#55535c;
+  font-size:8px;
+  letter-spacing:.08em;
+  text-align:right;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+  header{
+    height:62px;
+    padding:0 20px;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .hero{
+    padding:100px 22px 60px;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+
+  .hero h1{
+    font-size:64px;
+  }
+
+  .portrait{
+    max-width:360px;
+    margin:auto;
+  }
+
+  section{
+    padding:85px 22px;
+  }
+
+  .section-title{
+    margin-bottom:38px;
+  }
+
+  .profile-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .works-grid{
+    grid-template-columns:1fr;
+  }
+
+  .feature-box{
+    padding:35px 25px;
+  }
+
+  .feature-box::before{
+    display:none;
+  }
+
+  .feature-meta{
+    gap:20px;
+  }
+
+  .news-item{
+    grid-template-columns:80px 65px 1fr;
+    gap:10px;
+  }
+
+  .news-title{
+    font-size:11px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-copy{
+    text-align:left;
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+  <a href="#" class="logo">
+    <span>OFFICIAL SITE</span>
+    ANDOU MIKEU
+  </a>
+
+  <nav>
+    <a href="#profile">PROFILE</a>
+    <a href="#biography">BIOGRAPHY</a>
+    <a href="#works">WORKS</a>
+    <a href="#news">NEWS</a>
+    <a href="#contact">CONTACT</a>
+    <a href="#festival" class="header-button">FESTIVAL</a>
+  </nav>
+</header>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-copy">
+
+      <div class="eyebrow">
+        OFFICIAL WEBSITE / 2026
+      </div>
+
+      <h1>
+        MIKU
+        <span class="jp">安藤未来</span>
+      </h1>
+
+      <div class="hero-name">
+        ANDOU MIKEU
+      </div>
+
+      <p class="hero-description">
+        歌唱、朗読、ステージパフォーマンスを中心に活動。
+        独自の表現と圧倒的な日本語歌唱力で注目を集める
+        アンドゥー・ミケゥの公式サイトです。
+      </p>
+
+      <div class="hero-links">
+        <a href="#profile">PROFILE</a>
+        <a href="#festival">SPECIAL</a>
+      </div>
+
+    </div>
+
+
+    <div class="portrait">
+
+      <img
+        src="miku.jpg"
+        alt="安藤未来"
+        onerror="this.style.display='none';"
+      >
+
+      <div class="portrait-fallback">
+        <strong>MIKU</strong>
+        OFFICIAL PORTRAIT
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROFILE -->
+
+<section class="profile" id="profile">
+  <div class="section-inner">
+
+    <div class="section-label">
+      01 / PROFILE
+    </div>
+
+    <h2 class="section-title">
+      PROFILE
+      <small>アンドゥー・ミケゥについて</small>
+    </h2>
+
+
+    <div class="profile-grid">
+
+      <div class="profile-text">
+
+        <p>
+          安藤未来（アンドゥー・ミケゥ）。
+          歌唱および朗読を中心としたステージ活動を行う。
+        </p>
+
+        <p>
+          特に日本語の発音・アクセント・言葉のニュアンスを
+          活かした歌唱を得意とし、楽曲の世界観を声そのもの
+          から立ち上げる表現を特徴としている。
+        </p>
+
+        <p>
+          普段の会話では独特な日本語表現が見られる一方、
+          歌唱・朗読の場では極めて流暢かつ正確な日本語を
+          使用することでも知られている。
+        </p>
+
+      </div>
+
+
+      <dl class="profile-table">
+
+        <div class="profile-row">
+          <dt>NAME</dt>
+          <dd>安藤未来</dd>
+        </div>
+
+        <div class="profile-row">
+          <dt>STAGE NAME</dt>
+          <dd>アンドゥー・ミケゥ</dd>
+        </div>
+
+        <div class="profile-row">
+          <dt>ACTIVITY</dt>
+          <dd>歌唱 / 朗読 / STAGE</dd>
+        </div>
+
+        <div class="profile-row">
+          <dt>SPECIALTY</dt>
+          <dd>日本語歌唱・朗読</dd>
+        </div>
+
+        <div class="profile-row">
+          <dt>BASE</dt>
+          <dd>JAPAN</dd>
+        </div>
+
+        <div class="profile-row">
+          <dt>STATUS</dt>
+          <dd>ACTIVE</dd>
+        </div>
+
+      </dl>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- BIOGRAPHY -->
+
+<section class="biography" id="biography">
+  <div class="section-inner">
+
+    <div class="section-label">
+      02 / BIOGRAPHY
+    </div>
+
+    <h2 class="section-title">
+      BIOGRAPHY
+      <small>活動履歴</small>
+    </h2>
+
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-title">活動開始</div>
+        <div class="timeline-text">
+          歌唱・朗読を中心としたステージ活動を開始。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-title">歌唱活動を本格化</div>
+        <div class="timeline-text">
+          日本語楽曲を中心とした歌唱パフォーマンスを展開。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-title">「超アイドル祭」参加</div>
+        <div class="timeline-text">
+          超アイドル祭 2026 課題曲の歌唱を担当。
+          新たなステージへ活動の幅を広げる。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2026 —</div>
+        <div class="timeline-title">NEXT STAGE</div>
+        <div class="timeline-text">
+          今後も歌唱・朗読を中心に様々な作品への参加を予定。
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- WORKS -->
+
+<section class="works" id="works">
+  <div class="section-inner">
+
+    <div class="section-label">
+      03 / WORKS
+    </div>
+
+    <h2 class="section-title">
+      WORKS
+      <small>出演・参加作品</small>
+    </h2>
+
+
+    <div class="works-grid">
+
+      <article class="work-card">
+        <div class="work-type">
+          SONG / 2026
+        </div>
+
+        <h3>超アイドル祭 2026<br>課題曲</h3>
+
+        <p>
+          オーディション参加者に向けた
+          課題曲の歌唱を担当。
+        </p>
+
+        <div class="work-credit">
+          VOCAL / アンドゥー・ミケゥ
+        </div>
+      </article>
+
+
+      <article class="work-card">
+        <div class="work-type">
+          READING / LIVE
+        </div>
+
+        <h3>朗読パフォーマンス</h3>
+
+        <p>
+          言葉の響きと呼吸を重視した
+          独自の朗読ステージ。
+        </p>
+
+        <div class="work-credit">
+          READING / MIKU
+        </div>
+      </article>
+
+
+      <article class="work-card">
+        <div class="work-type">
+          VOCAL / PROJECT
+        </div>
+
+        <h3>VOICE PROJECT</h3>
+
+        <p>
+          声を主体とした表現作品への参加。
+        </p>
+
+        <div class="work-credit">
+          VOCAL / MIKU
+        </div>
+      </article>
+
+
+      <article class="work-card">
+        <div class="work-type">
+          LIVE / 2026
+        </div>
+
+        <h3>LIVE PERFORMANCE</h3>
+
+        <p>
+          ステージ上での歌唱・朗読を組み合わせた
+          パフォーマンス。
+        </p>
+
+        <div class="work-credit">
+          PERFORMANCE / MIKU
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FESTIVAL -->
+
+<section class="feature" id="festival">
+  <div class="section-inner">
+
+    <div class="section-label">
+      SPECIAL PROJECT
+    </div>
+
+    <div class="feature-box">
+
+      <div class="feature-title">
+        超アイドル祭
+        <span>2026</span>
+      </div>
+
+      <p class="feature-description">
+        「まだ途中。だからこそ、輝ける。」
+        成長期をテーマに開催される
+        超アイドル祭 2026。
+        アンドゥー・ミケゥは本イベントの
+        課題曲歌唱アイドルとして参加しています。
+      </p>
+
+      <div class="feature-meta">
+
+        <div>
+          <small>PROJECT</small>
+          <strong>超アイドル祭 2026</strong>
+        </div>
+
+        <div>
+          <small>ROLE</small>
+          <strong>課題曲 歌唱</strong>
+        </div>
+
+        <div>
+          <small>YEAR</small>
+          <strong>2026</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- NEWS -->
+
+<section class="news" id="news">
+  <div class="section-inner">
+
+    <div class="section-label">
+      04 / NEWS
+    </div>
+
+    <h2 class="section-title">
+      NEWS
+      <small>最新情報</small>
+    </h2>
+
+
+    <div class="news-list">
+
+      <article class="news-item">
+        <div class="news-date">2026.09.13</div>
+        <div class="news-tag">EVENT</div>
+        <div class="news-title">
+          「超アイドル祭 2026」公式サイト公開
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div class="news-date">2026.08.01</div>
+        <div class="news-tag">WORKS</div>
+        <div class="news-title">
+          課題曲歌唱を担当することが決定しました
+        </div>
+      </article>
+
+      <article class="news-item">
+        <div class="news-date">2026.07.15</div>
+        <div class="news-tag">INFO</div>
+        <div class="news-title">
+          超アイドル祭 2026 開催決定
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- COMMENT -->
+
+<section class="comment">
+  <div class="section-inner">
+
+    <div class="comment-box">
+
+      <div class="comment-mark">“</div>
+
+      <p>
+        ことばは、声になった瞬間に<br>
+        もう一度、生まれると思います。<br>
+        その瞬間を、大切にしたいです。
+      </p>
+
+      <div class="comment-name">
+        — アンドゥー・ミケゥ
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="section-inner">
+
+    <div class="section-label">
+      05 / CONTACT
+    </div>
+
+    <h2 class="section-title">
+      CONTACT
+      <small>お問い合わせ</small>
+    </h2>
+
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <span>GENERAL</span>
+        <strong>出演・活動に関するお問い合わせ</strong>
+        <p>
+          イベント出演、歌唱、朗読等に関するお問い合わせ。
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <span>MEDIA</span>
+        <strong>メディア・取材関係</strong>
+        <p>
+          取材、掲載、インタビュー等に関するお問い合わせ。
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+</main>
+
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-logo">
+      ANDOU MIKEU
+      <small>安藤未来 / OFFICIAL SITE</small>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 ANDOU MIKEU OFFICIAL SITE<br>
+      ALL RIGHTS RESERVED.
+    </div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>
