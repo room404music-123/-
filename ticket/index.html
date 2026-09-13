@@ -4,29 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>超チケ｜超アイドル祭 2026</title>
+<title>超チケ / SUPER TICKET</title>
 
 <style>
 *{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   margin:0;
-  background:#f5f5f7;
-  color:#202024;
-  font-family:Arial,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  font-family:Arial,"Hiragino Kaku Gothic ProN",sans-serif;
+  background:#f4f4f6;
+  color:#222;
 }
 
 a{
   color:inherit;
   text-decoration:none;
-}
-
-button,input,select{
-  font:inherit;
 }
 
 .header{
@@ -36,160 +28,119 @@ button,input,select{
 }
 
 .header-inner{
-  max-width:1100px;
+  max-width:1050px;
   margin:auto;
-  padding:16px 22px;
+  padding:17px 20px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:20px;
+  align-items:center;
 }
 
 .logo{
-  font-size:25px;
+  font-size:20px;
   font-weight:900;
-  letter-spacing:-1px;
-}
-
-.logo span{
-  color:#ffd83d;
 }
 
 .head-right{
-  font-size:12px;
-  color:#bbb;
+  font-size:11px;
+  opacity:.7;
 }
 
 .wrap{
   max-width:1050px;
   margin:auto;
-  padding:32px 20px 70px;
+  padding:25px 18px 70px;
 }
 
 .breadcrumb{
-  font-size:12px;
+  font-size:11px;
   color:#777;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 .breadcrumb a{
-  text-decoration:underline;
+  color:#e33a91;
+  font-weight:900;
 }
 
 .event-head{
   background:#fff;
   border:1px solid #ddd;
-  border-radius:10px;
-  padding:26px;
-  box-shadow:0 2px 10px #0000000d;
+  padding:30px;
 }
 
 .event-label{
-  font-size:11px;
+  font-size:10px;
   font-weight:900;
-  letter-spacing:.15em;
-  color:#6d4aff;
+  letter-spacing:2px;
+  color:#e33a91;
 }
 
 .event-head h1{
-  font-size:30px;
-  margin:9px 0 14px;
+  margin:10px 0 15px;
+  font-size:35px;
 }
 
 .event-meta{
   display:flex;
   flex-wrap:wrap;
-  gap:10px 18px;
-  color:#555;
-  font-size:14px;
-}
-
-.notice{
-  margin-top:20px;
-  padding:14px 15px;
-  background:#fff8d7;
-  border-left:4px solid #ffd83d;
-  font-size:13px;
-  line-height:1.7;
-}
-
-.steps{
-  display:flex;
-  margin:25px 0;
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:8px;
-  overflow:hidden;
-}
-
-.step{
-  flex:1;
-  text-align:center;
-  padding:13px 8px;
-  font-size:12px;
-  color:#888;
-  border-right:1px solid #ddd;
-}
-
-.step:last-child{
-  border:0;
-}
-
-.step.active{
-  color:#111;
-  font-weight:900;
-  background:#fff8cf;
-}
-
-.num{
-  display:block;
-  font-weight:900;
-  margin-bottom:3px;
-}
-
-.panel{
-  margin-top:20px;
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:25px;
-  box-shadow:0 2px 10px #0000000d;
-}
-
-.panel h2{
-  font-size:21px;
-  margin:0 0 20px;
-}
-
-.ticket-note{
-  display:flex;
-  justify-content:space-between;
   gap:15px;
-  align-items:center;
-  background:#fff8cf;
-  border:1px solid #eadb7a;
-  padding:13px 15px;
-  border-radius:7px;
-  margin-bottom:22px;
   font-size:12px;
-}
-
-.ticket-note strong{
-  font-size:13px;
-}
-
-.ticket-note span{
   color:#666;
 }
 
+.notice{
+  margin-top:22px;
+  padding:15px;
+  background:#fff6bd;
+  border-left:5px solid #ffd83d;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin:25px 0;
+}
+
+.step{
+  padding:15px;
+  background:#ddd;
+  text-align:center;
+  font-size:12px;
+  font-weight:900;
+}
+
+.step.active{
+  background:#ffd83d;
+}
+
+.step .num{
+  display:block;
+  font-size:20px;
+  margin-bottom:4px;
+}
+
+.panel{
+  background:#fff;
+  border:1px solid #ddd;
+  padding:28px;
+  margin-bottom:20px;
+}
+
+.panel h2{
+  margin-top:0;
+  font-size:22px;
+}
+
 .ticket-group-title{
+  margin:28px 0 0;
+  padding:12px;
+  background:#f0f0f2;
+  border-left:5px solid #111;
   font-size:13px;
   font-weight:900;
-  letter-spacing:.08em;
-  border-left:4px solid #111;
-  padding:9px 11px;
-  background:#f1f1f3;
-  margin:25px 0 0;
 }
 
 .ticket-row{
@@ -197,12 +148,8 @@ button,input,select{
   grid-template-columns:1fr auto;
   gap:20px;
   align-items:center;
-  padding:20px 0;
+  padding:22px 0;
   border-top:1px solid #e5e5e8;
-}
-
-.ticket-row:first-of-type{
-  border-top:0;
 }
 
 .ticket-name{
@@ -211,35 +158,38 @@ button,input,select{
 }
 
 .ticket-desc{
-  font-size:12px;
-  color:#777;
   margin-top:7px;
-  line-height:1.6;
+  font-size:12px;
+  line-height:1.7;
+  color:#777;
 }
 
 .stock{
-  font-size:11px;
-  font-weight:900;
-  color:#16753a;
   margin-top:8px;
+  font-size:11px;
+  color:#16753a;
+  font-weight:900;
 }
 
 .stock.limited{
   color:#d46b00;
 }
 
+.stock.end{
+  color:#b22;
+}
+
 .price{
+  text-align:right;
   font-size:19px;
   font-weight:900;
   margin-bottom:9px;
-  text-align:right;
 }
 
 .btn{
-  display:inline-block;
   border:0;
   border-radius:6px;
-  padding:11px 22px;
+  padding:11px 20px;
   background:#111116;
   color:#fff;
   font-weight:900;
@@ -256,6 +206,23 @@ button,input,select{
   color:#555;
 }
 
+.ticket-note{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:center;
+  background:#fff8cf;
+  border:1px solid #eadb7a;
+  padding:13px 15px;
+  border-radius:7px;
+  margin-bottom:22px;
+  font-size:12px;
+}
+
+.ticket-note span{
+  color:#666;
+}
+
 .select-box{
   margin:18px 0;
   padding:18px;
@@ -270,10 +237,9 @@ button,input,select{
   margin-bottom:8px;
 }
 
-.select-box select,
-.select-box input{
+.select-box select{
   width:100%;
-  max-width:420px;
+  max-width:450px;
   border:1px solid #bbb;
   border-radius:5px;
   padding:11px;
@@ -281,99 +247,71 @@ button,input,select{
 }
 
 .selected-ticket{
-  font-size:16px;
+  font-size:17px;
   font-weight:900;
 }
 
 .selected-detail{
+  margin-top:5px;
   color:#777;
   font-size:12px;
-  margin-top:5px;
 }
 
 .summary{
-  background:#f7f7f9;
-  border-radius:8px;
-  padding:18px;
-  margin-top:20px;
+  margin-top:25px;
+  border-top:2px solid #111;
 }
 
 .sumline{
   display:flex;
   justify-content:space-between;
-  gap:20px;
-  padding:7px 0;
+  padding:13px 0;
+  border-bottom:1px solid #ddd;
   font-size:13px;
 }
 
 .sumline.total{
-  border-top:1px solid #ccc;
-  margin-top:8px;
-  padding-top:14px;
   font-size:18px;
   font-weight:900;
+  border-bottom:3px solid #111;
 }
 
 .warning{
-  font-size:11px;
-  color:#777;
-  line-height:1.8;
-  margin-top:18px;
-}
-
-.confirm-box{
-  border:1px solid #ddd;
-  border-radius:7px;
-  overflow:hidden;
   margin-top:20px;
-}
-
-.confirm-line{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  padding:13px 15px;
-  border-bottom:1px solid #eee;
-  font-size:13px;
-}
-
-.confirm-line:last-child{
-  border-bottom:0;
-}
-
-.confirm-line strong{
-  font-weight:900;
-}
-
-#screen2,
-#screen3{
-  display:none;
+  padding:15px;
+  background:#f6f6f6;
+  color:#666;
+  font-size:11px;
+  line-height:1.8;
 }
 
 .complete{
   text-align:center;
-  padding:30px 10px;
+  padding:25px 10px;
 }
 
 .check{
-  font-size:40px;
+  display:inline-block;
+  padding:8px 18px;
+  background:#ffd83d;
+  border:2px solid #111;
   font-weight:900;
 }
 
 .order{
   display:inline-block;
-  margin:18px 0;
-  padding:14px 24px;
-  background:#f5f5f7;
-  border-radius:6px;
+  margin:20px 0;
+  padding:15px 22px;
+  background:#f1f1f3;
   font-family:monospace;
-  letter-spacing:.12em;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
 .footer{
   background:#111116;
-  color:#aaa;
-  padding:28px 20px;
+  color:#fff;
+  padding:35px 20px;
   font-size:11px;
   line-height:1.8;
 }
@@ -383,47 +321,36 @@ button,input,select{
   margin:auto;
 }
 
-.footer strong{
-  color:#fff;
+.footer a{
+  color:#ffd83d;
+  font-weight:900;
 }
 
-@media(max-width:650px){
-
+@media(max-width:700px){
   .header-inner{
-    padding:14px 15px;
+    align-items:flex-start;
+    gap:10px;
   }
 
   .head-right{
     display:none;
   }
 
-  .wrap{
-    padding:22px 13px 50px;
-  }
-
-  .event-head{
-    padding:20px;
-  }
-
   .event-head h1{
-    font-size:24px;
+    font-size:28px;
+  }
+
+  .event-meta{
+    flex-direction:column;
+    gap:7px;
   }
 
   .steps{
-    font-size:10px;
+    grid-template-columns:1fr;
   }
 
   .step{
-    padding:11px 3px;
-  }
-
-  .ticket-note{
-    display:block;
-  }
-
-  .ticket-note span{
-    display:block;
-    margin-top:5px;
+    border-bottom:1px solid #bbb;
   }
 
   .ticket-row{
@@ -434,17 +361,13 @@ button,input,select{
     text-align:left;
   }
 
-  .btn{
-    width:100%;
+  .ticket-note{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
-  .confirm-line{
-    display:block;
-  }
-
-  .confirm-line strong{
-    display:block;
-    margin-top:5px;
+  .panel{
+    padding:20px 16px;
   }
 }
 </style>
@@ -454,9 +377,10 @@ button,input,select{
 
 <header class="header">
   <div class="header-inner">
-    <a class="logo" href="../">
-      <span>超チケ</span> / SUPER TICKET
+    <a class="logo" href="../index.html">
+      超チケ / SUPER TICKET
     </a>
+
     <div class="head-right">
       超アイドル祭 公式チケット販売ページ
     </div>
@@ -466,8 +390,9 @@ button,input,select{
 <main class="wrap">
 
 <div class="breadcrumb">
-  <a href="../">超アイドル祭 OFFICIAL SITE</a>
-  &nbsp;&gt;&nbsp; チケット
+  <a href="../index.html">超アイドル祭 OFFICIAL SITE</a>
+  &nbsp;&gt;&nbsp;
+  チケット
 </div>
 
 <section class="event-head">
@@ -486,14 +411,14 @@ button,input,select{
 
   <div class="notice">
     <strong>オフィシャルHP先行受付中</strong><br>
-    受付期間：2026年9月13日（日）10:00 ～ 9月20日（日）23:59
+    受付期間：
+    2026年9月13日（日）10:00
+    ～ 9月20日（日）23:59
   </div>
 
 </section>
 
-
 <div class="steps">
-
   <div class="step active" id="st1">
     <span class="num">01</span>
     席種選択
@@ -508,694 +433,368 @@ button,input,select{
     <span class="num">03</span>
     受付完了
   </div>
-
 </div>
-
 
 <section class="panel" id="screen1">
 
-<h2>チケットを選択してください</h2>
+  <h2>チケットを選択してください</h2>
 
-<div class="ticket-note">
-  <strong>オフィシャルHP先行</strong>
-  <span>
-    受付期間：9/13（日）10:00 ～ 9/20（日）23:59
-  </span>
-</div>
-
-
-<div class="ticket-group-title">
-  9月26日（土）
-</div>
-
-
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      一般指定席
-    </div>
-
-    <div class="ticket-desc">
-      全席指定／1日券
-    </div>
-
-    <div class="stock">
-      ○ 受付中
-    </div>
-
+  <div class="ticket-note">
+    <strong>現在受付中</strong>
+    <span>
+      お一人様4枚まで
+    </span>
   </div>
 
-  <div>
-
-    <div class="price">
-      ¥8,800（税込）
-    </div>
-
-    <button
-      class="btn yellow"
-      onclick="choose('9月26日（土） 一般指定席',8800,'指定席','2026年9月26日（土）')">
-      このチケットを選ぶ
-    </button>
-
+  <div class="ticket-group-title">
+    9月26日（土）・9月27日（日）
   </div>
 
-</div>
+  <div class="ticket-row">
+    <div>
+      <div class="ticket-name">
+        1DAY 指定席
+      </div>
 
+      <div class="ticket-desc">
+        1日入場可能／全席指定
+      </div>
 
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      スタンディング
+      <div class="stock">
+        ○ 受付中
+      </div>
     </div>
 
-    <div class="ticket-desc">
-      メインステージ前方エリア／整理番号付き
+    <div>
+      <div class="price">¥8,800</div>
+      <button
+        class="btn yellow"
+        onclick="choose('1DAY 指定席',8800,'指定席')">
+        このチケットを選ぶ
+      </button>
     </div>
-
-    <div class="stock">
-      ○ 受付中
-    </div>
-
   </div>
 
-  <div>
+  <div class="ticket-row">
+    <div>
+      <div class="ticket-name">
+        1DAY スタンディング
+      </div>
 
-    <div class="price">
-      ¥7,700（税込）
+      <div class="ticket-desc">
+        1日入場可能／整理番号順入場
+      </div>
+
+      <div class="stock limited">
+        △ 残りわずか
+      </div>
     </div>
 
-    <button
-      class="btn yellow"
-      onclick="choose('9月26日（土） スタンディング',7700,'スタンディング','2026年9月26日（土）')">
-      このチケットを選ぶ
-    </button>
-
+    <div>
+      <div class="price">¥7,700</div>
+      <button
+        class="btn yellow"
+        onclick="choose('1DAY スタンディング',7700,'スタンディング')">
+        このチケットを選ぶ
+      </button>
+    </div>
   </div>
 
-</div>
+  <div class="ticket-row">
+    <div>
+      <div class="ticket-name">
+        1DAY U-18指定席
+      </div>
 
+      <div class="ticket-desc">
+        18歳以下対象／全席指定
+      </div>
 
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      U-18席
+      <div class="stock">
+        ○ 受付中
+      </div>
     </div>
 
-    <div class="ticket-desc">
-      18歳以下対象／指定席／入場時に年齢確認を行う場合があります
+    <div>
+      <div class="price">¥5,500</div>
+      <button
+        class="btn yellow"
+        onclick="choose('1DAY U-18指定席',5500,'U-18指定席')">
+        このチケットを選ぶ
+      </button>
     </div>
-
-    <div class="stock limited">
-      △ 残りわずか
-    </div>
-
   </div>
 
-  <div>
+  <div class="ticket-row">
+    <div>
+      <div class="ticket-name">
+        1DAY 見切れ席
+      </div>
 
-    <div class="price">
-      ¥4,500（税込）
+      <div class="ticket-desc">
+        ステージの一部が見えにくい場合があります
+      </div>
+
+      <div class="stock limited">
+        △ 残りわずか
+      </div>
     </div>
 
-    <button
-      class="btn yellow"
-      onclick="choose('9月26日（土） U-18席',4500,'U-18指定席','2026年9月26日（土）')">
-      このチケットを選ぶ
-    </button>
-
+    <div>
+      <div class="price">¥6,600</div>
+      <button
+        class="btn yellow"
+        onclick="choose('1DAY 見切れ席',6600,'見切れ席')">
+        このチケットを選ぶ
+      </button>
+    </div>
   </div>
 
-</div>
-
-
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      見切れ席
-    </div>
-
-    <div class="ticket-desc">
-      ステージの一部が見えにくい、または見えない場合があります
-    </div>
-
-    <div class="stock">
-      ○ 受付中
-    </div>
-
+  <div class="ticket-group-title">
+    両日券
   </div>
 
-  <div>
+  <div class="ticket-row">
+    <div>
+      <div class="ticket-name">
+        2DAY PASS
+      </div>
 
-    <div class="price">
-      ¥6,600（税込）
+      <div class="ticket-desc">
+        9月26日・27日の両日入場可能／指定席
+      </div>
+
+      <div class="stock">
+        ○ 受付中
+      </div>
     </div>
 
-    <button
-      class="btn yellow"
-      onclick="choose('9月26日（土） 見切れ席',6600,'見切れ席','2026年9月26日（土）')">
-      このチケットを選ぶ
-    </button>
-
+    <div>
+      <div class="price">¥16,000</div>
+      <button
+        class="btn yellow"
+        onclick="choose('2DAY PASS',16000,'2日間指定席')">
+        このチケットを選ぶ
+      </button>
+    </div>
   </div>
-
-</div>
-
-
-<div class="ticket-group-title">
-  9月27日（日）
-</div>
-
-
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      一般指定席
-    </div>
-
-    <div class="ticket-desc">
-      全席指定／1日券
-    </div>
-
-    <div class="stock">
-      ○ 受付中
-    </div>
-
-  </div>
-
-  <div>
-
-    <div class="price">
-      ¥8,800（税込）
-    </div>
-
-    <button
-      class="btn yellow"
-      onclick="choose('9月27日（日） 一般指定席',8800,'指定席','2026年9月27日（日）')">
-      このチケットを選ぶ
-    </button>
-
-  </div>
-
-</div>
-
-
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      スタンディング
-    </div>
-
-    <div class="ticket-desc">
-      メインステージ前方エリア／整理番号付き
-    </div>
-
-    <div class="stock">
-      ○ 受付中
-    </div>
-
-  </div>
-
-  <div>
-
-    <div class="price">
-      ¥7,700（税込）
-    </div>
-
-    <button
-      class="btn yellow"
-      onclick="choose('9月27日（日） スタンディング',7700,'スタンディング','2026年9月27日（日）')">
-      このチケットを選ぶ
-    </button>
-
-  </div>
-
-</div>
-
-
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      U-18席
-    </div>
-
-    <div class="ticket-desc">
-      18歳以下対象／指定席／入場時に年齢確認を行う場合があります
-    </div>
-
-    <div class="stock">
-      ○ 受付中
-    </div>
-
-  </div>
-
-  <div>
-
-    <div class="price">
-      ¥4,500（税込）
-    </div>
-
-    <button
-      class="btn yellow"
-      onclick="choose('9月27日（日） U-18席',4500,'U-18指定席','2026年9月27日（日）')">
-      このチケットを選ぶ
-    </button>
-
-  </div>
-
-</div>
-
-
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      見切れ席
-    </div>
-
-    <div class="ticket-desc">
-      ステージの一部が見えにくい、または見えない場合があります
-    </div>
-
-    <div class="stock">
-      ○ 受付中
-    </div>
-
-  </div>
-
-  <div>
-
-    <div class="price">
-      ¥6,600（税込）
-    </div>
-
-    <button
-      class="btn yellow"
-      onclick="choose('9月27日（日） 見切れ席',6600,'見切れ席','2026年9月27日（日）')">
-      このチケットを選ぶ
-    </button>
-
-  </div>
-
-</div>
-
-
-<div class="ticket-group-title">
-  通し券
-</div>
-
-
-<div class="ticket-row">
-
-  <div>
-
-    <div class="ticket-name">
-      2DAY PASS
-    </div>
-
-    <div class="ticket-desc">
-      9月26日・27日の両日入場可能／指定席
-    </div>
-
-    <div class="stock">
-      ○ 受付中
-    </div>
-
-  </div>
-
-  <div>
-
-    <div class="price">
-      ¥16,000（税込）
-    </div>
-
-    <button
-      class="btn yellow"
-      onclick="choose('2DAY PASS',16000,'2DAY指定席','2026年9月26日（土）・27日（日）')">
-      このチケットを選ぶ
-    </button>
-
-  </div>
-
-</div>
-
-
-<p class="warning">
-
-※お一人様4枚までお申し込みいただけます。<br>
-
-※スタンディングは整理番号順での入場となります。座席のご用意はありません。<br>
-
-※U-18席は18歳以下の方のみ購入・利用できます。入場時に年齢確認を行う場合があります。<br>
-
-※見切れ席はステージの一部が見えない場合があります。見えない範囲を理由とした返金・座席変更はできません。<br>
-
-※チケット代金のほか、システム利用料・発券手数料等が必要となります。
-
-</p>
-
-</section>
-
-
-<section class="panel" id="screen2">
-
-<h2>お申し込み内容の確認</h2>
-
-
-<div class="select-box">
-
-  <label>
-    選択したチケット
-  </label>
-
-  <div class="selected-ticket" id="chosenName">
-    -
-  </div>
-
-  <div class="selected-detail" id="selectedType">
-    -
-  </div>
-
-</div>
-
-
-<div class="select-box">
-
-  <label>
-    公演日
-  </label>
-
-  <div id="selectedDay">
-    -
-  </div>
-
-</div>
-
-
-<div class="select-box">
-
-  <label>
-    枚数
-  </label>
-
-  <select id="qty">
-
-    <option value="1">
-      1枚
-    </option>
-
-    <option value="2">
-      2枚
-    </option>
-
-    <option value="3">
-      3枚
-    </option>
-
-    <option value="4">
-      4枚
-    </option>
-
-  </select>
 
   <div class="warning">
-    ※お一人様4枚までお申し込みいただけます。
+    ※チケット代金のほか、システム利用料・発券手数料等が必要です。<br>
+    ※U-18指定席は入場時に年齢確認を行う場合があります。<br>
+    ※見切れ席はステージの一部が見えにくい席です。あらかじめご了承ください。<br>
+    ※スタンディングは整理番号順での入場となります。
   </div>
-
-</div>
-
-
-<div class="confirm-box">
-
-  <div class="confirm-line">
-    <span>チケット</span>
-    <strong id="confirmTicket">-</strong>
-  </div>
-
-  <div class="confirm-line">
-    <span>公演日</span>
-    <strong id="confirmDay">-</strong>
-  </div>
-
-  <div class="confirm-line">
-    <span>券種</span>
-    <strong id="confirmType">-</strong>
-  </div>
-
-</div>
-
-
-<div class="summary">
-
-  <div class="sumline">
-    <span>チケット料金</span>
-    <span id="base">¥0</span>
-  </div>
-
-  <div class="sumline">
-    <span>システム利用料</span>
-    <span id="fee">¥0</span>
-  </div>
-
-  <div class="sumline">
-    <span>発券手数料</span>
-    <span id="issueFee">¥0</span>
-  </div>
-
-  <div class="sumline total">
-    <span>お支払い合計</span>
-    <span id="total">¥0</span>
-  </div>
-
-</div>
-
-
-<p class="warning">
-
-※このページは架空のチケット販売サイトを再現したデモです。<br>
-
-※決済情報・個人情報の入力や、実際の購入・抽選・決済処理は行われません。
-
-</p>
-
-
-<div style="display:flex;gap:10px;margin-top:20px">
-
-  <button class="btn" onclick="back()">
-    戻る
-  </button>
-
-  <button class="btn yellow" onclick="complete()">
-    申し込みを確定する
-  </button>
-
-</div>
 
 </section>
 
+<section class="panel" id="screen2" style="display:none">
 
-<section class="panel" id="screen3">
+  <h2>お申し込み内容の確認</h2>
 
-<div class="complete">
+  <div class="select-box">
+    <label>選択したチケット</label>
 
-  <div class="check">
-    受付完了
+    <div class="selected-ticket" id="chosenName">
+      -
+    </div>
+
+    <div class="selected-detail" id="chosenDetail">
+      -
+    </div>
   </div>
 
-  <h2>
-    お申し込みを受け付けました
-  </h2>
+  <div class="select-box">
+    <label>公演日</label>
 
-  <p>
-    超アイドル祭 2026<br>
-    チケットのお申し込みありがとうございます。
-  </p>
-
-  <div class="order">
-    DEMO-2026-0926-001
+    <select id="day">
+      <option>2026年9月26日（土）</option>
+      <option>2026年9月27日（日）</option>
+    </select>
   </div>
 
-  <p class="warning">
+  <div class="select-box">
+    <label>枚数</label>
 
-    ※これは創作サイト上のデモ画面です。<br>
+    <select id="qty">
+      <option value="1">1枚</option>
+      <option value="2">2枚</option>
+      <option value="3">3枚</option>
+      <option value="4">4枚</option>
+    </select>
+  </div>
 
-    実際のチケットは発行されていません。<br>
+  <div class="summary">
 
-    実在する決済・予約・抽選等には一切接続されていません。
+    <div class="sumline">
+      <span>チケット代金</span>
+      <span id="base">¥0</span>
+    </div>
 
-  </p>
+    <div class="sumline">
+      <span>システム利用料</span>
+      <span id="systemFee">¥330</span>
+    </div>
 
-  <a class="btn" href="../">
-    公式サイトへ戻る
-  </a>
+    <div class="sumline">
+      <span>発券手数料</span>
+      <span id="ticketFee">¥165</span>
+    </div>
 
-</div>
+    <div class="sumline total">
+      <span>合計</span>
+      <span id="total">¥0</span>
+    </div>
+
+  </div>
+
+  <div class="warning">
+    ※このページは架空のチケット販売サイトを再現したデモです。<br>
+    実際の決済・予約・抽選・個人情報入力は行われません。
+  </div>
+
+  <div style="display:flex;gap:10px;margin-top:22px">
+    <button class="btn gray" onclick="show(1)">
+      戻る
+    </button>
+
+    <button class="btn yellow" onclick="complete()">
+      申し込みを確定する
+    </button>
+  </div>
+
+</section>
+
+<section class="panel" id="screen3" style="display:none">
+
+  <div class="complete">
+
+    <div class="check">
+      受付完了
+    </div>
+
+    <h2>
+      お申し込みを<br>
+      受け付けました
+    </h2>
+
+    <p>
+      超アイドル祭 2026<br>
+      チケットのお申し込みありがとうございます。
+    </p>
+
+    <div class="order">
+      DEMO-2026-0926-001
+    </div>
+
+    <p class="warning">
+      ※これは創作サイト上のデモ画面です。<br>
+      実際のチケットは発行されていません。<br>
+      実在する決済・予約・抽選等には一切接続されていません。
+    </p>
+
+    <a class="btn" href="../index.html">
+      公式サイトへ戻る
+    </a>
+
+  </div>
 
 </section>
 
 </main>
 
-
 <footer class="footer">
+  <div class="footer-inner">
 
-<div class="footer-inner">
+    <strong>
+      超チケ / SUPER TICKET
+    </strong>
 
-<strong>
-超チケ / SUPER TICKET
-</strong>
+    <br>
 
-<br>
+    超アイドル祭 2026
+    公式チケット販売ページ
 
-超アイドル祭 2026 公式チケット販売ページ
+    <br><br>
 
-<br><br>
+    <a href="../index.html">
+      超アイドル祭 OFFICIAL SITE
+    </a>
 
-特定商取引法に基づく表記　
-｜
-利用規約　
-｜
-プライバシーポリシー　
-｜
-お問い合わせ
+    <br><br>
 
-<br><br>
+    ※本ページおよび「超アイドル祭」は
+    創作上の架空イベントです。
+    実在のイベント・企業・人物とは関係ありません。
 
-※本ページおよび超アイドル祭は創作上の架空イベントです。<br>
-実在のイベント・企業・人物とは関係ありません。
-
-</div>
-
+  </div>
 </footer>
 
-
 <script>
+let selectedName="";
+let selectedPrice=0;
+let selectedDetail="";
 
-let selectedName = '';
-let selectedPrice = 0;
-let selectedType = '';
-let selectedDay = '';
+function choose(name,price,detail){
 
+  selectedName=name;
+  selectedPrice=price;
+  selectedDetail=detail;
 
-function choose(name,price,type,day){
-
-  selectedName = name;
-  selectedPrice = price;
-  selectedType = type;
-  selectedDay = day;
-
-  document.getElementById('chosenName').textContent = name;
-
-  document.getElementById('selectedType').textContent =
-    type;
-
-  document.getElementById('selectedDay').textContent =
-    day;
-
-  document.getElementById('confirmTicket').textContent =
-    name;
-
-  document.getElementById('confirmType').textContent =
-    type;
-
-  document.getElementById('confirmDay').textContent =
-    day;
+  document.getElementById("chosenName").textContent=name;
+  document.getElementById("chosenDetail").textContent=detail;
 
   updateTotal();
-
   show(2);
-
 }
-
 
 function updateTotal(){
 
-  const qty =
-    Number(document.getElementById('qty').value);
+  const qty=
+    Number(document.getElementById("qty").value);
 
-  const ticketTotal =
-    selectedPrice * qty;
+  const base=selectedPrice*qty;
+  const systemFee=330*qty;
+  const ticketFee=165*qty;
+  const total=base+systemFee+ticketFee;
 
-  const systemFee =
-    330 * qty;
+  document.getElementById("base").textContent=
+    "¥"+base.toLocaleString();
 
-  const issueFee =
-    165 * qty;
+  document.getElementById("systemFee").textContent=
+    "¥"+systemFee.toLocaleString();
 
-  const total =
-    ticketTotal + systemFee + issueFee;
+  document.getElementById("ticketFee").textContent=
+    "¥"+ticketFee.toLocaleString();
 
-
-  document.getElementById('base').textContent =
-    '¥' + ticketTotal.toLocaleString();
-
-  document.getElementById('fee').textContent =
-    '¥' + systemFee.toLocaleString();
-
-  document.getElementById('issueFee').textContent =
-    '¥' + issueFee.toLocaleString();
-
-  document.getElementById('total').textContent =
-    '¥' + total.toLocaleString();
-
+  document.getElementById("total").textContent=
+    "¥"+total.toLocaleString();
 }
 
-
-document.getElementById('qty')
-  .addEventListener('change',updateTotal);
-
+document.getElementById("qty")
+.addEventListener("change",updateTotal);
 
 function show(n){
 
   for(let i=1;i<=3;i++){
+    document.getElementById("screen"+i).style.display=
+      i===n ? "block" : "none";
 
-    document.getElementById('screen'+i).style.display =
-      i === n ? 'block' : 'none';
-
+    document.getElementById("st"+i).classList.toggle(
+      "active",
+      i===n
+    );
   }
-
-
-  for(let i=1;i<=3;i++){
-
-    document.getElementById('st'+i)
-      .classList.toggle('active',i === n);
-
-  }
-
-}
-
-
-function back(){
-
-  show(1);
-
-}
-
-
-function complete(){
-
-  show(3);
 
   window.scrollTo({
     top:0,
-    behavior:'smooth'
+    behavior:"smooth"
   });
-
 }
 
+function complete(){
+  show(3);
+}
 </script>
 
 </body>
