@@ -1,0 +1,1025 @@
+```html
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>OFFICIAL ONLINE STORE | 超アイドル祭 OFFICIAL SITE</title>
+
+<style>
+:root{
+  --ink:#35154f;
+  --pink:#ff3fa4;
+  --purple:#8c5bff;
+  --cyan:#45d9ff;
+  --yellow:#ffd83d;
+  --paper:#fff9ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  line-height:1.7;
+}
+a{color:inherit;text-decoration:none}
+button,input{
+  font:inherit;
+}
+.wrap{
+  width:min(1100px,92%);
+  margin:auto;
+}
+.top{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:#fff;
+  border-bottom:3px solid var(--ink);
+  box-shadow:0 5px 0 var(--ink);
+}
+header{
+  padding:16px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+.brand{
+  font-weight:900;
+  font-size:20px;
+  letter-spacing:.04em;
+}
+.brand small{
+  display:block;
+  font-size:11px;
+}
+.cart-top{
+  border:3px solid var(--ink);
+  border-radius:999px;
+  background:var(--yellow);
+  padding:7px 13px;
+  font-weight:1000;
+}
+.hero{
+  padding:64px 0 48px;
+  background:
+    linear-gradient(
+      135deg,
+      #ffe5f3 0 48%,
+      #e9ddff 48% 72%,
+      #d9f7ff 72%
+    );
+  border-bottom:3px solid var(--ink);
+}
+.kicker{
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.hero h1{
+  font-size:clamp(38px,8vw,78px);
+  line-height:.98;
+  margin:10px 0 18px;
+  font-weight:1000;
+}
+.hero p{
+  font-weight:800;
+}
+section{
+  padding:52px 0;
+}
+.section-title{
+  font-size:32px;
+  margin:0 0 8px;
+  font-weight:1000;
+}
+.lead{
+  margin:0 0 26px;
+  font-weight:700;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.card{
+  background:#fff;
+  border:3px solid var(--ink);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:7px 7px 0 var(--ink);
+}
+.card h3{
+  margin:0 0 8px;
+  font-size:21px;
+}
+.tag{
+  display:inline-block;
+  background:#dff8ff;
+  border:2px solid var(--ink);
+  border-radius:999px;
+  padding:2px 9px;
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+.price{
+  font-size:22px;
+  font-weight:1000;
+  margin:14px 0;
+}
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border:3px solid var(--ink);
+  border-radius:12px;
+  background:var(--pink);
+  color:var(--ink);
+  font-weight:1000;
+  box-shadow:4px 4px 0 var(--ink);
+  cursor:pointer;
+}
+.btn.alt{background:var(--cyan)}
+.btn.yellow{background:var(--yellow)}
+.btn:active{
+  transform:translate(2px,2px);
+  box-shadow:2px 2px 0 var(--ink);
+}
+.notice{
+  padding:14px 16px;
+  border:3px solid var(--ink);
+  border-radius:14px;
+  background:#fff4a8;
+  font-weight:800;
+  margin:20px 0 30px;
+}
+.hidden{
+  display:none!important;
+}
+.product-icon{
+  height:120px;
+  border:3px solid var(--ink);
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#ffe5f3,#e9ddff);
+  font-size:42px;
+  font-weight:1000;
+  margin-bottom:18px;
+}
+.product-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.cart-row{
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  gap:15px;
+  align-items:center;
+  padding:16px 0;
+  border-bottom:2px solid var(--ink);
+}
+.cart-row:last-child{
+  border-bottom:0;
+}
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.qty button{
+  width:38px;
+  height:38px;
+  border:3px solid var(--ink);
+  border-radius:9px;
+  background:var(--cyan);
+  font-weight:1000;
+  cursor:pointer;
+}
+.qty span{
+  min-width:30px;
+  text-align:center;
+  font-weight:1000;
+}
+.total{
+  font-size:28px;
+  font-weight:1000;
+  text-align:right;
+  margin:20px 0 0;
+}
+.form-card{
+  max-width:700px;
+}
+label{
+  display:block;
+  font-weight:900;
+  margin:16px 0 7px;
+}
+input{
+  width:100%;
+  padding:12px;
+  border:3px solid var(--ink);
+  border-radius:10px;
+  background:#fff;
+  color:var(--ink);
+}
+.muted{
+  opacity:.72;
+  font-size:13px;
+}
+.actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+.complete-box{
+  text-align:center;
+  padding:45px 25px;
+}
+.complete-mark{
+  display:inline-flex;
+  width:90px;
+  height:90px;
+  align-items:center;
+  justify-content:center;
+  border:4px solid var(--ink);
+  border-radius:50%;
+  background:var(--yellow);
+  font-size:44px;
+  font-weight:1000;
+  margin-bottom:20px;
+}
+footer{
+  padding:30px 0;
+  background:var(--ink);
+  color:#fff;
+  text-align:center;
+  font-size:12px;
+}
+@media(max-width:760px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+  .hero{
+    padding:44px 0 36px;
+  }
+  .card{
+    box-shadow:5px 5px 0 var(--ink);
+  }
+  .cart-row{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .total{
+    text-align:left;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+<header class="wrap">
+<a class="brand" href="../index.html">
+超アイドル祭
+<small>OFFICIAL SITE</small>
+</a>
+
+<a href="#cart" class="cart-top">
+🛒 CART <span id="cartCount">0</span>
+</a>
+</header>
+</div>
+
+
+<main>
+
+<div class="hero">
+<div class="wrap">
+
+<div class="kicker">
+OFFICIAL ONLINE STORE
+</div>
+
+<h1>STORE</h1>
+
+<p>
+超アイドル祭公式グッズをオンラインでチェック！
+</p>
+
+</div>
+</div>
+
+
+<!-- SHOP -->
+
+<section id="shop">
+<div class="wrap">
+
+<h2 class="section-title">
+OFFICIAL GOODS
+</h2>
+
+<p class="lead">
+欲しい商品を選んでカートへ追加しよう。
+</p>
+
+<div class="notice">
+⚠ このページは架空のデモストアです。<br>
+実際の決済・注文・発送は行われません。<br>
+クレジットカード番号などの実在する決済情報は入力しないでください。
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+<div class="product-icon">T</div>
+<span class="tag">NEW</span>
+<h3>超アイドル祭 Tシャツ</h3>
+<p>イベントロゴ入り公式Tシャツ。</p>
+<div class="price">¥3,500</div>
+<button class="btn" onclick="addToCart('Tシャツ',3500)">
+カートに追加
+</button>
+</div>
+
+
+<div class="card">
+<div class="product-icon">★</div>
+<span class="tag">LIVE</span>
+<h3>公式ペンライト</h3>
+<p>ライブを盛り上げる公式ペンライト。</p>
+<div class="price">¥2,800</div>
+<button class="btn" onclick="addToCart('公式ペンライト',2800)">
+カートに追加
+</button>
+</div>
+
+
+<div class="card">
+<div class="product-icon">8</div>
+<span class="tag">RANDOM</span>
+<h3>ランダム缶バッジ</h3>
+<p>全8種のランダム缶バッジ。</p>
+<div class="price">¥500</div>
+<button class="btn" onclick="addToCart('ランダム缶バッジ',500)">
+カートに追加
+</button>
+</div>
+
+
+<div class="card">
+<div class="product-icon">FES</div>
+<span class="tag">MEMORY</span>
+<h3>オフィシャルタオル</h3>
+<p>イベントロゴ入り公式タオル。</p>
+<div class="price">¥1,800</div>
+<button class="btn" onclick="addToCart('オフィシャルタオル',1800)">
+カートに追加
+</button>
+</div>
+
+
+<div class="card">
+<div class="product-icon">ID</div>
+<span class="tag">VENUE ONLY</span>
+<h3>ドッグタグ</h3>
+<p>会場限定販売。オンラインでは購入できません。</p>
+<div class="price">会場販売のみ</div>
+<span class="btn yellow">
+VENUE ONLY
+</span>
+</div>
+
+
+<div class="card">
+<div class="product-icon">PASS</div>
+<span class="tag">LIMITED</span>
+<h3>スタッフパス風ステッカー</h3>
+<p>スタッフパス風デザインの限定ステッカー。</p>
+<div class="price">¥700</div>
+<button class="btn" onclick="addToCart('スタッフパス風ステッカー',700)">
+カートに追加
+</button>
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+<!-- CART -->
+
+<section id="cart">
+<div class="wrap">
+
+<h2 class="section-title">
+CART
+</h2>
+
+<p class="lead">
+カートの中身を確認してください。
+</p>
+
+<div class="card">
+
+<div id="cartItems">
+<p>カートは空です。</p>
+</div>
+
+<div id="cartTotal" class="total">
+合計 ¥0
+</div>
+
+<div class="actions">
+
+<button
+class="btn yellow"
+onclick="goPurchase()"
+>
+購入情報へ進む
+</button>
+
+<button
+class="btn alt"
+onclick="clearCart()"
+>
+カートを空にする
+</button>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- PURCHASE INFO -->
+
+<section id="purchaseInfo" class="hidden">
+<div class="wrap">
+
+<h2 class="section-title">
+PURCHASE INFO
+</h2>
+
+<p class="lead">
+デモ用の購入情報を入力してください。
+</p>
+
+<div class="card form-card">
+
+<label for="customerName">
+お名前
+</label>
+
+<input
+id="customerName"
+type="text"
+maxlength="40"
+placeholder="例：超アイドル祭 太郎"
+>
+
+
+<label for="customerEmail">
+メールアドレス
+</label>
+
+<input
+id="customerEmail"
+type="email"
+maxlength="80"
+placeholder="example@example.com"
+>
+
+<p class="muted">
+※実在する個人情報や決済情報は入力しないでください。
+</p>
+
+<div class="actions">
+
+<button
+class="btn"
+onclick="showReview()"
+>
+注文内容を確認
+</button>
+
+<button
+class="btn alt"
+onclick="backToCart()"
+>
+カートへ戻る
+</button>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- REVIEW -->
+
+<section id="review" class="hidden">
+<div class="wrap">
+
+<h2 class="section-title">
+ORDER REVIEW
+</h2>
+
+<p class="lead">
+注文内容を確認してください。
+</p>
+
+<div class="card">
+
+<div id="reviewContent">
+</div>
+
+<div class="notice">
+これはデモ注文です。<br>
+このボタンを押しても、実際の決済や注文処理は発生しません。
+</div>
+
+<div class="actions">
+
+<button
+class="btn"
+onclick="completeOrder()"
+>
+この内容で注文（デモ）
+</button>
+
+<button
+class="btn alt"
+onclick="backToInfo()"
+>
+購入情報を修正
+</button>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- COMPLETE -->
+
+<section id="complete" class="hidden">
+<div class="wrap">
+
+<div class="card complete-box">
+
+<div class="complete-mark">
+✓
+</div>
+
+<h2 class="section-title">
+注文完了！
+</h2>
+
+<p>
+デモ上の注文受付が完了しました。
+</p>
+
+<p>
+実際の注文・決済・発送は行われません。
+</p>
+
+<div class="notice">
+ご利用ありがとうございました！
+</div>
+
+<div class="actions" style="justify-content:center">
+
+<a
+class="btn alt"
+href="../index.html"
+>
+メインページへ
+</a>
+
+<a
+class="btn yellow"
+href="../goods/"
+>
+GOODSを見る
+</a>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+
+<footer>
+
+超アイドル祭 OFFICIAL SITE<br>
+このサイト・イベント・掲載情報は架空のものです。<br>
+実在の人物・団体・企業・イベントとは関係ありません。
+
+</footer>
+
+
+<script>
+
+let cart = [];
+
+
+/* カートへ追加 */
+
+function addToCart(name,price){
+
+  const item = cart.find(
+    item => item.name === name
+  );
+
+  if(item){
+
+    item.quantity++;
+
+  }else{
+
+    cart.push({
+      name:name,
+      price:price,
+      quantity:1
+    });
+
+  }
+
+  renderCart();
+
+  document
+    .getElementById("cart")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* カート表示 */
+
+function renderCart(){
+
+  const area =
+    document.getElementById("cartItems");
+
+  const count =
+    document.getElementById("cartCount");
+
+  const totalArea =
+    document.getElementById("cartTotal");
+
+
+  if(cart.length === 0){
+
+    area.innerHTML =
+      "<p>カートは空です。</p>";
+
+    count.textContent = "0";
+
+    totalArea.textContent =
+      "合計 ¥0";
+
+    return;
+
+  }
+
+
+  let total = 0;
+  let quantity = 0;
+
+
+  area.innerHTML =
+    cart.map((item,index)=>{
+
+      const subtotal =
+        item.price * item.quantity;
+
+      total += subtotal;
+
+      quantity += item.quantity;
+
+
+      return `
+
+      <div class="cart-row">
+
+        <div>
+          <strong>${item.name}</strong>
+          <br>
+          ¥${item.price.toLocaleString()} × ${item.quantity}
+          <br>
+          <strong>
+            小計 ¥${subtotal.toLocaleString()}
+          </strong>
+        </div>
+
+        <div class="qty">
+
+          <button
+            onclick="changeQuantity(${index},-1)"
+          >
+            −
+          </button>
+
+          <span>
+            ${item.quantity}
+          </span>
+
+          <button
+            onclick="changeQuantity(${index},1)"
+          >
+            ＋
+          </button>
+
+        </div>
+
+        <button
+          class="btn yellow"
+          onclick="removeItem(${index})"
+        >
+          削除
+        </button>
+
+      </div>
+
+      `;
+
+    }).join("");
+
+
+  count.textContent = quantity;
+
+  totalArea.textContent =
+    "合計 ¥" + total.toLocaleString();
+
+}
+
+
+/* 数量変更 */
+
+function changeQuantity(index,diff){
+
+  cart[index].quantity += diff;
+
+  if(cart[index].quantity <= 0){
+
+    cart.splice(index,1);
+
+  }
+
+  renderCart();
+
+}
+
+
+/* 商品削除 */
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  renderCart();
+
+}
+
+
+/* カートを空にする */
+
+function clearCart(){
+
+  cart = [];
+
+  renderCart();
+
+}
+
+
+/* 購入情報へ */
+
+function goPurchase(){
+
+  if(cart.length === 0){
+
+    alert(
+      "まず商品をカートに追加してください。"
+    );
+
+    return;
+
+  }
+
+  document
+    .getElementById("purchaseInfo")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("purchaseInfo")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* 注文確認 */
+
+function showReview(){
+
+  const name =
+    document
+      .getElementById("customerName")
+      .value.trim();
+
+  const email =
+    document
+      .getElementById("customerEmail")
+      .value.trim();
+
+
+  if(!name){
+
+    alert(
+      "お名前を入力してください。"
+    );
+
+    return;
+
+  }
+
+
+  if(!email){
+
+    alert(
+      "メールアドレスを入力してください。"
+    );
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+
+  const items =
+    cart.map(item=>{
+
+      const subtotal =
+        item.price * item.quantity;
+
+      total += subtotal;
+
+      return `
+        <p>
+          <strong>${item.name}</strong><br>
+          ¥${item.price.toLocaleString()}
+          × ${item.quantity}
+          ＝ ¥${subtotal.toLocaleString()}
+        </p>
+      `;
+
+    }).join("");
+
+
+  document
+    .getElementById("reviewContent")
+    .innerHTML = `
+
+      <h3>購入者情報</h3>
+
+      <p>
+        <strong>お名前：</strong>
+        ${escapeHTML(name)}
+      </p>
+
+      <p>
+        <strong>メール：</strong>
+        ${escapeHTML(email)}
+      </p>
+
+      <hr>
+
+      <h3>商品</h3>
+
+      ${items}
+
+      <hr>
+
+      <p class="total">
+        合計 ¥${total.toLocaleString()}
+      </p>
+
+    `;
+
+
+  document
+    .getElementById("review")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("review")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* 購入情報へ戻る */
+
+function backToInfo(){
+
+  document
+    .getElementById("purchaseInfo")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* カートへ戻る */
+
+function backToCart(){
+
+  document
+    .getElementById("cart")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* 注文完了 */
+
+function completeOrder(){
+
+  document
+    .getElementById("review")
+    .classList.add("hidden");
+
+  document
+    .getElementById("purchaseInfo")
+    .classList.add("hidden");
+
+  document
+    .getElementById("complete")
+    .classList.remove("hidden");
+
+  cart = [];
+
+  renderCart();
+
+  document
+    .getElementById("complete")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* HTMLエスケープ */
+
+function escapeHTML(str){
+
+  return str
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+renderCart();
+
+</script>
+
+</body>
+</html>
+```
