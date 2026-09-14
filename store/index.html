@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="ja">
 <head>
@@ -6,15 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>OFFICIAL ONLINE STORE | 超アイドル祭 OFFICIAL SITE</title>
-
 <style>
 :root{
-  --ink:#35154f;
-  --pink:#ff3fa4;
-  --purple:#8c5bff;
-  --cyan:#45d9ff;
-  --yellow:#ffd83d;
-  --paper:#fff9ff;
+  --ink:#35154f;--pink:#ff3fa4;--purple:#8c5bff;--cyan:#45d9ff;
+  --yellow:#ffd83d;--paper:#fff9ff;--line:#35154f;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -23,177 +17,256 @@ body{
   background:var(--paper);
   color:var(--ink);
   font-family:system-ui,-apple-system,BlinkMacSystemFont,
-    "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-  line-height:1.7;
+  "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  line-height:1.7
 }
 a{color:inherit;text-decoration:none}
-button,input{
-  font:inherit;
-}
-.wrap{
-  width:min(1100px,92%);
-  margin:auto;
-}
+button,input,select{font:inherit}
+
+.wrap{width:min(1120px,92%);margin:auto}
+
 .top{
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:100;
   background:#fff;
   border-bottom:3px solid var(--ink);
-  box-shadow:0 5px 0 var(--ink);
+  box-shadow:0 5px 0 var(--ink)
 }
+
 header{
-  padding:16px 0;
+  min-height:68px;
+  padding:10px 0;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:15px;
+  justify-content:space-between;
+  gap:14px
 }
+
 .brand{
-  font-weight:900;
+  font-weight:1000;
   font-size:20px;
-  letter-spacing:.04em;
+  line-height:1.1
 }
+.brand span{color:var(--pink)}
 .brand small{
   display:block;
-  font-size:11px;
+  font-size:10px;
+  letter-spacing:.08em;
+  margin-top:3px
 }
+
 .cart-top{
   border:3px solid var(--ink);
   border-radius:999px;
   background:var(--yellow);
-  padding:7px 13px;
+  padding:7px 14px;
   font-weight:1000;
+  white-space:nowrap
 }
+
 .hero{
-  padding:64px 0 48px;
-  background:
-    linear-gradient(
-      135deg,
-      #ffe5f3 0 48%,
-      #e9ddff 48% 72%,
-      #d9f7ff 72%
-    );
-  border-bottom:3px solid var(--ink);
+  padding:58px 0 42px;
+  background:linear-gradient(
+    135deg,
+    #ffe5f3 0 45%,
+    #e9ddff 45% 72%,
+    #d9f7ff 72%
+  );
+  border-bottom:3px solid var(--ink)
 }
+
 .kicker{
-  font-weight:900;
-  letter-spacing:.12em;
-}
-.hero h1{
-  font-size:clamp(38px,8vw,78px);
-  line-height:.98;
-  margin:10px 0 18px;
   font-weight:1000;
+  letter-spacing:.12em
 }
+
+.hero h1{
+  font-size:clamp(42px,8vw,76px);
+  line-height:.95;
+  margin:8px 0 14px;
+  font-weight:1000
+}
+
 .hero p{
   font-weight:800;
+  margin:0
 }
-section{
-  padding:52px 0;
-}
-.section-title{
-  font-size:32px;
-  margin:0 0 8px;
-  font-weight:1000;
-}
-.lead{
-  margin:0 0 26px;
-  font-weight:700;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-.card{
+
+.shopbar{
+  margin-top:-1px;
   background:#fff;
-  border:3px solid var(--ink);
-  border-radius:18px;
-  padding:22px;
-  box-shadow:7px 7px 0 var(--ink);
+  border-bottom:3px solid var(--ink);
+  padding:12px 0
 }
-.card h3{
-  margin:0 0 8px;
-  font-size:21px;
+
+.shopbar-inner{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap
 }
-.tag{
-  display:inline-block;
-  background:#dff8ff;
-  border:2px solid var(--ink);
-  border-radius:999px;
-  padding:2px 9px;
-  font-size:12px;
-  font-weight:900;
-  margin-bottom:10px;
-}
-.price{
-  font-size:22px;
-  font-weight:1000;
-  margin:14px 0;
-}
-.btn{
-  display:inline-block;
-  padding:12px 18px;
+
+.search{
+  flex:1;
+  min-width:220px;
+  padding:10px 13px;
   border:3px solid var(--ink);
   border-radius:12px;
-  background:var(--pink);
-  color:var(--ink);
-  font-weight:1000;
-  box-shadow:4px 4px 0 var(--ink);
-  cursor:pointer;
+  background:#fff
 }
-.btn.alt{background:var(--cyan)}
-.btn.yellow{background:var(--yellow)}
-.btn:active{
-  transform:translate(2px,2px);
-  box-shadow:2px 2px 0 var(--ink);
+
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap
 }
+
+.filter{
+  border:2px solid var(--ink);
+  border-radius:999px;
+  background:#fff;
+  padding:5px 10px;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer
+}
+
+.filter.active{background:var(--pink)}
+
+section{padding:52px 0}
+
+.section-title{
+  font-size:32px;
+  margin:0 0 7px;
+  font-weight:1000
+}
+
+.lead{
+  margin:0 0 24px;
+  font-weight:700
+}
+
 .notice{
   padding:14px 16px;
   border:3px solid var(--ink);
   border-radius:14px;
   background:#fff4a8;
   font-weight:800;
-  margin:20px 0 30px;
+  margin:18px 0 28px
 }
-.hidden{
-  display:none!important;
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px
 }
+
+.card{
+  background:#fff;
+  border:3px solid var(--ink);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:7px 7px 0 var(--ink)
+}
+
 .product-icon{
-  height:120px;
+  height:150px;
   border:3px solid var(--ink);
   border-radius:14px;
   display:flex;
   align-items:center;
   justify-content:center;
   background:linear-gradient(135deg,#ffe5f3,#e9ddff);
-  font-size:42px;
+  font-size:40px;
   font-weight:1000;
-  margin-bottom:18px;
+  margin-bottom:15px
 }
+
+.tag{
+  display:inline-block;
+  background:#dff8ff;
+  border:2px solid var(--ink);
+  border-radius:999px;
+  padding:2px 9px;
+  font-size:11px;
+  font-weight:1000;
+  margin:0 5px 8px 0
+}
+
+.card h3{
+  font-size:19px;
+  line-height:1.35;
+  margin:2px 0 8px
+}
+
+.desc{
+  font-size:14px;
+  margin:0 0 8px
+}
+
+.price{
+  font-size:22px;
+  font-weight:1000;
+  margin:12px 0
+}
+
+.muted{
+  opacity:.7;
+  font-size:12px
+}
+
+.btn{
+  display:inline-block;
+  padding:11px 16px;
+  border:3px solid var(--ink);
+  border-radius:12px;
+  background:var(--pink);
+  color:var(--ink);
+  font-weight:1000;
+  box-shadow:4px 4px 0 var(--ink);
+  cursor:pointer
+}
+
+.btn.alt{background:var(--cyan)}
+.btn.yellow{background:var(--yellow)}
+
+.btn:active{
+  transform:translate(2px,2px);
+  box-shadow:2px 2px 0 var(--ink)
+}
+
 .product-actions{
   display:flex;
   gap:10px;
-  align-items:center;
-  flex-wrap:wrap;
+  flex-wrap:wrap
 }
+
+.hidden{display:none!important}
+
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:35px
+}
+
 .cart-row{
   display:grid;
   grid-template-columns:1fr auto auto;
   gap:15px;
   align-items:center;
   padding:16px 0;
-  border-bottom:2px solid var(--ink);
+  border-bottom:2px solid var(--ink)
 }
-.cart-row:last-child{
-  border-bottom:0;
-}
+
+.cart-row:last-child{border-bottom:0}
+
 .qty{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:8px
 }
+
 .qty button{
   width:38px;
   height:38px;
@@ -201,49 +274,51 @@ section{
   border-radius:9px;
   background:var(--cyan);
   font-weight:1000;
-  cursor:pointer;
+  cursor:pointer
 }
+
 .qty span{
   min-width:30px;
   text-align:center;
-  font-weight:1000;
+  font-weight:1000
 }
+
 .total{
   font-size:28px;
   font-weight:1000;
   text-align:right;
-  margin:20px 0 0;
+  margin:20px 0 0
 }
-.form-card{
-  max-width:700px;
-}
+
+.form-card{max-width:700px}
+
 label{
   display:block;
   font-weight:900;
-  margin:16px 0 7px;
+  margin:16px 0 7px
 }
-input{
+
+input,select{
   width:100%;
   padding:12px;
   border:3px solid var(--ink);
   border-radius:10px;
   background:#fff;
-  color:var(--ink);
+  color:var(--ink)
 }
-.muted{
-  opacity:.72;
-  font-size:13px;
-}
+
 .actions{
   display:flex;
   gap:14px;
   flex-wrap:wrap;
-  margin-top:25px;
+  margin-top:25px
 }
+
 .complete-box{
   text-align:center;
-  padding:45px 25px;
+  padding:45px 25px
 }
+
 .complete-mark{
   display:inline-flex;
   width:90px;
@@ -255,31 +330,134 @@ input{
   background:var(--yellow);
   font-size:44px;
   font-weight:1000;
-  margin-bottom:20px;
+  margin-bottom:20px
 }
+
 footer{
   padding:30px 0;
   background:var(--ink);
   color:#fff;
   text-align:center;
-  font-size:12px;
+  font-size:12px
 }
+
+.modal-back{
+  position:fixed;
+  inset:0;
+  background:rgba(53,21,79,.58);
+  z-index:200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px
+}
+
+.modal-back.open{display:flex}
+
+.modal{
+  width:min(560px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  border:3px solid var(--ink);
+  border-radius:20px;
+  box-shadow:9px 9px 0 var(--ink);
+  padding:22px
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start
+}
+
+.modal h2{
+  margin:0;
+  font-size:25px;
+  line-height:1.3
+}
+
+.close{
+  width:42px;
+  height:42px;
+  border:3px solid var(--ink);
+  border-radius:10px;
+  background:var(--yellow);
+  font-weight:1000;
+  cursor:pointer
+}
+
+/* カラーとサイズを完全に独立 */
+.variant-group{
+  margin-top:18px
+}
+
+.variant-label{
+  font-size:14px;
+  font-weight:1000;
+  margin:0 0 8px
+}
+
+.option-grid{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:0
+}
+
+.option{
+  min-width:72px;
+  border:3px solid var(--ink);
+  border-radius:10px;
+  background:#fff;
+  padding:8px 12px;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:3px 3px 0 var(--ink)
+}
+
+.option:hover{
+  transform:translateY(-1px)
+}
+
+.option.selected{
+  background:var(--cyan);
+  box-shadow:2px 2px 0 var(--ink);
+  transform:translate(1px,1px)
+}
+
+.modal-price{
+  font-size:25px;
+  font-weight:1000;
+  margin:20px 0 16px
+}
+
 @media(max-width:760px){
   .grid{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr
   }
-  .hero{
-    padding:44px 0 36px;
-  }
+
   .card{
-    box-shadow:5px 5px 0 var(--ink);
+    box-shadow:5px 5px 0 var(--ink)
   }
+
   .cart-row{
     grid-template-columns:1fr;
-    gap:8px;
+    gap:8px
   }
+
   .total{
-    text-align:left;
+    text-align:left
+  }
+
+  .hero{
+    padding:42px 0 34px
+  }
+
+  .option-grid{
+    grid-template-columns:1fr 1fr
   }
 }
 </style>
@@ -290,148 +468,424 @@ footer{
 <div class="top">
 <header class="wrap">
 <a class="brand" href="../index.html">
-超アイドル祭
-<small>OFFICIAL SITE</small>
+  超<span>アイドル</span>祭
+  <small>OFFICIAL ONLINE STORE</small>
 </a>
 
 <a href="#cart" class="cart-top">
-🛒 CART <span id="cartCount">0</span>
+  CART <span id="cartCount">0</span>
 </a>
 </header>
 </div>
-
 
 <main>
 
 <div class="hero">
 <div class="wrap">
 
-<div class="kicker">
-OFFICIAL ONLINE STORE
-</div>
+<div class="kicker">OFFICIAL ONLINE STORE</div>
 
 <h1>STORE</h1>
 
-<p>
-超アイドル祭公式グッズをオンラインでチェック！
-</p>
+<p>超アイドル祭公式グッズをオンラインでチェック！</p>
 
 </div>
 </div>
 
+<div class="shopbar">
+<div class="wrap shopbar-inner">
 
-<!-- SHOP -->
+<input
+  id="searchInput"
+  class="search"
+  type="search"
+  placeholder="商品を検索…"
+>
 
-<section id="shop">
+<div class="filters">
+
+<button class="filter active" data-filter="all">ALL</button>
+<button class="filter" data-filter="apparel">APPAREL</button>
+<button class="filter" data-filter="goods">GOODS</button>
+<button class="filter" data-filter="limited">LIMITED</button>
+
+</div>
+</div>
+</div>
+
+<section>
 <div class="wrap">
 
-<h2 class="section-title">
-OFFICIAL GOODS
-</h2>
+<h2 class="section-title">OFFICIAL ITEMS</h2>
 
 <p class="lead">
-欲しい商品を選んでカートへ追加しよう。
+超アイドル祭の公式グッズをオンラインストアでチェック！
 </p>
 
 <div class="notice">
-⚠ このページは架空のデモストアです。<br>
-実際の決済・注文・発送は行われません。<br>
-クレジットカード番号などの実在する決済情報は入力しないでください。
+会場限定商品・オンライン限定商品があります。商品ページの表示をご確認ください。
 </div>
 
+<div id="productGrid" class="grid">
 
-<div class="grid">
+<article class="card product"
+data-category="apparel"
+data-search="超アイドル祭 オフィシャルTシャツ 成長期 Tシャツ">
 
+<div class="product-icon">T-SHIRT</div>
 
-<div class="card">
-<div class="product-icon">T</div>
-<span class="tag">NEW</span>
-<h3>超アイドル祭 Tシャツ</h3>
-<p>イベントロゴ入り公式Tシャツ。</p>
+<span class="tag">APPAREL</span>
+
+<h3>超アイドル祭 オフィシャルTシャツ</h3>
+
+<p class="desc">
+「成長期」メインロゴ入りの公式Tシャツ。速乾性のあるタフなボディ。
+</p>
+
 <div class="price">¥3,500</div>
-<button class="btn" onclick="addToCart('Tシャツ',3500)">
-カートに追加
+
+<div class="product-actions">
+<button class="btn" onclick="openProduct('tshirt')">
+カラー・サイズを選ぶ
 </button>
 </div>
 
+</article>
 
-<div class="card">
-<div class="product-icon">★</div>
-<span class="tag">LIVE</span>
-<h3>公式ペンライト</h3>
-<p>ライブを盛り上げる公式ペンライト。</p>
+
+<article class="card product"
+data-category="goods"
+data-search="公式ペンライト 多色発光 ペンライト">
+
+<div class="product-icon">LIGHT</div>
+
+<span class="tag">GOODS</span>
+
+<h3>公式ペンライト（多色発光型）</h3>
+
+<p class="desc">
+12色に切り替え可能な公式ペンライト。
+</p>
+
 <div class="price">¥2,800</div>
-<button class="btn" onclick="addToCart('公式ペンライト',2800)">
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('公式ペンライト（多色発光型）',2800,'')">
 カートに追加
 </button>
 </div>
 
-
-<div class="card">
-<div class="product-icon">8</div>
-<span class="tag">RANDOM</span>
-<h3>ランダム缶バッジ</h3>
-<p>全8種のランダム缶バッジ。</p>
-<div class="price">¥500</div>
-<button class="btn" onclick="addToCart('ランダム缶バッジ',500)">
-カートに追加
-</button>
-</div>
+</article>
 
 
-<div class="card">
-<div class="product-icon">FES</div>
-<span class="tag">MEMORY</span>
-<h3>オフィシャルタオル</h3>
-<p>イベントロゴ入り公式タオル。</p>
+<article class="card product"
+data-category="goods"
+data-search="マフラータオル ジャガード織り タオル">
+
+<div class="product-icon">TOWEL</div>
+
+<span class="tag">GOODS</span>
+
+<h3>マフラータオル（ジャガード織り）</h3>
+
+<p class="desc">
+厚手で吸水性の高いジャガード織りタオル。
+</p>
+
 <div class="price">¥1,800</div>
-<button class="btn" onclick="addToCart('オフィシャルタオル',1800)">
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('マフラータオル（ジャガード織り）',1800,'')">
 カートに追加
 </button>
 </div>
 
-
-<div class="card">
-<div class="product-icon">ID</div>
-<span class="tag">VENUE ONLY</span>
-<h3>ドッグタグ</h3>
-<p>会場限定販売。オンラインでは購入できません。</p>
-<div class="price">会場販売のみ</div>
-<span class="btn yellow">
-VENUE ONLY
-</span>
-</div>
+</article>
 
 
-<div class="card">
-<div class="product-icon">PASS</div>
-<span class="tag">LIMITED</span>
-<h3>スタッフパス風ステッカー</h3>
-<p>スタッフパス風デザインの限定ステッカー。</p>
-<div class="price">¥700</div>
-<button class="btn" onclick="addToCart('スタッフパス風ステッカー',700)">
+<article class="card product"
+data-category="goods"
+data-search="ランダム トレーディング 缶バッジ バッジ">
+
+<div class="product-icon">BADGE</div>
+
+<span class="tag">GOODS</span>
+
+<h3>ランダムトレーディング缶バッジ</h3>
+
+<p class="desc">
+7人のアイドル＋Creators Market限定を含む全10種類。
+</p>
+
+<div class="price">¥500</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('ランダムトレーディング缶バッジ',500,'ランダム')">
 カートに追加
 </button>
 </div>
 
+</article>
+
+
+<article class="card product"
+data-category="apparel"
+data-search="公式キャップ 帽子 キャップ">
+
+<div class="product-icon">CAP</div>
+
+<span class="tag">APPAREL</span>
+
+<h3>超アイドル祭 公式キャップ（帽子）</h3>
+
+<p class="desc">
+屋外での暑さ対策にも使えるモノトーン仕様の公式キャップ。
+</p>
+
+<div class="price">¥3,000</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('超アイドル祭 公式キャップ（帽子）',3000,'')">
+カートに追加
+</button>
+</div>
+
+</article>
+
+
+<article class="card product"
+data-category="apparel"
+data-search="オフィシャル フェス スニーカー 靴">
+
+<div class="product-icon">SHOES</div>
+
+<span class="tag">APPAREL</span>
+
+<h3>オフィシャルフェススニーカー</h3>
+
+<p class="desc">
+クッション性を重視した高機能フェス向けスニーカー。
+</p>
+
+<div class="price">¥7,800</div>
+
+<div class="product-actions">
+<button class="btn" onclick="openProduct('sneaker')">
+カラー・サイズを選ぶ
+</button>
+</div>
+
+</article>
+
+
+<article class="card product"
+data-category="apparel"
+data-search="限界突破 公式 ハッピ 半被 はっぴ">
+
+<div class="product-icon">HAPPI</div>
+
+<span class="tag">APPAREL</span>
+
+<h3>限界突破！公式ハッピ（半被）</h3>
+
+<p class="desc">
+フェスの熱気を盛り上げる公式ハッピ。背面プリント入り。
+</p>
+
+<div class="price">¥5,500</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('限界突破！公式ハッピ（半被）',5500,'')">
+カートに追加
+</button>
+</div>
+
+</article>
+
+
+<article class="card product"
+data-category="goods"
+data-search="推し活 クリア 痛バッグ 痛バ">
+
+<div class="product-icon">ITABAG</div>
+
+<span class="tag">GOODS</span>
+
+<h3>推し活専用クリア痛バッグ（痛バ）</h3>
+
+<p class="desc">
+大きめの透明フロントポケットを備えた推し活向けバッグ。
+</p>
+
+<div class="price">¥4,000</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('推し活専用クリア痛バッグ（痛バ）',4000,'')">
+カートに追加
+</button>
+</div>
+
+</article>
+
+
+<article class="card product"
+data-category="goods"
+data-search="公式 アクリルスタンド アクスタ 全7種">
+
+<div class="product-icon">ACRYLIC</div>
+
+<span class="tag">GOODS</span>
+
+<h3>公式アクリルスタンド（アクスタ）</h3>
+
+<p class="desc">
+全7種。メンバー同士をつなげられるパズル型台座仕様。
+</p>
+
+<div class="price">各 ¥1,500</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('公式アクリルスタンド（アクスタ）',1500,'全7種からランダム')">
+カートに追加
+</button>
+</div>
+
+</article>
+
+
+<article class="card product"
+data-category="goods"
+data-search="サーモステンレスボトル 水筒 ボトル">
+
+<div class="product-icon">BOTTLE</div>
+
+<span class="tag">GOODS</span>
+
+<h3>サーモステンレスボトル（水筒）</h3>
+
+<p class="desc">
+真空二重構造を採用した公式ステンレスボトル。
+</p>
+
+<div class="price">¥2,500</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('サーモステンレスボトル（水筒）',2500,'')">
+カートに追加
+</button>
+</div>
+
+</article>
+
+
+<article class="card product"
+data-category="goods"
+data-search="カラビナ ペットボトル ケース">
+
+<div class="product-icon">CASE</div>
+
+<span class="tag">GOODS</span>
+
+<h3>カラビナ付きペットボトルケース</h3>
+
+<p class="desc">
+ベルトやバッグに取り付け可能。アルミ蒸着シート仕様。
+</p>
+
+<div class="price">¥1,200</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('カラビナ付きペットボトルケース',1200,'')">
+カートに追加
+</button>
+</div>
+
+</article>
+
+
+<article class="card product"
+data-category="goods"
+data-search="スタッフパス サテン ステッカー シール">
+
+<div class="product-icon">STICKER</div>
+
+<span class="tag">GOODS</span>
+
+<h3>スタッフパス風サテンステッカー</h3>
+
+<p class="desc">
+サテンのような質感をイメージしたスタッフパス風ステッカー。
+</p>
+
+<div class="price">¥400</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('スタッフパス風サテンステッカー',400,'')">
+カートに追加
+</button>
+</div>
+
+</article>
+
+
+<article class="card product"
+data-category="limited"
+data-search="会場限定 メモリアル ドッグタグ">
+
+<div class="product-icon">DOG TAG</div>
+
+<span class="tag">会場限定</span>
+
+<h3>メモリアルドッグタグ</h3>
+
+<p class="desc">
+会場限定。シリアルナンバー入りのメモリアルアイテム。
+</p>
+
+<div class="price">¥2,000</div>
+
+<p class="muted">
+※オンラインストアでは購入できません。
+</p>
+
+</article>
+
+
+<article class="card product"
+data-category="limited"
+data-search="オンライン限定 コンピレーション アルバム CD">
+
+<div class="product-icon">ALBUM</div>
+
+<span class="tag">オンライン限定</span>
+
+<h3>コンピレーションアルバム</h3>
+
+<p class="desc">
+Creators Marketの楽曲＋限定ボイストラックを収録。
+</p>
+
+<div class="price">¥3,000</div>
+
+<div class="product-actions">
+<button class="btn alt" onclick="addToCart('コンピレーションアルバム',3000,'オンライン限定')">
+カートに追加
+</button>
+</div>
+
+</article>
 
 </div>
 </div>
 </section>
 
 
-<!-- CART -->
-
 <section id="cart">
 <div class="wrap">
 
-<h2 class="section-title">
-CART
-</h2>
+<h2 class="section-title">CART</h2>
 
-<p class="lead">
-カートの中身を確認してください。
-</p>
+<p class="lead">カートに入れた商品を確認できます。</p>
 
 <div class="card">
 
@@ -439,89 +893,50 @@ CART
 <p>カートは空です。</p>
 </div>
 
-<div id="cartTotal" class="total">
-合計 ¥0
-</div>
+<div id="cartTotal" class="total">合計 ¥0</div>
 
 <div class="actions">
-
-<button
-class="btn yellow"
-onclick="goPurchase()"
->
-購入情報へ進む
-</button>
-
-<button
-class="btn alt"
-onclick="clearCart()"
->
+<button class="btn yellow" onclick="clearCart()">
 カートを空にする
 </button>
 
+<button class="btn" onclick="goPurchase()">
+購入情報へ進む
+</button>
 </div>
 
 </div>
 </div>
 </section>
 
-
-<!-- PURCHASE INFO -->
 
 <section id="purchaseInfo" class="hidden">
 <div class="wrap">
 
-<h2 class="section-title">
-PURCHASE INFO
-</h2>
+<h2 class="section-title">PURCHASE INFO</h2>
 
-<p class="lead">
-デモ用の購入情報を入力してください。
-</p>
+<p class="lead">購入者情報を入力してください。</p>
 
 <div class="card form-card">
 
-<label for="customerName">
-お名前
-</label>
+<label for="customerName">お名前</label>
+<input id="customerName" type="text" placeholder="お名前">
 
-<input
-id="customerName"
-type="text"
-maxlength="40"
-placeholder="例：超アイドル祭 太郎"
->
+<label for="customerEmail">メールアドレス</label>
+<input id="customerEmail" type="email" placeholder="メールアドレス">
 
-
-<label for="customerEmail">
-メールアドレス
-</label>
-
-<input
-id="customerEmail"
-type="email"
-maxlength="80"
-placeholder="example@example.com"
->
-
-<p class="muted">
-※実在する個人情報や決済情報は入力しないでください。
-</p>
+<div class="notice">
+これはデモ注文です。実際の決済や発送は行われません。
+</div>
 
 <div class="actions">
 
-<button
-class="btn"
-onclick="showReview()"
->
-注文内容を確認
+<button class="btn alt" onclick="backToCart()">
+カートに戻る
 </button>
 
-<button
-class="btn alt"
-onclick="backToCart()"
->
-カートへ戻る
+<button class="btn" onclick="showReview()">
+注文内容を確認
 </button>
 
 </div>
@@ -531,42 +946,28 @@ onclick="backToCart()"
 </section>
 
 
-<!-- REVIEW -->
-
 <section id="review" class="hidden">
 <div class="wrap">
 
-<h2 class="section-title">
-ORDER REVIEW
-</h2>
+<h2 class="section-title">ORDER REVIEW</h2>
 
-<p class="lead">
-注文内容を確認してください。
-</p>
+<p class="lead">注文内容を確認してください。</p>
 
 <div class="card">
 
-<div id="reviewContent">
-</div>
+<div id="reviewContent"></div>
 
 <div class="notice">
-これはデモ注文です。<br>
-このボタンを押しても、実際の決済や注文処理は発生しません。
+これはデモ注文です。このボタンを押しても、実際の決済や注文処理は発生しません。
 </div>
 
 <div class="actions">
 
-<button
-class="btn"
-onclick="completeOrder()"
->
+<button class="btn" onclick="completeOrder()">
 この内容で注文（デモ）
 </button>
 
-<button
-class="btn alt"
-onclick="backToInfo()"
->
+<button class="btn alt" onclick="backToInfo()">
 購入情報を修正
 </button>
 
@@ -577,28 +978,18 @@ onclick="backToInfo()"
 </section>
 
 
-<!-- COMPLETE -->
-
 <section id="complete" class="hidden">
 <div class="wrap">
 
 <div class="card complete-box">
 
-<div class="complete-mark">
-✓
-</div>
+<div class="complete-mark">✓</div>
 
-<h2 class="section-title">
-注文完了！
-</h2>
+<h2 class="section-title">注文完了！</h2>
 
-<p>
-デモ上の注文受付が完了しました。
-</p>
+<p>デモ上の注文受付が完了しました。</p>
 
-<p>
-実際の注文・決済・発送は行われません。
-</p>
+<p>実際の注文・決済・発送は行われません。</p>
 
 <div class="notice">
 ご利用ありがとうございました！
@@ -606,24 +997,17 @@ onclick="backToInfo()"
 
 <div class="actions" style="justify-content:center">
 
-<a
-class="btn alt"
-href="../index.html"
->
+<a class="btn alt" href="../index.html">
 メインページへ
 </a>
 
-<a
-class="btn yellow"
-href="../goods/"
->
+<a class="btn yellow" href="../goods/">
 GOODSを見る
 </a>
 
 </div>
 
 </div>
-
 </div>
 </section>
 
@@ -631,125 +1015,147 @@ GOODSを見る
 
 
 <footer>
-
 超アイドル祭 OFFICIAL SITE<br>
 このサイト・イベント・掲載情報は架空のものです。<br>
 実在の人物・団体・企業・イベントとは関係ありません。
-
 </footer>
+
+
+<div id="modalBack" class="modal-back" onclick="closeProduct(event)">
+
+<div class="modal" onclick="event.stopPropagation()">
+
+<div class="modal-head">
+
+<h2 id="modalTitle"></h2>
+
+<button class="close" onclick="closeProduct()">×</button>
+
+</div>
+
+<p id="modalDesc"></p>
+
+<div id="variantArea"></div>
+
+<div id="modalPrice" class="modal-price"></div>
+
+<button class="btn" onclick="addSelectedProduct()">
+この内容でカートに追加
+</button>
+
+</div>
+</div>
 
 
 <script>
 
-let cart = [];
+let cart=[];
+let activeFilter="all";
+let selectedProduct=null;
 
 
-/* カートへ追加 */
+const products={
 
-function addToCart(name,price){
+tshirt:{
+  name:"超アイドル祭 オフィシャルTシャツ",
+  price:3500,
+  desc:"「成長期」メインロゴ入りの公式Tシャツ。",
+  colors:["ホワイト","ブラック","ピンク"],
+  sizes:["S","M","L","XL"]
+},
 
-  const item = cart.find(
-    item => item.name === name
-  );
+sneaker:{
+  name:"オフィシャルフェススニーカー",
+  price:7800,
+  desc:"クッション性を重視した高機能フェス向けスニーカー。",
+  colors:["ホワイト","ブラック"],
+  sizes:["23cm","24cm","25cm","26cm","27cm","28cm"]
+}
+
+};
+
+
+function addToCart(name,price,variant){
+
+  const key=name+"|"+variant;
+
+  const item=cart.find(x=>x.key===key);
 
   if(item){
-
     item.quantity++;
-
   }else{
-
     cart.push({
-      name:name,
-      price:price,
+      key,
+      name,
+      price,
+      variant,
       quantity:1
     });
-
   }
 
   renderCart();
 
-  document
-    .getElementById("cart")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+  document.getElementById("cart").scrollIntoView({
+    behavior:"smooth"
+  });
 
 }
 
 
-/* カート表示 */
-
 function renderCart(){
 
-  const area =
-    document.getElementById("cartItems");
+  const area=document.getElementById("cartItems");
+  const count=document.getElementById("cartCount");
+  const totalArea=document.getElementById("cartTotal");
 
-  const count =
-    document.getElementById("cartCount");
+  if(!cart.length){
 
-  const totalArea =
-    document.getElementById("cartTotal");
-
-
-  if(cart.length === 0){
-
-    area.innerHTML =
-      "<p>カートは空です。</p>";
-
-    count.textContent = "0";
-
-    totalArea.textContent =
-      "合計 ¥0";
+    area.innerHTML="<p>カートは空です。</p>";
+    count.textContent="0";
+    totalArea.textContent="合計 ¥0";
 
     return;
-
   }
 
+  let total=0;
+  let quantity=0;
 
-  let total = 0;
-  let quantity = 0;
+  area.innerHTML=cart.map((item,index)=>{
 
+    const subtotal=item.price*item.quantity;
 
-  area.innerHTML =
-    cart.map((item,index)=>{
+    total+=subtotal;
+    quantity+=item.quantity;
 
-      const subtotal =
-        item.price * item.quantity;
-
-      total += subtotal;
-
-      quantity += item.quantity;
-
-
-      return `
-
+    return `
       <div class="cart-row">
 
         <div>
-          <strong>${item.name}</strong>
-          <br>
-          ¥${item.price.toLocaleString()} × ${item.quantity}
-          <br>
+
+          <strong>${escapeHTML(item.name)}</strong><br>
+
+          ${item.variant
+            ? escapeHTML(item.variant)+"<br>"
+            : ""
+          }
+
+          ¥${item.price.toLocaleString()} × ${item.quantity}<br>
+
           <strong>
             小計 ¥${subtotal.toLocaleString()}
           </strong>
+
         </div>
 
         <div class="qty">
 
-          <button
-            onclick="changeQuantity(${index},-1)"
-          >
+          <button onclick="changeQuantity(${index},-1)">
             −
           </button>
 
-          <span>
-            ${item.quantity}
-          </span>
+          <span>${item.quantity}</span>
 
-          <button
-            onclick="changeQuantity(${index},1)"
-          >
+          <button onclick="changeQuantity(${index},1)">
             ＋
           </button>
 
@@ -763,30 +1169,24 @@ function renderCart(){
         </button>
 
       </div>
+    `;
 
-      `;
+  }).join("");
 
-    }).join("");
+  count.textContent=quantity;
 
-
-  count.textContent = quantity;
-
-  totalArea.textContent =
-    "合計 ¥" + total.toLocaleString();
+  totalArea.textContent=
+    "合計 ¥"+total.toLocaleString();
 
 }
 
 
-/* 数量変更 */
+function changeQuantity(i,d){
 
-function changeQuantity(index,diff){
+  cart[i].quantity+=d;
 
-  cart[index].quantity += diff;
-
-  if(cart[index].quantity <= 0){
-
-    cart.splice(index,1);
-
+  if(cart[i].quantity<=0){
+    cart.splice(i,1);
   }
 
   renderCart();
@@ -794,45 +1194,37 @@ function changeQuantity(index,diff){
 }
 
 
-/* 商品削除 */
+function removeItem(i){
 
-function removeItem(index){
-
-  cart.splice(index,1);
+  cart.splice(i,1);
 
   renderCart();
 
 }
 
-
-/* カートを空にする */
 
 function clearCart(){
 
-  cart = [];
+  cart=[];
 
   renderCart();
 
 }
 
 
-/* 購入情報へ */
-
 function goPurchase(){
 
-  if(cart.length === 0){
+  if(!cart.length){
 
-    alert(
-      "まず商品をカートに追加してください。"
-    );
+    alert("まず商品をカートに追加してください。");
 
     return;
-
   }
 
   document
     .getElementById("purchaseInfo")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
 
   document
     .getElementById("purchaseInfo")
@@ -843,69 +1235,66 @@ function goPurchase(){
 }
 
 
-/* 注文確認 */
-
 function showReview(){
 
-  const name =
+  const name=
     document
       .getElementById("customerName")
-      .value.trim();
+      .value
+      .trim();
 
-  const email =
+  const email=
     document
       .getElementById("customerEmail")
-      .value.trim();
-
+      .value
+      .trim();
 
   if(!name){
 
-    alert(
-      "お名前を入力してください。"
-    );
+    alert("お名前を入力してください。");
 
     return;
-
   }
-
 
   if(!email){
 
-    alert(
-      "メールアドレスを入力してください。"
-    );
+    alert("メールアドレスを入力してください。");
 
     return;
-
   }
 
+  let total=0;
 
-  let total = 0;
+  const items=cart.map(item=>{
 
+    const subtotal=
+      item.price*item.quantity;
 
-  const items =
-    cart.map(item=>{
+    total+=subtotal;
 
-      const subtotal =
-        item.price * item.quantity;
+    return `
+      <p>
+        <strong>
+          ${escapeHTML(item.name)}
+        </strong><br>
 
-      total += subtotal;
+        ${
+          item.variant
+            ? escapeHTML(item.variant)+"<br>"
+            : ""
+        }
 
-      return `
-        <p>
-          <strong>${item.name}</strong><br>
-          ¥${item.price.toLocaleString()}
-          × ${item.quantity}
-          ＝ ¥${subtotal.toLocaleString()}
-        </p>
-      `;
+        ¥${item.price.toLocaleString()}
+        × ${item.quantity}
+        ＝ ¥${subtotal.toLocaleString()}
+      </p>
+    `;
 
-    }).join("");
-
+  }).join("");
 
   document
     .getElementById("reviewContent")
-    .innerHTML = `
+    .innerHTML=`
 
       <h3>購入者情報</h3>
 
@@ -930,13 +1319,12 @@ function showReview(){
       <p class="total">
         合計 ¥${total.toLocaleString()}
       </p>
-
-    `;
-
+  `;
 
   document
     .getElementById("review")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
 
   document
     .getElementById("review")
@@ -946,8 +1334,6 @@ function showReview(){
 
 }
 
-
-/* 購入情報へ戻る */
 
 function backToInfo(){
 
@@ -960,8 +1346,6 @@ function backToInfo(){
 }
 
 
-/* カートへ戻る */
-
 function backToCart(){
 
   document
@@ -973,23 +1357,24 @@ function backToCart(){
 }
 
 
-/* 注文完了 */
-
 function completeOrder(){
 
   document
     .getElementById("review")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
   document
     .getElementById("purchaseInfo")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
   document
     .getElementById("complete")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
 
-  cart = [];
+  cart=[];
 
   renderCart();
 
@@ -1002,7 +1387,264 @@ function completeOrder(){
 }
 
 
-/* HTMLエスケープ */
+function openProduct(id){
+
+  selectedProduct={
+    id,
+    color:products[id].colors[0],
+    size:products[id].sizes[0]
+  };
+
+  const p=products[id];
+
+  document
+    .getElementById("modalTitle")
+    .textContent=p.name;
+
+  document
+    .getElementById("modalDesc")
+    .textContent=p.desc;
+
+  document
+    .getElementById("modalPrice")
+    .textContent=
+      "¥"+p.price.toLocaleString();
+
+
+  /*
+    カラーとサイズを完全に別グループ化。
+    片方を選んでも、もう片方の選択状態は消えない。
+  */
+
+  document
+    .getElementById("variantArea")
+    .innerHTML=`
+
+      <div class="variant-group">
+
+        <div class="variant-label">
+          カラー
+        </div>
+
+        <div class="option-grid">
+
+          ${p.colors.map((x,i)=>`
+
+            <button
+              type="button"
+              class="option ${i===0?"selected":""}"
+              onclick="selectVariant('color',${i})"
+            >
+              ${x}
+            </button>
+
+          `).join("")}
+
+        </div>
+
+      </div>
+
+
+      <div class="variant-group">
+
+        <div class="variant-label">
+          サイズ
+        </div>
+
+        <div class="option-grid">
+
+          ${p.sizes.map((x,i)=>`
+
+            <button
+              type="button"
+              class="option ${i===0?"selected":""}"
+              onclick="selectVariant('size',${i})"
+            >
+              ${x}
+            </button>
+
+          `).join("")}
+
+        </div>
+
+      </div>
+  `;
+
+
+  document
+    .getElementById("modalBack")
+    .classList
+    .add("open");
+
+}
+
+
+function selectVariant(type,index){
+
+  const p=products[selectedProduct.id];
+
+
+  if(type==="color"){
+
+    selectedProduct.color=
+      p.colors[index];
+
+  }else{
+
+    selectedProduct.size=
+      p.sizes[index];
+
+  }
+
+
+  /*
+    ここが重要。
+    カラーを選んだらカラーだけ、
+    サイズを選んだらサイズだけを
+    selected 状態にする。
+  */
+
+  const groupIndex=
+    type==="color"
+      ? 0
+      : 1;
+
+  const groups=
+    document.querySelectorAll(
+      "#variantArea .variant-group"
+    );
+
+
+  if(groups[groupIndex]){
+
+    groups[groupIndex]
+      .querySelectorAll(".option")
+      .forEach(button=>{
+        button.classList.remove("selected");
+      });
+
+
+    const buttons=
+      groups[groupIndex]
+        .querySelectorAll(".option");
+
+
+    if(buttons[index]){
+
+      buttons[index]
+        .classList
+        .add("selected");
+
+    }
+
+  }
+
+}
+
+
+function addSelectedProduct(){
+
+  const p=
+    products[selectedProduct.id];
+
+  const variant=
+    selectedProduct.color+
+    " / "+
+    selectedProduct.size;
+
+  addToCart(
+    p.name,
+    p.price,
+    variant
+  );
+
+  closeProduct();
+
+}
+
+
+function closeProduct(e){
+
+  if(
+    e &&
+    e.target!==document.getElementById("modalBack")
+  ){
+    return;
+  }
+
+  document
+    .getElementById("modalBack")
+    .classList
+    .remove("open");
+
+}
+
+
+document
+  .querySelectorAll(".filter")
+  .forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+      document
+        .querySelectorAll(".filter")
+        .forEach(x=>{
+          x.classList.remove("active");
+        });
+
+      btn.classList.add("active");
+
+      activeFilter=
+        btn.dataset.filter;
+
+      applyFilters();
+
+    });
+
+  });
+
+
+document
+  .getElementById("searchInput")
+  .addEventListener(
+    "input",
+    applyFilters
+  );
+
+
+function applyFilters(){
+
+  const q=
+    document
+      .getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  document
+    .querySelectorAll(".product")
+    .forEach(card=>{
+
+      const okFilter=
+        activeFilter==="all" ||
+        card.dataset.category===activeFilter;
+
+      const okSearch=
+        !q ||
+        card.dataset.search
+          .toLowerCase()
+          .includes(q);
+
+      card.classList.toggle(
+        "hidden",
+        !(okFilter && okSearch)
+      );
+
+    });
+
+}
+
 
 function escapeHTML(str){
 
@@ -1022,4 +1664,3 @@ renderCart();
 
 </body>
 </html>
-```
